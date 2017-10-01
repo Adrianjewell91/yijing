@@ -15,36 +15,36 @@ No additional libraries will be used.
 In 'I Ching (易经) - A fortune-telling experience', users will be able to:
 
 When 'Exploring':
-1. Explore the 64 Hexagram with a selector input.
-2. Click on any one of the six lines to change that line from Yin to Yang, and vice versa.
-3. View the Hexagram's name, title, and description.
+1. Explore the 64 Hexagrams via selector input.
+2. Click on any of the six lines to change that line from Yin to Yang, and vice versa, and view the new Hexagram
+3. View the Hexagram's name, title, and description on mouse-over.
 
 When 'Asking the Oracle':
 1. Ask a question to the oracle.
-2. User the yellow stalk sorting method to build the Hexagrams.
-3. View the resultant hexagrams. When mousing over the hexagram, users see the details left hand side.
-
+2. Build the Hexagrams sequentially, line-by-line, using the coin-flip method.
+3. View the resultant hexagrams. When mousing over the hexagram, users see the name, title, and description on left hand side.
 
 ## Wireframes
 
 'I Ching (易经) - A fortune-telling experience' is a single page app with two view options. Users can either 'Explore' or 'Ask the Oracle', and toggle between them with buttons. Each options utilizes its corresponding functionality buttons.
 
-<img height="600px" width="700px" src="https://github.com/Adrianjewell91/yijing/blob/master/wireframes/W2-Oracle.jpg"/>
+<img height="650px" width="700px" src="https://github.com/Adrianjewell91/yijing/blob/master/wireframes/W2-Oracle.jpg"/>
 
-<img height="600px" width="700px" src="https://github.com/Adrianjewell91/yijing/blob/master/wireframes/WF1_Explore.jpg"/>
+<img height="650px" width="700px" src="https://github.com/Adrianjewell91/yijing/blob/master/wireframes/WF1_Explore.jpg"/>
 
 
 ## Architecture and Technologies
 
-'I Ching (易经) - A fortune-telling experience' utilizes
+'I Ching (易经) - A fortune-telling experience' relies on
   1. Javascript and HTML for DOM manipulation.
   2. 'Webpack' for bundling of '.js' files.
-  3. HTML5 Canvas for rendering Hexagrams.     
+  3. HTML5 Canvas for rendering Hexagrams.  
+  4. Translations, which are adapted from the those of the late German sinologist Richard Wilhelm.   
 
 ## Implementation Timeline
 
 ### Over the weekend:
-1. Built introductory functionality. Users can select any of the 64 hexagrams and view it on the canvas.
+1. Built the first MVP: "Explore the 64 Hexagrams via selector input."
 
 ### Day 1:
 
