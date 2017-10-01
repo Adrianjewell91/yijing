@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
   const ctx = canvasEl.getContext("2d");
 
-  let gua = [0,1,1,1,1];
+  let gua = [0,1,0,0,1,1];
 
   gua.forEach((el,i) => {
     if (el === 1) {
