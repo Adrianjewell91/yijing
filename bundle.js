@@ -139,7 +139,7 @@ document.addEventListener("DOMContentLoaded", function() {
     return arr;
   }
 
-  //POtentially for loading a random gua.
+  //Potentially for loading a random gua.
   // function shuffle(a) {
   //   for (let i=a.length; i; i--) {
   //     let j = Math.floor(Math.random()*i);

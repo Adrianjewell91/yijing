@@ -2,9 +2,11 @@
 
 ## Background and Overview
 
-While working as a teacher in China, I discovered The Book of Changes, also known as the I Ching. As one of the oldest texts in the world, the I Ching (易经) has a long history of usage as a tool for divination. Its contents have also been used recreationally, by the composer John Cage, for example, as an aid in musical composition.  
+While working as a teacher in China, I discovered the I Ching: The Book of Changes. As one of the oldest texts in the world, the I Ching (易经) has a long history of usage as a tool for divination. Its contents have also been used recreationally, by the composer John Cage, for example, as an aid in musical composition.  
 
-The goal of this project is to introduce users to the Book of Changes and provide an intuitive interface for exploration of its contents, and utilization of the contents for divination.  
+The goal of this project is to introduce users to the Book of Changes, help users explore its contents, and give them a tool for divining the future.
+
+When using the I Ching, a hexagram is generated, and it tells the user both the 'Present Situation' and the 'Future situation'.  A series of coin flips, or a protocol for dividing reeds is what generates the hexagram. The latter method provides more specific probabilities than the coin flip, is therefore considered the traditional method, and is thus the algorithm of choice for this project.    
 
 The author's personal goals include improving his skill in vanilla Javascript, HTML 5 canvas, and CSS. Secondary goals include understanding small databases, and familiarizing himself with the Chinese language in the context of web-development.   
 
@@ -43,21 +45,28 @@ The content should be tastefully styled, and organized for the best possible use
   3. HTML5 Canvas for rendering Hexagrams.  
   4. Translations are adapted from the those of the late German sinologist Richard Wilhelm.   
 
+1. entry.js: This is the entry files. It builds the canvas and loads the console.
+2. explore.js: Contains functionality for the oracle.
+3. oracle.js: Contains functionality for the explorer.
+4. helpers.js: Contains helper methods (ie. drawGua, displayInfo).
+5. hexagrams.js: Database Object.
+6. guas.js: Database Object.
+
 ## Implementation Timeline
 
 ### Over the weekend:
 1. Built the first MVP: "Explore the 64 Hexagrams via selector input."
-2. Built a node-backend to access information (may or may not be used in final version).
+2. Built a Node-backend (may be used in final version).
 
 ### Day 1:
 1. Implement mouse-over functionality in 'Explore'.
-  - [ ] Line manipulation.
-  - [ ] Display of Details.
+  - [ ] Line changes from Yin to Yang and vice versa with mouse click.
+  - [ ] Details display on mouse-over.
 
 ### Day 2:
 1. Implement 'Oracle'.
-  - [ ] Write code for generating six lines, and their status (changing or unchanging.)  
-  - [ ] Visually depict the generation of six lines.
+  - [ ] The Yellow-Stalk sorting is implemented into code, and generates six lines and their status (changing or unchanging).
+  - [ ] Visually depicts the generation of six lines.
 
 ### Day 3:
 1. Style the website.
