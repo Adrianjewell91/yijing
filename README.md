@@ -39,11 +39,14 @@ The content should be tastefully styled, and organized for the best possible use
 
 ## Architecture and Technologies
 
+### Technologies
 'I Ching (易经) - A fortune-telling experience' relies on
   1. Javascript and HTML for DOM manipulation.
   2. 'Webpack' for bundling of '.js' files.
   3. HTML5 Canvas for rendering Hexagrams.  
   4. Translations are adapted from the those of the late German sinologist Richard Wilhelm.   
+
+### Architecture
 
 1. `entry.js`: This is the entry files. It builds the canvas and loads the console.
 2. `explore.js`: Contains functionality for the oracle.
@@ -76,7 +79,7 @@ The content should be tastefully styled, and organized for the best possible use
 
 ### Day 4:
 1. Expand 'mouse-over' feature.
-  - [ ] Mouse-over displays details about the particular Chinese character in being selected (may require database).
+  - [ ] Mouse-over shows details about the particular Chinese character in being selected (may require database).
 
 ## Bonus Features
 1. Stunning visualizations.
