@@ -37,6 +37,11 @@ document.addEventListener("DOMContentLoaded", function() {
     document.getElementById('gua-selector').appendChild(choice);
   });
 
+
+  guaSelector.addEventListener("change", (e)=>{
+    alert(guaSelector.value);
+  }, false);
+
 });
 
   function drawYin(color, ctx, x, y) {
