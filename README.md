@@ -31,7 +31,7 @@ When 'Asking the Oracle':
 
 <img height="600px" width="700px" src="https://github.com/Adrianjewell91/yijing/blob/master/wireframes/W2-Oracle.jpg"/>
 
-<img height="600px" width="700px" src="https://github.com/Adrianjewell91/yijing/blob/master/wireframes/WF1_explore.jpg"/>
+<img height="600px" width="700px" src="https://github.com/Adrianjewell91/yijing/blob/master/wireframes/WF1_Explore.jpg"/>
 
 
 ## Architecture and Technologies
