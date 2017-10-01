@@ -45,12 +45,12 @@ The content should be tastefully styled, and organized for the best possible use
   3. HTML5 Canvas for rendering Hexagrams.  
   4. Translations are adapted from the those of the late German sinologist Richard Wilhelm.   
 
-1. entry.js: This is the entry files. It builds the canvas and loads the console.
-2. explore.js: Contains functionality for the oracle.
-3. oracle.js: Contains functionality for the explorer.
-4. helpers.js: Contains helper methods (ie. drawGua, displayInfo).
-5. hexagrams.js: Database Object.
-6. guas.js: Database Object.
+1. `entry.js`: This is the entry files. It builds the canvas and loads the console.
+2. `explore.js`: Contains functionality for the oracle.
+3. `oracle.js`: Contains functionality for the explorer.
+4. `helpers.js`: Contains helper methods (ie. drawGua, displayInfo).
+5. `hexagrams.js`: Database Object.
+6. `guas.js`: Database Object.
 
 ## Implementation Timeline
 
@@ -60,12 +60,13 @@ The content should be tastefully styled, and organized for the best possible use
 
 ### Day 1:
 1. Implement mouse-over functionality in 'Explore'.
-  - [ ] Line changes from Yin to Yang and vice versa with mouse click.
+  - [ ] Line changes from Yin to Yang and vice-versa.
+  - [ ] Hexagram display responds to line change.
   - [ ] Details display on mouse-over.
 
 ### Day 2:
 1. Implement 'Oracle'.
-  - [ ] The Yellow-Stalk sorting is implemented into code, and generates six lines and their status (changing or unchanging).
+  - [ ] The Stalk sorting is implemented, and generates six lines and their status (changing or unchanging).
   - [ ] Visually depicts the generation of six lines.
 
 ### Day 3:
