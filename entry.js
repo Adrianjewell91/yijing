@@ -11,19 +11,9 @@ document.addEventListener("DOMContentLoaded", function() {
   canvasEl.height = height;
 
   const ctx = canvasEl.getContext("2d");
+  let gua = [1,1,1,1,1,1];
 
-  let gua = [0,0,0,1,0,0];
-
-  gua.forEach((el,i) => {
-    if (el === 1) {
-      drawYang("black", ctx, (width/4),300-(i*40));
-    } else {
-      drawYin("black", ctx, (width/4),300-(i*40));
-    }
-  });
-
-  ctx.font = "30px Arial";
-  ctx.fillText(`- ${database[`[${gua}]`].character}`, width/2, 400);
+  drawGua(gua,ctx,width);
 
   const guaSelector = document.createElement("SELECT");
   guaSelector.setAttribute("id", "gua-selector");
@@ -37,12 +27,25 @@ document.addEventListener("DOMContentLoaded", function() {
     document.getElementById('gua-selector').appendChild(choice);
   });
 
-
   guaSelector.addEventListener("change", (e)=>{
-    alert(guaSelector.value);
+    ctx.clearRect(0,0,width,height);
+    drawGua(toArray(guaSelector.value), ctx, width);
   }, false);
 
 });
+
+  function drawGua(gua,ctx,width) {
+    gua.forEach((el,i) => {
+      if (el === 1) {
+        drawYang("black", ctx, (width/4),300-(i*40));
+      } else {
+        drawYin("black", ctx, (width/4),300-(i*40));
+      }
+    });
+
+    ctx.font = "30px Arial";
+    ctx.fillText(`- ${database[`[${gua}]`].character}`, width/2, 400);
+  }
 
   function drawYin(color, ctx, x, y) {
     ctx.fillStyle = color;
@@ -53,6 +56,14 @@ document.addEventListener("DOMContentLoaded", function() {
   function drawYang(color, ctx, x,y) {
     ctx.fillStyle = color;
     ctx.fillRect(x,y,250,20);
+  }
+
+  function toArray(str) {
+    let arr = [];
+    for (let i = 0; i<str.length; i++) {
+      if (i%2===0) {arr.push(parseInt(str[i]))}
+    }
+    return arr;
   }
 
   //POtentially for loading a random gua.
