@@ -1,8 +1,16 @@
-body {
+
+div {
   display: flex;
   justify-content: center;
-  align-items: center;
+  flex-direction: column;
 }
+
 #myCanvas {
+  width: 500px;
   border: 1px solid black;
+}
+
+#gua-selector {
+  font-size: 40px;
+
 }
