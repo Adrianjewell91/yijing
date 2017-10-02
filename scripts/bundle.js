@@ -89,8 +89,6 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
 
-//these are not pure functions!
-
 const exploreView = function exploreView(canvasEl) {
 
   const createCanvas = function createCanvas(width, height) {
@@ -105,7 +103,7 @@ const exploreView = function exploreView(canvasEl) {
   const createSelector = function createSelector() {
     const guaSelector = document.createElement("SELECT");
     guaSelector.setAttribute("id", "gua-selector");
-    document.body.appendChild(guaSelector);
+    document.getElementById("buttons").appendChild(guaSelector);
     return guaSelector;
   }
 
@@ -123,7 +121,7 @@ const exploreView = function exploreView(canvasEl) {
     e.preventDefault();
     const canvas = document.getElementById("myCanvas");
     const rect = canvas.getBoundingClientRect();
-    const guaValue = __WEBPACK_IMPORTED_MODULE_0__helpers_js__["c" /* toArray */](document.getElementById('gua-selector')
+    const guaValue = __WEBPACK_IMPORTED_MODULE_0__helpers_js__["d" /* toArray */](document.getElementById('gua-selector')
                             .value);
 
     const xVal = e.clientX-rect.left;
@@ -137,25 +135,25 @@ const exploreView = function exploreView(canvasEl) {
         }
       }
 
-      canvas.getContext('2d').clearRect(0,0,canvas.width,canvas.height);
-
       const selector = document.getElementById('gua-selector');
       const options = selector.options;
 
       for (let i=0; i<options.length; i++) {
         let gua = options[i];
-        let array = __WEBPACK_IMPORTED_MODULE_0__helpers_js__["c" /* toArray */](gua.value);
+        let array = __WEBPACK_IMPORTED_MODULE_0__helpers_js__["d" /* toArray */](gua.value);
 
-        if (__WEBPACK_IMPORTED_MODULE_0__helpers_js__["b" /* equals */](guaValue, __WEBPACK_IMPORTED_MODULE_0__helpers_js__["c" /* toArray */](gua.value)) === true) {
+        if (__WEBPACK_IMPORTED_MODULE_0__helpers_js__["b" /* equals */](guaValue, __WEBPACK_IMPORTED_MODULE_0__helpers_js__["d" /* toArray */](gua.value)) === true) {
           selector.selectedIndex = i;
           break;
         }
       }
 
       __WEBPACK_IMPORTED_MODULE_0__helpers_js__["a" /* drawGua */](guaValue, canvas.getContext('2d'),canvas.width);
-      document.getElementById('gua-detail').value = guaValue
+      __WEBPACK_IMPORTED_MODULE_0__helpers_js__["c" /* setGuaDetails */](guaValue);
     }
   }
+
+  /////////The Actual code
 
   const width = 500;
   const height = 500;
@@ -167,13 +165,17 @@ const exploreView = function exploreView(canvasEl) {
 
   const guaDetail = document.createElement("TEXTAREA");
                     guaDetail.setAttribute("id","gua-detail");
-                    document.body.appendChild(guaDetail);
-                    guaDetail.value = hexSelector.value;
+                    guaDetail.setAttribute("disabled","true");
+                    guaDetail.setAttribute("rows","20");
+                    guaDetail.setAttribute("cols","50");
+
+                    document.getElementById("buttons").appendChild(guaDetail);
+                    __WEBPACK_IMPORTED_MODULE_0__helpers_js__["c" /* setGuaDetails */](hexSelector.value);
 
   hexSelector.addEventListener("change", (e)=>{
     ctx.clearRect(0,0,width,height);
-    __WEBPACK_IMPORTED_MODULE_0__helpers_js__["a" /* drawGua */](__WEBPACK_IMPORTED_MODULE_0__helpers_js__["c" /* toArray */](hexSelector.value), ctx, width);
-    guaDetail.value = hexSelector.value;
+    __WEBPACK_IMPORTED_MODULE_0__helpers_js__["a" /* drawGua */](__WEBPACK_IMPORTED_MODULE_0__helpers_js__["d" /* toArray */](hexSelector.value), ctx, width);
+    __WEBPACK_IMPORTED_MODULE_0__helpers_js__["c" /* setGuaDetails */](hexSelector.value);
   }, false);
 
   canvasEl.addEventListener("mousedown", changeGuaParams, false);
@@ -193,6 +195,7 @@ const exploreView = function exploreView(canvasEl) {
 
 
 const drawGua = function drawGua(gua,ctx,width) {
+  ctx.clearRect(0,0,width,500);
   gua.forEach((el,i) => {
     if (el === 1) {
       drawYang("black", ctx, (width/4),300-(i*40));
@@ -229,7 +232,7 @@ const toArray = function toArray(str) {
   }
   return arr;
 }
-/* harmony export (immutable) */ __webpack_exports__["c"] = toArray;
+/* harmony export (immutable) */ __webpack_exports__["d"] = toArray;
 
 
 const equals = function equals(arr1, arr2) {
@@ -240,6 +243,16 @@ const equals = function equals(arr1, arr2) {
   return true;
 };
 /* harmony export (immutable) */ __webpack_exports__["b"] = equals;
+
+
+const setGuaDetails = function setGuaDetails(guaCode) {
+  const guaInfo = __WEBPACK_IMPORTED_MODULE_0__hexagrams_js__["a" /* database */][`[${guaCode}]`];
+
+
+  document.getElementById('gua-detail').value = `${guaInfo.character}\n\n${guaInfo.title}\n\n${guaInfo.description}`;
+}
+/* harmony export (immutable) */ __webpack_exports__["c"] = setGuaDetails;
+
 
 //Potentially for loading a random gua.
 // function shuffle(a) {

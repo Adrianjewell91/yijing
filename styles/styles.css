@@ -1,7 +1,5 @@
-div {
-  /*display: flex;
-  justify-content: center;
-  flex-direction: column;*/
+#view {
+  display: flex;
 }
 
 #myCanvas {
@@ -9,6 +7,11 @@ div {
   width: 500px;
   border: 1px solid black;
   margin-bottom: 4px;
+}
+
+#buttons {
+  display: flex;
+  flex-direction: column;
 }
 
 #gua-selector {

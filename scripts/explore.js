@@ -1,8 +1,6 @@
 import * as Helpers from "./helpers.js";
 import {hexagramCodes} from "./hex_codes.js"
 
-//these are not pure functions!
-
 export const exploreView = function exploreView(canvasEl) {
 
   const createCanvas = function createCanvas(width, height) {
@@ -17,7 +15,7 @@ export const exploreView = function exploreView(canvasEl) {
   const createSelector = function createSelector() {
     const guaSelector = document.createElement("SELECT");
     guaSelector.setAttribute("id", "gua-selector");
-    document.body.appendChild(guaSelector);
+    document.getElementById("buttons").appendChild(guaSelector);
     return guaSelector;
   }
 
@@ -49,8 +47,6 @@ export const exploreView = function exploreView(canvasEl) {
         }
       }
 
-      canvas.getContext('2d').clearRect(0,0,canvas.width,canvas.height);
-
       const selector = document.getElementById('gua-selector');
       const options = selector.options;
 
@@ -65,9 +61,11 @@ export const exploreView = function exploreView(canvasEl) {
       }
 
       Helpers.drawGua(guaValue, canvas.getContext('2d'),canvas.width);
-      document.getElementById('gua-detail').value = guaValue
+      Helpers.setGuaDetails(guaValue);
     }
   }
+
+  /////////The Actual code
 
   const width = 500;
   const height = 500;
@@ -79,13 +77,17 @@ export const exploreView = function exploreView(canvasEl) {
 
   const guaDetail = document.createElement("TEXTAREA");
                     guaDetail.setAttribute("id","gua-detail");
-                    document.body.appendChild(guaDetail);
-                    guaDetail.value = hexSelector.value;
+                    guaDetail.setAttribute("disabled","true");
+                    guaDetail.setAttribute("rows","20");
+                    guaDetail.setAttribute("cols","50");
+
+                    document.getElementById("buttons").appendChild(guaDetail);
+                    Helpers.setGuaDetails(hexSelector.value);
 
   hexSelector.addEventListener("change", (e)=>{
     ctx.clearRect(0,0,width,height);
     Helpers.drawGua(Helpers.toArray(hexSelector.value), ctx, width);
-    guaDetail.value = hexSelector.value;
+    Helpers.setGuaDetails(hexSelector.value);
   }, false);
 
   canvasEl.addEventListener("mousedown", changeGuaParams, false);

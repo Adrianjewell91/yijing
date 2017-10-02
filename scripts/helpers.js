@@ -1,6 +1,7 @@
 import {database} from "./hexagrams.js";
 
 export const drawGua = function drawGua(gua,ctx,width) {
+  ctx.clearRect(0,0,width,500);
   gua.forEach((el,i) => {
     if (el === 1) {
       drawYang("black", ctx, (width/4),300-(i*40));
@@ -39,6 +40,14 @@ export const equals = function equals(arr1, arr2) {
 
   return true;
 };
+
+export const setGuaDetails = function setGuaDetails(guaCode) {
+  const guaInfo = database[`[${guaCode}]`];
+
+
+  document.getElementById('gua-detail').value = `${guaInfo.character}\n\n${guaInfo.title}\n\n${guaInfo.description}`;
+}
+
 //Potentially for loading a random gua.
 // function shuffle(a) {
 //   for (let i=a.length; i; i--) {
