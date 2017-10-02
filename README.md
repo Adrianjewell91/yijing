@@ -84,3 +84,4 @@ Expand 'mouse-over' feature.
 ## Bonus Features
 1. Stunning visualizations.
 2. Details about the trigrams that make up the hexagram.
+3. Screen Responsiveness.

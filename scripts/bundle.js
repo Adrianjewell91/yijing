@@ -163,46 +163,63 @@ const database = {'[1,1,1,1,1,1]': {character:"乾	qián", title:	"The Creative"
 
 
 
+//these are not pure functions!
+
 const exploreView = function exploreView(canvasEl) {
-  const width = 500;
-  const height = 500;
 
-  canvasEl.width = width;
-  canvasEl.height = height;
+  const createCanvas = function createCanvas(width, height) {
+    canvasEl.width = width;
+    canvasEl.height = height;
 
-  const ctx = canvasEl.getContext("2d");
+    const ctx = canvasEl.getContext("2d");
+    __WEBPACK_IMPORTED_MODULE_0__helpers_js__["a" /* drawGua */]([1,1,1,1,1,1],ctx,width);
+    return ctx;
+  }
 
-  __WEBPACK_IMPORTED_MODULE_0__helpers_js__["a" /* drawGua */]([1,1,1,1,1,1],ctx,width);
-  const guaSelector = document.createElement("SELECT");
+  const createSelector = function createSelector() {
+    const guaSelector = document.createElement("SELECT");
+    guaSelector.setAttribute("id", "gua-selector");
+    document.body.appendChild(guaSelector);
+    return guaSelector;
+  }
 
-  createSelector(guaSelector);
-  createOptions();
+  const createOptions = function createOptions(hexSelector) {
+    __WEBPACK_IMPORTED_MODULE_1__hex_codes_js__["a" /* hexagramCodes */].forEach((gua) => {
+      let choice = document.createElement("OPTION");
+      choice.setAttribute("value", `${Object.values(gua)}`);
+      let text = document.createTextNode(`${Object.keys(gua)}`);
+      choice.appendChild(text);
+      hexSelector.appendChild(choice);
+    });
+  }
 
-  guaSelector.addEventListener("change", (e)=>{
+  const changeGuaParams = function changeGuaParams(e) {
+    e.preventDefault();
+    const rect = document.getElementById("myCanvas").getBoundingClientRect();
+    console.log(rect);
+    console.log(e.clientX-rect.left);
+    console.log(e.clientY-rect.top);
+  }
+
+  const width = 600;
+  const height = 600;
+
+  const ctx = createCanvas(width, height);
+  const hexSelector = createSelector();
+
+  createOptions(hexSelector);
+
+  hexSelector.addEventListener("change", (e)=>{
     ctx.clearRect(0,0,width,height);
-    __WEBPACK_IMPORTED_MODULE_0__helpers_js__["a" /* drawGua */](__WEBPACK_IMPORTED_MODULE_0__helpers_js__["b" /* toArray */](guaSelector.value), ctx, width);
+    __WEBPACK_IMPORTED_MODULE_0__helpers_js__["a" /* drawGua */](__WEBPACK_IMPORTED_MODULE_0__helpers_js__["b" /* toArray */](hexSelector.value), ctx, width);
   }, false);
+
+  canvasEl.addEventListener("mousedown", changeGuaParams, false);
 };
 /* harmony export (immutable) */ __webpack_exports__["a"] = exploreView;
 
 
-
-function createSelector(guaSelector) {
-  guaSelector.setAttribute("id", "gua-selector");
-  document.body.appendChild(guaSelector);
-}
-
-const createOptions = function createSelect(ctx) {
-  __WEBPACK_IMPORTED_MODULE_1__hex_codes_js__["a" /* hexagramCodes */].forEach((gua) => {
-    let choice = document.createElement("OPTION");
-    choice.setAttribute("value", `${Object.values(gua)}`);
-    let text = document.createTextNode(`${Object.keys(gua)}`);
-    choice.appendChild(text);
-    document.getElementById('gua-selector').appendChild(choice);
-  });
-}
-/* unused harmony export createOptions */
-
+//If the mouse is over one of the gua then oppose the value in that gua and rerender.
 
 
 /***/ }),
