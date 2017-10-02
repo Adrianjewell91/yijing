@@ -54,7 +54,8 @@ export const equals = function equals(arr1, arr2) {
 export const setGuaDetails = function setGuaDetails(guaCode) {
   const guaInfo = database[`[${guaCode}]`];
 
-  document.getElementById('gua-detail').value = `${guaInfo.character}\n\n${guaInfo.title}\n\n${guaInfo.description}`;
+  document.getElementById('gua-detail')
+          .value = `${guaInfo.character}\n\n${guaInfo.title}\n\n${guaInfo.description}`;
 }
 
 //Potentially for loading a random gua.

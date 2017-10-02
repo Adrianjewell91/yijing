@@ -4,14 +4,15 @@
 
 #myCanvas {
   background-color: beige;
-  width: 500px;
+  /*width: 500px;*/
   border: 1px solid black;
-  margin-bottom: 4px;
+
 }
 
 #buttons {
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
 }
 
 #gua-selector {

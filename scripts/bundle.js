@@ -70,12 +70,52 @@
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__explore_js__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__oracle_js__ = __webpack_require__(5);
+
 
 
 document.addEventListener("DOMContentLoaded", function() {
   const canvasEl = document.getElementById("myCanvas");
 
   Object(__WEBPACK_IMPORTED_MODULE_0__explore_js__["a" /* exploreView */])(canvasEl, 500, 500);
+
+  const oracleButton = document.createElement("BUTTON");
+    oracleButton.setAttribute("id", "oracle-button");
+    oracleButton.textContent = "Ask the Oracle";
+    document.getElementById("header").appendChild(oracleButton);
+
+  const exploreButton = document.createElement("BUTTON");
+      exploreButton.setAttribute("id", "explore-button");
+      exploreButton.setAttribute("disabled", "true");
+      exploreButton.textContent = "Explore";
+      document.getElementById("header").appendChild(exploreButton);
+
+  oracleButton.addEventListener('click', (e) => {
+    e.preventDefault();
+    document.getElementById("buttons")
+            .removeChild(document.getElementById('gua-selector'));
+    document.getElementById("buttons")
+            .removeChild(document.getElementById('gua-detail'));
+    exploreButton.removeAttribute("disabled");
+    oracleButton.setAttribute("disabled", "true");
+
+    //clear the html screen.
+    Object(__WEBPACK_IMPORTED_MODULE_1__oracle_js__["a" /* oracleView */])(canvasEl, 800,500);
+    //call the function.
+  },false);
+
+  exploreButton.addEventListener('click', (e) => {
+    e.preventDefault();
+    oracleButton.removeAttribute("disabled");
+    exploreButton.setAttribute("disabled", "true");
+
+    // document.getElementById("view")
+    //         .removeChild(document.getElementById('buttons'));
+    //clear the html screen.
+
+    Object(__WEBPACK_IMPORTED_MODULE_0__explore_js__["a" /* exploreView */])(canvasEl, 500, 500);
+  },false);
+
 });
 
 
@@ -86,6 +126,7 @@ document.addEventListener("DOMContentLoaded", function() {
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__helpers_js__ = __webpack_require__(2);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__hex_codes_js__ = __webpack_require__(4);
+
 
 
 
@@ -115,10 +156,12 @@ const exploreView = function exploreView(canvasEl, width, height) {
 
   const guaDetail = document.createElement("TEXTAREA");
     guaDetail.setAttribute("id","gua-detail");
+    guaDetail.style.fontSize = "20px";
     guaDetail.setAttribute("disabled","true");
     guaDetail.setAttribute("rows","20");
-    guaDetail.setAttribute("cols","50");
+    guaDetail.setAttribute("cols","30");
     document.getElementById("buttons").appendChild(guaDetail);
+
 
   canvasEl.addEventListener("mousedown", (e) => {
     e.preventDefault();
@@ -260,7 +303,8 @@ const equals = function equals(arr1, arr2) {
 const setGuaDetails = function setGuaDetails(guaCode) {
   const guaInfo = __WEBPACK_IMPORTED_MODULE_0__hexagrams_js__["a" /* database */][`[${guaCode}]`];
 
-  document.getElementById('gua-detail').value = `${guaInfo.character}\n\n${guaInfo.title}\n\n${guaInfo.description}`;
+  document.getElementById('gua-detail')
+          .value = `${guaInfo.character}\n\n${guaInfo.title}\n\n${guaInfo.description}`;
 }
 /* harmony export (immutable) */ __webpack_exports__["d"] = setGuaDetails;
 
@@ -419,6 +463,24 @@ const hexagramCodes = [
 {'63 ䷾': [1,0,1,0,1,0]},
 {'64 ䷿': [0,1,0,1,0,1]}]
 /* harmony export (immutable) */ __webpack_exports__["a"] = hexagramCodes;
+
+
+
+/***/ }),
+/* 5 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+const oracleView = function OracleView (canvasEl, width, height) {
+
+  canvasEl.width = width;
+  canvasEl.height = height;
+
+  const ctx = canvasEl.getContext("2d");
+  ctx.clearRect(0,0,width,height);
+
+}
+/* harmony export (immutable) */ __webpack_exports__["a"] = oracleView;
 
 
 

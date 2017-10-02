@@ -1,6 +1,7 @@
 import * as Helpers from "./helpers.js";
 import {hexagramCodes} from "./hex_codes.js";
 
+
 export const exploreView = function exploreView(canvasEl, width, height) {
 
   canvasEl.width = width;
@@ -27,10 +28,12 @@ export const exploreView = function exploreView(canvasEl, width, height) {
 
   const guaDetail = document.createElement("TEXTAREA");
     guaDetail.setAttribute("id","gua-detail");
+    guaDetail.style.fontSize = "20px";
     guaDetail.setAttribute("disabled","true");
     guaDetail.setAttribute("rows","20");
-    guaDetail.setAttribute("cols","50");
+    guaDetail.setAttribute("cols","30");
     document.getElementById("buttons").appendChild(guaDetail);
+
 
   canvasEl.addEventListener("mousedown", (e) => {
     e.preventDefault();
