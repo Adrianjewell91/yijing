@@ -44,7 +44,7 @@ This is a single page app with two viewing options. Users can either 'Explore' o
   1. Javascript and HTML for DOM manipulation.
   2. 'Webpack' for bundling of '.js' files.
   3. HTML5 Canvas for rendering Hexagrams.  
-  4. Translations are adapted from the those of the late German sinologist Richard Wilhelm, and from www.YellowBridge.com.  
+  4. Translations are adapted from the "Sacred Books of the East, Volume 16, The I Ching" by James Legge, 1899 (Source: Internet Sacred Text Archive). 
 
 ### Architecture
 
