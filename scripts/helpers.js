@@ -25,6 +25,17 @@ export const drawYang =function drawYang(color, ctx, x,y) {
   ctx.fillRect(x,y,250,20);
 }
 
+export const drawHighlightedYin = function drawHighlightedYin(color, ctx, x, y) {
+  ctx.fillStyle = color;
+  ctx.fillRect(x,y,100,20);
+  ctx.fillRect(x+150,y,100,20);
+}
+
+export const drawHighlightedYang = function drawHighlightedYang (color, ctx, x,y) {
+  ctx.strokeStyle = "red";
+  ctx.strokeRect(x,y,250,20);
+}
+
 export const toArray = function toArray(str) {
   let arr = [];
   for (let i = 0; i<str.length; i++) {
@@ -37,13 +48,11 @@ export const equals = function equals(arr1, arr2) {
   for (let i=0; i<arr2.length; i++) {
     if (arr1[i] !== arr2[i]) {return false};
   }
-
   return true;
 };
 
 export const setGuaDetails = function setGuaDetails(guaCode) {
   const guaInfo = database[`[${guaCode}]`];
-
 
   document.getElementById('gua-detail').value = `${guaInfo.character}\n\n${guaInfo.title}\n\n${guaInfo.description}`;
 }
