@@ -1,15 +1,16 @@
 div {
-  display: flex;
+  /*display: flex;
   justify-content: center;
-  flex-direction: column;
+  flex-direction: column;*/
 }
 
 #myCanvas {
+  background-color: beige;
   width: 500px;
   border: 1px solid black;
+  margin-bottom: 4px;
 }
 
 #gua-selector {
   font-size: 40px;
-
 }

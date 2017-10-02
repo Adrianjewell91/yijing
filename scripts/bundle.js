@@ -125,20 +125,18 @@ const exploreView = function exploreView(canvasEl) {
     const rect = canvas.getBoundingClientRect();
     const guaValue = __WEBPACK_IMPORTED_MODULE_0__helpers_js__["c" /* toArray */](document.getElementById('gua-selector')
                             .value);
+
     const xVal = e.clientX-rect.left;
     const yVal = e.clientY-rect.top;
 
-    //if the x is between two numbers and the y value is between two numbers?
-    if (xVal < (canvas.width*0.75) && xVal > canvas.width/4) {
-      //work on this part tomorrow -
-      if (yVal < 320 && yVal > 300) {guaValue[0] = guaValue[0] === 1 ? 0 : 1;}
-      if (yVal < 280 && yVal > 260) {guaValue[1] = guaValue[1] === 1 ? 0 : 1;}
-      if (yVal < 240 && yVal > 220) {guaValue[2] = guaValue[2] === 1 ? 0 : 1;}
-      if (yVal < 200 && yVal > 180) {guaValue[3] = guaValue[3] === 1 ? 0 : 1;}
-      if (yVal < 160 && yVal > 140) {guaValue[4] = guaValue[4] === 1 ? 0 : 1;}
-      if (yVal < 120 && yVal > 100) {guaValue[5] = guaValue[5] === 1 ? 0 : 1;}
 
-      console.log(yVal);
+    if (xVal < (canvas.width*0.75) && xVal > canvas.width/4) {
+      for(let i=0; i<6; i++) {
+        if (yVal < 320-(40*i) && yVal > 300-(40*i)) {
+          guaValue[i] = guaValue[i] === 1 ? 0 : 1;
+        }
+      }
+
       canvas.getContext('2d').clearRect(0,0,canvas.width,canvas.height);
 
       const selector = document.getElementById('gua-selector');
@@ -155,9 +153,9 @@ const exploreView = function exploreView(canvasEl) {
       }
 
       __WEBPACK_IMPORTED_MODULE_0__helpers_js__["a" /* drawGua */](guaValue, canvas.getContext('2d'),canvas.width);
+      document.getElementById('gua-detail').value = guaValue
     }
   }
-
 
   const width = 500;
   const height = 500;
@@ -167,9 +165,15 @@ const exploreView = function exploreView(canvasEl) {
 
   createOptions(hexSelector);
 
+  const guaDetail = document.createElement("TEXTAREA");
+                    guaDetail.setAttribute("id","gua-detail");
+                    document.body.appendChild(guaDetail);
+                    guaDetail.value = hexSelector.value;
+
   hexSelector.addEventListener("change", (e)=>{
     ctx.clearRect(0,0,width,height);
     __WEBPACK_IMPORTED_MODULE_0__helpers_js__["a" /* drawGua */](__WEBPACK_IMPORTED_MODULE_0__helpers_js__["c" /* toArray */](hexSelector.value), ctx, width);
+    guaDetail.value = hexSelector.value;
   }, false);
 
   canvasEl.addEventListener("mousedown", changeGuaParams, false);
