@@ -1,4 +1,4 @@
-export const guas = [
+export const hexagramCodes = [
 {'01 ䷀': [1,1,1,1,1,1]},
 {'02 ䷁': [0,0,0,0,0,0]},
 {'03 ䷂': [1,0,0,0,1,0]},

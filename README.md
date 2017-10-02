@@ -2,9 +2,9 @@
 
 ## Background and Overview
 
-While working as a teacher in China, I discovered the I Ching: The Book of Changes. As one of the oldest texts in the world, the I Ching (易经) has a long history of usage as a tool for divination. Its contents have also been used recreationally, by the composer John Cage, for example, as an aid in musical composition.  
+While working as a teacher in China, I discovered the I Ching, roughly translated as The Book of Changes. As one of the oldest texts in the world, the I Ching (易经) has a long history as a tool for divination. Its contents have also been used recreationally, for instance, by the composer John Cage, as an aid in musical composition.  
 
-The goal of this project is to introduce users to the Book of Changes, help users explore its contents, and give them a tool for divining the future.
+The goal of this project is to introduce users to the Book of Changes, help users explore its contents, and give them a tool for usage.
 
 When using the I Ching, two of the sixty-four hexagrams are generated. They tell the user the 'Present Situation' and the 'Future situation', respectively. A series of coin flips, or a protocol for dividing reeds is what generates the hexagrams. The latter method has less randomized (but still probabilistic) outcomes, and is therefore considered the traditional method. Thus, it is the algorithm of choice for this project.    
 
