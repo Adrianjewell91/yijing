@@ -69,7 +69,7 @@
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__explore_js__ = __webpack_require__(3);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__explore_js__ = __webpack_require__(1);
 
 
 document.addEventListener("DOMContentLoaded", function() {
@@ -81,6 +81,168 @@ document.addEventListener("DOMContentLoaded", function() {
 
 /***/ }),
 /* 1 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__helpers_js__ = __webpack_require__(2);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__hex_codes_js__ = __webpack_require__(4);
+
+
+
+//these are not pure functions!
+
+const exploreView = function exploreView(canvasEl) {
+
+  const createCanvas = function createCanvas(width, height) {
+    canvasEl.width = width;
+    canvasEl.height = height;
+
+    const ctx = canvasEl.getContext("2d");
+    __WEBPACK_IMPORTED_MODULE_0__helpers_js__["a" /* drawGua */]([1,1,1,1,1,1],ctx,width);
+    return ctx;
+  }
+
+  const createSelector = function createSelector() {
+    const guaSelector = document.createElement("SELECT");
+    guaSelector.setAttribute("id", "gua-selector");
+    document.body.appendChild(guaSelector);
+    return guaSelector;
+  }
+
+  const createOptions = function createOptions(hexSelector) {
+    __WEBPACK_IMPORTED_MODULE_1__hex_codes_js__["a" /* hexagramCodes */].forEach((gua) => {
+      let choice = document.createElement("OPTION");
+      choice.setAttribute("value", `${Object.values(gua)}`);
+      let text = document.createTextNode(`${Object.keys(gua)}`);
+      choice.appendChild(text);
+      hexSelector.appendChild(choice);
+    });
+  }
+
+  const changeGuaParams = function changeGuaParams(e) {
+    e.preventDefault();
+    const canvas = document.getElementById("myCanvas");
+    const rect = canvas.getBoundingClientRect();
+    const guaValue = __WEBPACK_IMPORTED_MODULE_0__helpers_js__["c" /* toArray */](document.getElementById('gua-selector')
+                            .value);
+    const xVal = e.clientX-rect.left;
+    const yVal = e.clientY-rect.top;
+
+    //if the x is between two numbers and the y value is between two numbers?
+    if (xVal < (canvas.width*0.75) && xVal > canvas.width/4) {
+      //work on this part tomorrow;
+      guaValue[0] = 0;
+
+      canvas.getContext('2d').clearRect(0,0,canvas.width,canvas.height);
+      //move the selector to that hexagram code via the hexagram code database.
+      const selector = document.getElementById('gua-selector');
+      const options = selector.options;
+
+      for (let i=0; i<options.length; i++) {
+        let gua = options[i];
+        let array = __WEBPACK_IMPORTED_MODULE_0__helpers_js__["c" /* toArray */](gua.value);
+
+        if (__WEBPACK_IMPORTED_MODULE_0__helpers_js__["b" /* equals */](guaValue, __WEBPACK_IMPORTED_MODULE_0__helpers_js__["c" /* toArray */](gua.value)) === true) {
+          selector.selectedIndex = i;
+          break;
+        }
+      }
+
+      __WEBPACK_IMPORTED_MODULE_0__helpers_js__["a" /* drawGua */](guaValue, canvas.getContext('2d'),canvas.width);
+    }
+  }
+
+
+  const width = 500;
+  const height = 500;
+
+  const ctx = createCanvas(width, height);
+  const hexSelector = createSelector();
+
+  createOptions(hexSelector);
+
+  hexSelector.addEventListener("change", (e)=>{
+    ctx.clearRect(0,0,width,height);
+    __WEBPACK_IMPORTED_MODULE_0__helpers_js__["a" /* drawGua */](__WEBPACK_IMPORTED_MODULE_0__helpers_js__["c" /* toArray */](hexSelector.value), ctx, width);
+  }, false);
+
+  canvasEl.addEventListener("mousedown", changeGuaParams, false);
+};
+/* harmony export (immutable) */ __webpack_exports__["a"] = exploreView;
+
+
+//If the mouse is over one of the gua then oppose the value in that gua and rerender.
+
+
+/***/ }),
+/* 2 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__hexagrams_js__ = __webpack_require__(3);
+
+
+const drawGua = function drawGua(gua,ctx,width) {
+  gua.forEach((el,i) => {
+    if (el === 1) {
+      drawYang("black", ctx, (width/4),300-(i*40));
+    } else {
+      drawYin("black", ctx, (width/4),300-(i*40));
+    }
+  });
+
+  ctx.font = "30px Arial";
+  ctx.fillText(`- ${__WEBPACK_IMPORTED_MODULE_0__hexagrams_js__["a" /* database */][`[${gua}]`].character}`, width/2, 400);
+}
+/* harmony export (immutable) */ __webpack_exports__["a"] = drawGua;
+
+
+const drawYin = function drawYin(color, ctx, x, y) {
+  ctx.fillStyle = color;
+  ctx.fillRect(x,y,100,20);
+  ctx.fillRect(x+150,y,100,20);
+}
+/* unused harmony export drawYin */
+
+
+const drawYang =function drawYang(color, ctx, x,y) {
+  ctx.fillStyle = color;
+  ctx.fillRect(x,y,250,20);
+}
+/* unused harmony export drawYang */
+
+
+const toArray = function toArray(str) {
+  let arr = [];
+  for (let i = 0; i<str.length; i++) {
+    if (i%2===0) {arr.push(parseInt(str[i]))}
+  }
+  return arr;
+}
+/* harmony export (immutable) */ __webpack_exports__["c"] = toArray;
+
+
+const equals = function equals(arr1, arr2) {
+  for (let i=0; i<arr2.length; i++) {
+    if (arr1[i] !== arr2[i]) {return false};
+  }
+
+  return true;
+};
+/* harmony export (immutable) */ __webpack_exports__["b"] = equals;
+
+//Potentially for loading a random gua.
+// function shuffle(a) {
+//   for (let i=a.length; i; i--) {
+//     let j = Math.floor(Math.random()*i);
+//     [a[j],a[i-1]] = [a[i-1],a[j]];
+//   }
+//   return a;
+// }
+
+
+/***/ }),
+/* 3 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -153,135 +315,7 @@ const database = {'[1,1,1,1,1,1]': {character:"乾	qián", title:	"The Creative"
 
 
 /***/ }),
-/* 2 */,
-/* 3 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__helpers_js__ = __webpack_require__(4);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__hex_codes_js__ = __webpack_require__(5);
-
-
-
-//these are not pure functions!
-
-const exploreView = function exploreView(canvasEl) {
-
-  const createCanvas = function createCanvas(width, height) {
-    canvasEl.width = width;
-    canvasEl.height = height;
-
-    const ctx = canvasEl.getContext("2d");
-    __WEBPACK_IMPORTED_MODULE_0__helpers_js__["a" /* drawGua */]([1,1,1,1,1,1],ctx,width);
-    return ctx;
-  }
-
-  const createSelector = function createSelector() {
-    const guaSelector = document.createElement("SELECT");
-    guaSelector.setAttribute("id", "gua-selector");
-    document.body.appendChild(guaSelector);
-    return guaSelector;
-  }
-
-  const createOptions = function createOptions(hexSelector) {
-    __WEBPACK_IMPORTED_MODULE_1__hex_codes_js__["a" /* hexagramCodes */].forEach((gua) => {
-      let choice = document.createElement("OPTION");
-      choice.setAttribute("value", `${Object.values(gua)}`);
-      let text = document.createTextNode(`${Object.keys(gua)}`);
-      choice.appendChild(text);
-      hexSelector.appendChild(choice);
-    });
-  }
-
-  const changeGuaParams = function changeGuaParams(e) {
-    e.preventDefault();
-    const rect = document.getElementById("myCanvas").getBoundingClientRect();
-    console.log(rect);
-    console.log(e.clientX-rect.left);
-    console.log(e.clientY-rect.top);
-  }
-
-  const width = 600;
-  const height = 600;
-
-  const ctx = createCanvas(width, height);
-  const hexSelector = createSelector();
-
-  createOptions(hexSelector);
-
-  hexSelector.addEventListener("change", (e)=>{
-    ctx.clearRect(0,0,width,height);
-    __WEBPACK_IMPORTED_MODULE_0__helpers_js__["a" /* drawGua */](__WEBPACK_IMPORTED_MODULE_0__helpers_js__["b" /* toArray */](hexSelector.value), ctx, width);
-  }, false);
-
-  canvasEl.addEventListener("mousedown", changeGuaParams, false);
-};
-/* harmony export (immutable) */ __webpack_exports__["a"] = exploreView;
-
-
-//If the mouse is over one of the gua then oppose the value in that gua and rerender.
-
-
-/***/ }),
 /* 4 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__hexagrams_js__ = __webpack_require__(1);
-
-
-const drawGua = function drawGua(gua,ctx,width) {
-  gua.forEach((el,i) => {
-    if (el === 1) {
-      drawYang("black", ctx, (width/4),300-(i*40));
-    } else {
-      drawYin("black", ctx, (width/4),300-(i*40));
-    }
-  });
-
-  ctx.font = "30px Arial";
-  ctx.fillText(`- ${__WEBPACK_IMPORTED_MODULE_0__hexagrams_js__["a" /* database */][`[${gua}]`].character}`, width/2, 400);
-}
-/* harmony export (immutable) */ __webpack_exports__["a"] = drawGua;
-
-
-const drawYin = function drawYin(color, ctx, x, y) {
-  ctx.fillStyle = color;
-  ctx.fillRect(x,y,100,20);
-  ctx.fillRect(x+150,y,100,20);
-}
-/* unused harmony export drawYin */
-
-
-const drawYang =function drawYang(color, ctx, x,y) {
-  ctx.fillStyle = color;
-  ctx.fillRect(x,y,250,20);
-}
-/* unused harmony export drawYang */
-
-
-const toArray = function toArray(str) {
-  let arr = [];
-  for (let i = 0; i<str.length; i++) {
-    if (i%2===0) {arr.push(parseInt(str[i]))}
-  }
-  return arr;
-}
-/* harmony export (immutable) */ __webpack_exports__["b"] = toArray;
-
-
-//Potentially for loading a random gua.
-// function shuffle(a) {
-//   for (let i=a.length; i; i--) {
-//     let j = Math.floor(Math.random()*i);
-//     [a[j],a[i-1]] = [a[i-1],a[j]];
-//   }
-//   return a;
-// }
-
-
-/***/ }),
-/* 5 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";

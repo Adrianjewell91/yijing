@@ -32,6 +32,13 @@ export const toArray = function toArray(str) {
   return arr;
 }
 
+export const equals = function equals(arr1, arr2) {
+  for (let i=0; i<arr2.length; i++) {
+    if (arr1[i] !== arr2[i]) {return false};
+  }
+
+  return true;
+};
 //Potentially for loading a random gua.
 // function shuffle(a) {
 //   for (let i=a.length; i; i--) {

@@ -33,14 +33,40 @@ export const exploreView = function exploreView(canvasEl) {
 
   const changeGuaParams = function changeGuaParams(e) {
     e.preventDefault();
-    const rect = document.getElementById("myCanvas").getBoundingClientRect();
-    console.log(rect);
-    console.log(e.clientX-rect.left);
-    console.log(e.clientY-rect.top);
+    const canvas = document.getElementById("myCanvas");
+    const rect = canvas.getBoundingClientRect();
+    const guaValue = Helpers.toArray(document.getElementById('gua-selector')
+                            .value);
+    const xVal = e.clientX-rect.left;
+    const yVal = e.clientY-rect.top;
+
+    //if the x is between two numbers and the y value is between two numbers?
+    if (xVal < (canvas.width*0.75) && xVal > canvas.width/4) {
+      //work on this part tomorrow;
+      guaValue[0] = 0;
+
+      canvas.getContext('2d').clearRect(0,0,canvas.width,canvas.height);
+      //move the selector to that hexagram code via the hexagram code database.
+      const selector = document.getElementById('gua-selector');
+      const options = selector.options;
+
+      for (let i=0; i<options.length; i++) {
+        let gua = options[i];
+        let array = Helpers.toArray(gua.value);
+
+        if (Helpers.equals(guaValue, Helpers.toArray(gua.value)) === true) {
+          selector.selectedIndex = i;
+          break;
+        }
+      }
+
+      Helpers.drawGua(guaValue, canvas.getContext('2d'),canvas.width);
+    }
   }
 
-  const width = 600;
-  const height = 600;
+
+  const width = 500;
+  const height = 500;
 
   const ctx = createCanvas(width, height);
   const hexSelector = createSelector();
