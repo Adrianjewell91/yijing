@@ -130,11 +130,17 @@ const exploreView = function exploreView(canvasEl) {
 
     //if the x is between two numbers and the y value is between two numbers?
     if (xVal < (canvas.width*0.75) && xVal > canvas.width/4) {
-      //work on this part tomorrow;
-      guaValue[0] = 0;
+      //work on this part tomorrow -
+      if (yVal < 320 && yVal > 300) {guaValue[0] = guaValue[0] === 1 ? 0 : 1;}
+      if (yVal < 280 && yVal > 260) {guaValue[1] = guaValue[1] === 1 ? 0 : 1;}
+      if (yVal < 240 && yVal > 220) {guaValue[2] = guaValue[2] === 1 ? 0 : 1;}
+      if (yVal < 200 && yVal > 180) {guaValue[3] = guaValue[3] === 1 ? 0 : 1;}
+      if (yVal < 160 && yVal > 140) {guaValue[4] = guaValue[4] === 1 ? 0 : 1;}
+      if (yVal < 120 && yVal > 100) {guaValue[5] = guaValue[5] === 1 ? 0 : 1;}
 
+      console.log(yVal);
       canvas.getContext('2d').clearRect(0,0,canvas.width,canvas.height);
-      //move the selector to that hexagram code via the hexagram code database.
+
       const selector = document.getElementById('gua-selector');
       const options = selector.options;
 
