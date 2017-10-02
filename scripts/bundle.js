@@ -75,7 +75,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 document.addEventListener("DOMContentLoaded", function() {
   const canvasEl = document.getElementById("myCanvas");
 
-  Object(__WEBPACK_IMPORTED_MODULE_0__explore_js__["a" /* exploreView */])(canvasEl);
+  Object(__WEBPACK_IMPORTED_MODULE_0__explore_js__["a" /* exploreView */])(canvasEl, 500, 500);
 });
 
 
@@ -89,101 +89,167 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
 
-const exploreView = function exploreView(canvasEl) {
+const exploreView = function exploreView(canvasEl, width, height) {
 
-  const createCanvas = function createCanvas(width, height) {
-    canvasEl.width = width;
-    canvasEl.height = height;
+  //1. Set up the canvas, and the buttons.
+  //1.5 Draw the gua, and set the buttons.
+  //2. Set up the listers.
+  canvasEl.width = width;
+  canvasEl.height = height;
 
-    const ctx = canvasEl.getContext("2d");
-    __WEBPACK_IMPORTED_MODULE_0__helpers_js__["a" /* drawGua */]([1,1,1,1,1,1],ctx,width);
-    return ctx;
-  }
+  const ctx = canvasEl.getContext("2d");
+  __WEBPACK_IMPORTED_MODULE_0__helpers_js__["a" /* drawGua */]([1,1,1,1,1,1],ctx,width);
 
-  const createSelector = function createSelector() {
-    const guaSelector = document.createElement("SELECT");
-    guaSelector.setAttribute("id", "gua-selector");
-    document.getElementById("buttons").appendChild(guaSelector);
-    return guaSelector;
-  }
+  const guaSelector = document.createElement("SELECT");
+  guaSelector.setAttribute("id", "gua-selector");
+  document.getElementById("buttons").appendChild(guaSelector);
 
-  const createOptions = function createOptions(hexSelector) {
-    __WEBPACK_IMPORTED_MODULE_1__hex_codes_js__["a" /* hexagramCodes */].forEach((gua) => {
-      let choice = document.createElement("OPTION");
-      choice.setAttribute("value", `${Object.values(gua)}`);
-      let text = document.createTextNode(`${Object.keys(gua)}`);
-      choice.appendChild(text);
-      hexSelector.appendChild(choice);
-    });
-  }
+  __WEBPACK_IMPORTED_MODULE_1__hex_codes_js__["a" /* hexagramCodes */].forEach((gua) => {
+    let choice = document.createElement("OPTION");
+    choice.setAttribute("value", `${Object.values(gua)}`);
+    let text = document.createTextNode(`${Object.keys(gua)}`);
+    choice.appendChild(text);
+    guaSelector.appendChild(choice);
+  });
 
-  const changeGuaParams = function changeGuaParams(e) {
+  const guaDetail = document.createElement("TEXTAREA");
+  guaDetail.setAttribute("id","gua-detail");
+  guaDetail.setAttribute("disabled","true");
+  guaDetail.setAttribute("rows","20");
+  guaDetail.setAttribute("cols","50");
+
+  document.getElementById("buttons").appendChild(guaDetail);
+  __WEBPACK_IMPORTED_MODULE_0__helpers_js__["c" /* setGuaDetails */](guaSelector.value);
+
+  guaSelector.addEventListener("change", (e)=>{
+    __WEBPACK_IMPORTED_MODULE_0__helpers_js__["a" /* drawGua */](__WEBPACK_IMPORTED_MODULE_0__helpers_js__["d" /* toArray */](guaSelector.value), ctx, width);
+    __WEBPACK_IMPORTED_MODULE_0__helpers_js__["c" /* setGuaDetails */](guaSelector.value);
+  }, false);
+
+  canvasEl.addEventListener("mousedown", (e) => {
     e.preventDefault();
-    const canvas = document.getElementById("myCanvas");
-    const rect = canvas.getBoundingClientRect();
-    const guaValue = __WEBPACK_IMPORTED_MODULE_0__helpers_js__["d" /* toArray */](document.getElementById('gua-selector')
-                            .value);
+    const rect = canvasEl.getBoundingClientRect();
+    const guaValue = __WEBPACK_IMPORTED_MODULE_0__helpers_js__["d" /* toArray */](guaSelector.value);
 
     const xVal = e.clientX-rect.left;
     const yVal = e.clientY-rect.top;
 
-
-    if (xVal < (canvas.width*0.75) && xVal > canvas.width/4) {
+    if (xVal < (canvasEl.width*0.75) && xVal > canvasEl.width/4) {
       for(let i=0; i<6; i++) {
         if (yVal < 320-(40*i) && yVal > 300-(40*i)) {
           guaValue[i] = guaValue[i] === 1 ? 0 : 1;
         }
       }
 
-      const selector = document.getElementById('gua-selector');
-      const options = selector.options;
+      const options = guaSelector.options;
 
       for (let i=0; i<options.length; i++) {
         let gua = options[i];
         let array = __WEBPACK_IMPORTED_MODULE_0__helpers_js__["d" /* toArray */](gua.value);
 
         if (__WEBPACK_IMPORTED_MODULE_0__helpers_js__["b" /* equals */](guaValue, __WEBPACK_IMPORTED_MODULE_0__helpers_js__["d" /* toArray */](gua.value)) === true) {
-          selector.selectedIndex = i;
+          guaSelector.selectedIndex = i;
           break;
         }
       }
 
-      __WEBPACK_IMPORTED_MODULE_0__helpers_js__["a" /* drawGua */](guaValue, canvas.getContext('2d'),canvas.width);
+      __WEBPACK_IMPORTED_MODULE_0__helpers_js__["a" /* drawGua */](guaValue, ctx, width);
       __WEBPACK_IMPORTED_MODULE_0__helpers_js__["c" /* setGuaDetails */](guaValue);
     }
-  }
-
-  /////////The Actual code
-
-  const width = 500;
-  const height = 500;
-
-  const ctx = createCanvas(width, height);
-  const hexSelector = createSelector();
-
-  createOptions(hexSelector);
-
-  const guaDetail = document.createElement("TEXTAREA");
-                    guaDetail.setAttribute("id","gua-detail");
-                    guaDetail.setAttribute("disabled","true");
-                    guaDetail.setAttribute("rows","20");
-                    guaDetail.setAttribute("cols","50");
-
-                    document.getElementById("buttons").appendChild(guaDetail);
-                    __WEBPACK_IMPORTED_MODULE_0__helpers_js__["c" /* setGuaDetails */](hexSelector.value);
-
-  hexSelector.addEventListener("change", (e)=>{
-    ctx.clearRect(0,0,width,height);
-    __WEBPACK_IMPORTED_MODULE_0__helpers_js__["a" /* drawGua */](__WEBPACK_IMPORTED_MODULE_0__helpers_js__["d" /* toArray */](hexSelector.value), ctx, width);
-    __WEBPACK_IMPORTED_MODULE_0__helpers_js__["c" /* setGuaDetails */](hexSelector.value);
   }, false);
 
-  canvasEl.addEventListener("mousedown", changeGuaParams, false);
 };
 /* harmony export (immutable) */ __webpack_exports__["a"] = exploreView;
 
 
-//If the mouse is over one of the gua then oppose the value in that gua and rerender.
+// const createCanvas = function createCanvas(width, height) {
+//   canvasEl.width = width;
+//   canvasEl.height = height;
+//
+//   const ctx = canvasEl.getContext("2d");
+//   Helpers.drawGua([1,1,1,1,1,1],ctx,width);
+//   return ctx;
+// }
+//
+// const createSelector = function createSelector() {
+//   const guaSelector = document.createElement("SELECT");
+//   guaSelector.setAttribute("id", "gua-selector");
+//   document.getElementById("buttons").appendChild(guaSelector);
+//   return guaSelector;
+// }
+//
+// const createOptions = function createOptions(guaSelector) {
+//   hexagramCodes.forEach((gua) => {
+//     let choice = document.createElement("OPTION");
+//     choice.setAttribute("value", `${Object.values(gua)}`);
+//     let text = document.createTextNode(`${Object.keys(gua)}`);
+//     choice.appendChild(text);
+//     hexSelector.appendChild(choice);
+//   });
+// }
+//
+// const changeGuaParams = function changeGuaParams(e) {
+//   e.preventDefault();
+//   const canvas = document.getElementById("myCanvas");
+//   const rect = canvas.getBoundingClientRect();
+//   const guaValue = Helpers.toArray(document.getElementById('gua-selector')
+//   .value);
+//
+//   const xVal = e.clientX-rect.left;
+//   const yVal = e.clientY-rect.top;
+//
+//
+//   if (xVal < (canvas.width*0.75) && xVal > canvas.width/4) {
+//     for(let i=0; i<6; i++) {
+//       if (yVal < 320-(40*i) && yVal > 300-(40*i)) {
+//         guaValue[i] = guaValue[i] === 1 ? 0 : 1;
+//       }
+//     }
+//
+//     const selector = document.getElementById('gua-selector');
+//     const options = selector.options;
+//
+//     for (let i=0; i<options.length; i++) {
+//       let gua = options[i];
+//       let array = Helpers.toArray(gua.value);
+//
+//       if (Helpers.equals(guaValue, Helpers.toArray(gua.value)) === true) {
+//         selector.selectedIndex = i;
+//         break;
+//       }
+//     }
+//
+//     Helpers.drawGua(guaValue, canvas.getContext('2d'),canvas.width);
+//     Helpers.setGuaDetails(guaValue);
+//   }
+// }
+//
+// /////////The Actual code
+//
+// const width = 500;
+// const height = 500;
+//
+// const ctx = createCanvas(width, height);
+// const hexSelector = createSelector();
+//
+// createOptions(hexSelector);
+//
+// const guaDetail = document.createElement("TEXTAREA");
+// guaDetail.setAttribute("id","gua-detail");
+// guaDetail.setAttribute("disabled","true");
+// guaDetail.setAttribute("rows","20");
+// guaDetail.setAttribute("cols","50");
+//
+// document.getElementById("buttons").appendChild(guaDetail);
+// Helpers.setGuaDetails(hexSelector.value);
+//
+// hexSelector.addEventListener("change", (e)=>{
+//   ctx.clearRect(0,0,width,height);
+//   Helpers.drawGua(Helpers.toArray(hexSelector.value), ctx, width);
+//   Helpers.setGuaDetails(hexSelector.value);
+// }, false);
+//
+// canvasEl.addEventListener("mousedown", changeGuaParams, false);
 
 
 /***/ }),
