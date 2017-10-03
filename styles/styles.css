@@ -11,12 +11,15 @@
 
 #gua-detail {
   border: none;
+  resize: none;
 }
 
 #buttons {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  margin-right: 10px;
+  margin-left: 10px;
 }
 
 #gua-selector {
@@ -26,4 +29,8 @@
 #generate-line {
   font-size: 20px;
   width: 200px;
+}
+
+footer {
+  margin-top: 10px;
 }
