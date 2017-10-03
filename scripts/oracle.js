@@ -36,13 +36,33 @@ export const oracleView = function OracleView (width, height) {
     generateLine.removeAttribute("disabled");
   }));
 
+  const directions = document.createElement("TEXTAREA");
+    directions.setAttribute("id","directions");
+    directions.style.fontSize = "20px";
+    directions.setAttribute("disabled","true");
+    directions.setAttribute("rows","18");
+    directions.setAttribute("cols","30");
+    document.getElementById("oracle-view").appendChild(directions);
+    directions.textContent = `Instructions:
+
+    1. Think carefully about a question that you have.
+
+    2. When you're ready, type the question into the prompt, and click "Ask the question".
+
+    3. Use the activated button to generate each line of the six hexagrams.
+
+    4. Interpret the hexagrams in the context of your own situation.
+
+    5. Click on a hexagram to view its meaning in the 'explore' tab.`;
+
   let i = 0;
   const numberArr = ["second line",
                       'third line',
                       'fourth line',
                       'fifth line',
                       'sixth line',
-                      'results below.'];
+                      'results below'];
+
   const guas = [[],[]]
   generateLine.addEventListener("click", (e) => {
     e.preventDefault();
@@ -56,10 +76,10 @@ export const oracleView = function OracleView (width, height) {
         generateLine.textContent = `Generate the ${numberArr[i-1]}.`
     } else {
 
-      generateLine.textContent = "See your results to the right.";
+      generateLine.textContent = "See the results below.";
       generateLine.setAttribute("disabled",'true');
 
-      ctx.fillText(`- ${database[`[${guas[0]}]`].character}`, 200, 425);
+      ctx.fillText(`- ${database[`[${guas[0]}]`].character}`, 175, 425);
       ctx.fillText(`- ${database[`[${guas[1]}]`].character}`, 575, 425);
 
       ctx.font = "20px Arial";

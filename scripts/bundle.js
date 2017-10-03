@@ -267,12 +267,6 @@ document.addEventListener("DOMContentLoaded", function() {
 
   oracleButton.addEventListener('click', (e) => {
     e.preventDefault();
-    // document.getElementById("buttons")
-    //         .removeChild(document.getElementById('gua-selector'));
-    // document.getElementById("buttons")
-    //         .removeChild(document.getElementById('gua-detail'));
-    // document.getElementById('view')
-    //         .removeChild(document.getElementById("myCanvas"));
     document.getElementById('explore-view').style.display = 'none';
     document.getElementById('oracle-view').style.display = 'flex';
     document.getElementById('o-buttons').style.display = 'flex';
@@ -290,18 +284,7 @@ document.addEventListener("DOMContentLoaded", function() {
     document.getElementById('explore-view').style.display = 'flex';
     document.getElementById('oracle-view').style.display = 'none';
     document.getElementById('o-buttons').style.display = 'none';
-    // document.getElementById('view')
-    // .removeChild(document.getElementById("myCanvas"));
-    // document.getElementById("buttons")
-    // .removeChild(document.getElementById('generate-line'));
-    // document.getElementById("buttons")
-    // .removeChild(document.getElementById('question-button'));
-    // document.getElementById("buttons")
-    // .removeChild(document.getElementById('question-input'));
 
-    // document.getElementById("view")
-    //         .removeChild(document.getElementById('buttons'));
-    //clear the html screen.
 
   },false);
 
@@ -346,10 +329,9 @@ const exploreView = function exploreView(width, height) {
 
   const guaDetail = document.createElement("TEXTAREA");
     guaDetail.setAttribute("id","gua-detail");
-    guaDetail.style.fontSize = "20px";
     guaDetail.setAttribute("disabled","true");
     guaDetail.setAttribute("rows","18");
-    guaDetail.setAttribute("cols","30");
+    guaDetail.setAttribute("cols","10");
     document.getElementById("e-buttons").appendChild(guaDetail);
 
 
@@ -536,13 +518,33 @@ const oracleView = function OracleView (width, height) {
     generateLine.removeAttribute("disabled");
   }));
 
+  const directions = document.createElement("TEXTAREA");
+    directions.setAttribute("id","directions");
+    directions.style.fontSize = "20px";
+    directions.setAttribute("disabled","true");
+    directions.setAttribute("rows","18");
+    directions.setAttribute("cols","30");
+    document.getElementById("oracle-view").appendChild(directions);
+    directions.textContent = `Instructions:
+
+    1. Think carefully about a question that you have.
+
+    2. When you're ready, type the question into the prompt, and click "Ask the question".
+
+    3. Use the activated button to generate each line of the six hexagrams.
+
+    4. Interpret the hexagrams in the context of your own situation.
+
+    5. Click on a hexagram to view its meaning in the 'explore' tab.`;
+
   let i = 0;
   const numberArr = ["second line",
                       'third line',
                       'fourth line',
                       'fifth line',
                       'sixth line',
-                      'results below.'];
+                      'results below'];
+
   const guas = [[],[]]
   generateLine.addEventListener("click", (e) => {
     e.preventDefault();
@@ -556,10 +558,10 @@ const oracleView = function OracleView (width, height) {
         generateLine.textContent = `Generate the ${numberArr[i-1]}.`
     } else {
 
-      generateLine.textContent = "See your results to the right.";
+      generateLine.textContent = "See the results below.";
       generateLine.setAttribute("disabled",'true');
 
-      ctx.fillText(`- ${__WEBPACK_IMPORTED_MODULE_1__hexagrams_js__["a" /* database */][`[${guas[0]}]`].character}`, 200, 425);
+      ctx.fillText(`- ${__WEBPACK_IMPORTED_MODULE_1__hexagrams_js__["a" /* database */][`[${guas[0]}]`].character}`, 175, 425);
       ctx.fillText(`- ${__WEBPACK_IMPORTED_MODULE_1__hexagrams_js__["a" /* database */][`[${guas[1]}]`].character}`, 575, 425);
 
       ctx.font = "20px Arial";

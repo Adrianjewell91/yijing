@@ -29,10 +29,9 @@ export const exploreView = function exploreView(width, height) {
 
   const guaDetail = document.createElement("TEXTAREA");
     guaDetail.setAttribute("id","gua-detail");
-    guaDetail.style.fontSize = "20px";
     guaDetail.setAttribute("disabled","true");
     guaDetail.setAttribute("rows","18");
-    guaDetail.setAttribute("cols","30");
+    guaDetail.setAttribute("cols","10");
     document.getElementById("e-buttons").appendChild(guaDetail);
 
 

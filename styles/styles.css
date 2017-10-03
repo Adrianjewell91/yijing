@@ -1,7 +1,10 @@
+html * {
+  font-family: sans-serif;
+}
+
 #header-div {
   display: flex;
 }
-
 
 #explore-view {
   display: flex;
@@ -16,12 +19,15 @@
   height: 500px;
 }
 
-#gua-detail {
+
+#gua-detail, #directions {
   border: none;
   resize: none;
+  font-size: 20px;
 }
 
 #e-buttons{
+
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -34,18 +40,19 @@
   flex-direction: column;
   justify-content:flex-start;
   margin-right: 10px;
-  margin-left: 10px;
+  margin-left: 20px;
+  font-size: 20px;
 }
+
 #o-buttons * {
 margin-top: 1px;
 }
 
 #gua-selector {
-  font-size: 40px;
+  font-size: 30px;
 }
 
 #generate-line {
-  font-size: 20px;
   width: 200px;
 }
 
