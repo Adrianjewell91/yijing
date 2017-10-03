@@ -2,11 +2,12 @@ import * as Helpers from "./helpers.js";
 import {hexagramCodes} from "./hex_codes.js";
 
 
-export const exploreView = function exploreView(canvasEl, width, height) {
-
+export const exploreView = function exploreView(width, height) {
+  const canvasEl = document.createElement("CANVAS");
+  canvasEl.setAttribute('id','myCanvas');
   canvasEl.width = width;
   canvasEl.height = height;
-
+  document.getElementById("view").appendChild(canvasEl)
   const ctx = canvasEl.getContext("2d");
 
   const guaSelector = document.createElement("SELECT");
@@ -30,7 +31,7 @@ export const exploreView = function exploreView(canvasEl, width, height) {
     guaDetail.setAttribute("id","gua-detail");
     guaDetail.style.fontSize = "20px";
     guaDetail.setAttribute("disabled","true");
-    guaDetail.setAttribute("rows","20");
+    guaDetail.setAttribute("rows","18");
     guaDetail.setAttribute("cols","30");
     document.getElementById("buttons").appendChild(guaDetail);
 

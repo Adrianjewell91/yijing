@@ -4,7 +4,7 @@ import {oracleView} from "./oracle.js";
 document.addEventListener("DOMContentLoaded", function() {
   const canvasEl = document.getElementById("myCanvas");
 
-  exploreView(canvasEl, 500, 500);
+  exploreView(500, 500);
 
   const oracleButton = document.createElement("BUTTON");
     oracleButton.setAttribute("id", "oracle-button");
@@ -23,11 +23,13 @@ document.addEventListener("DOMContentLoaded", function() {
             .removeChild(document.getElementById('gua-selector'));
     document.getElementById("buttons")
             .removeChild(document.getElementById('gua-detail'));
+    document.getElementById('view')
+            .removeChild(document.getElementById("myCanvas"));
     exploreButton.removeAttribute("disabled");
     oracleButton.setAttribute("disabled", "true");
 
     //clear the html screen.
-    oracleView(canvasEl, 800,500);
+    oracleView(800,500);
     //call the function.
   },false);
 
@@ -35,12 +37,14 @@ document.addEventListener("DOMContentLoaded", function() {
     e.preventDefault();
     oracleButton.removeAttribute("disabled");
     exploreButton.setAttribute("disabled", "true");
+    document.getElementById('view')
+    .removeChild(document.getElementById("myCanvas"));
 
     // document.getElementById("view")
     //         .removeChild(document.getElementById('buttons'));
     //clear the html screen.
 
-    exploreView(canvasEl, 500, 500);
+    exploreView(500,500);
   },false);
 
 });
