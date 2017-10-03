@@ -15,17 +15,42 @@ export const oracleView = function OracleView (width, height) {
   ctx.fillText('The Present', 75, 50);
   ctx.fillText('The Future', 450, 50);
 
-  const guas = Helpers.yarrowGenerator();
 
+  const questionButton = document.createElement("BUTTON");
+  questionButton.setAttribute("id",'question-button');
+  questionButton.textContent = "Ask the Question."
+  const questionInput = document.createElement("INPUT");
+  questionInput.setAttribute("id",'question-input');
+  questionInput.placeholder = "Input your question."
 
+  const generateLine = document.createElement("BUTTON");
+  generateLine.textContent = "Generate a line."
+  generateLine.setAttribute("id",'generate-line');
+  generateLine.setAttribute("disabled",'');
+  document.getElementById("buttons").appendChild(questionInput);
+  document.getElementById("buttons").appendChild(questionButton);
+  document.getElementById("buttons").appendChild(generateLine);
 
-  for (let i = 0;i<6; i++) {
-    drawOracleGua(guas[0][i], i, ctx, 75);
-    drawOracleGua(guas[1][i], i, ctx, 450);
-  }
+  questionButton.addEventListener('click', (e => {
+    e.preventDefault();
+    questionButton.setAttribute("disabled",'');
+    questionInput.setAttribute("disabled",'');
+    generateLine.removeAttribute("disabled");
+  }))
 
-  ctx.fillText(`- ${database[`[${guas[0]}]`].character}`, 200, 400);
-  ctx.fillText(`- ${database[`[${guas[1]}]`].character}`, 575, 400);
+  generateLine.addEventListener("click", (e) => {
+    e.preventDefault();
+    const guas = Helpers.yarrowGenerator();
+    for (let i = 0;i<6; i++) {
+      drawOracleGua(guas[0][i], i, ctx, 75);
+      drawOracleGua(guas[1][i], i, ctx, 450);
+    }
+
+    generateLine.textContent = "See your results to the right."
+
+    ctx.fillText(`- ${database[`[${guas[0]}]`].character}`, 200, 400);
+    ctx.fillText(`- ${database[`[${guas[1]}]`].character}`, 575, 400);
+  });
 }
 
 export const drawOracleGua = function drawOracleGua(gualine, i,ctx,x) {
@@ -35,3 +60,6 @@ export const drawOracleGua = function drawOracleGua(gualine, i,ctx,x) {
       Helpers.drawYin("black", ctx, x,300-(i*40));
     }
 };
+
+
+//on mouse click, build the next hexagram.

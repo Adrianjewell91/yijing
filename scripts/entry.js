@@ -37,8 +37,15 @@ document.addEventListener("DOMContentLoaded", function() {
     e.preventDefault();
     oracleButton.removeAttribute("disabled");
     exploreButton.setAttribute("disabled", "true");
+
     document.getElementById('view')
     .removeChild(document.getElementById("myCanvas"));
+    document.getElementById("buttons")
+    .removeChild(document.getElementById('generate-line'));
+    document.getElementById("buttons")
+    .removeChild(document.getElementById('question-button'));
+    document.getElementById("buttons")
+    .removeChild(document.getElementById('question-input'));
 
     // document.getElementById("view")
     //         .removeChild(document.getElementById('buttons'));

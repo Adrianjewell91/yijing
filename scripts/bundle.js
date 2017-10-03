@@ -110,8 +110,15 @@ document.addEventListener("DOMContentLoaded", function() {
     e.preventDefault();
     oracleButton.removeAttribute("disabled");
     exploreButton.setAttribute("disabled", "true");
+
     document.getElementById('view')
     .removeChild(document.getElementById("myCanvas"));
+    document.getElementById("buttons")
+    .removeChild(document.getElementById('generate-line'));
+    document.getElementById("buttons")
+    .removeChild(document.getElementById('question-button'));
+    document.getElementById("buttons")
+    .removeChild(document.getElementById('question-input'));
 
     // document.getElementById("view")
     //         .removeChild(document.getElementById('buttons'));
@@ -501,17 +508,42 @@ const oracleView = function OracleView (width, height) {
   ctx.fillText('The Present', 75, 50);
   ctx.fillText('The Future', 450, 50);
 
-  const guas = __WEBPACK_IMPORTED_MODULE_0__helpers_js__["h" /* yarrowGenerator */]();
 
+  const questionButton = document.createElement("BUTTON");
+  questionButton.setAttribute("id",'question-button');
+  questionButton.textContent = "Ask the Question."
+  const questionInput = document.createElement("INPUT");
+  questionInput.setAttribute("id",'question-input');
+  questionInput.placeholder = "Input your question."
 
+  const generateLine = document.createElement("BUTTON");
+  generateLine.textContent = "Generate a line."
+  generateLine.setAttribute("id",'generate-line');
+  generateLine.setAttribute("disabled",'');
+  document.getElementById("buttons").appendChild(questionInput);
+  document.getElementById("buttons").appendChild(questionButton);
+  document.getElementById("buttons").appendChild(generateLine);
 
-  for (let i = 0;i<6; i++) {
-    drawOracleGua(guas[0][i], i, ctx, 75);
-    drawOracleGua(guas[1][i], i, ctx, 450);
-  }
+  questionButton.addEventListener('click', (e => {
+    e.preventDefault();
+    questionButton.setAttribute("disabled",'');
+    questionInput.setAttribute("disabled",'');
+    generateLine.removeAttribute("disabled");
+  }))
 
-  ctx.fillText(`- ${__WEBPACK_IMPORTED_MODULE_1__hexagrams_js__["a" /* database */][`[${guas[0]}]`].character}`, 200, 400);
-  ctx.fillText(`- ${__WEBPACK_IMPORTED_MODULE_1__hexagrams_js__["a" /* database */][`[${guas[1]}]`].character}`, 575, 400);
+  generateLine.addEventListener("click", (e) => {
+    e.preventDefault();
+    const guas = __WEBPACK_IMPORTED_MODULE_0__helpers_js__["h" /* yarrowGenerator */]();
+    for (let i = 0;i<6; i++) {
+      drawOracleGua(guas[0][i], i, ctx, 75);
+      drawOracleGua(guas[1][i], i, ctx, 450);
+    }
+
+    generateLine.textContent = "See your results to the right."
+
+    ctx.fillText(`- ${__WEBPACK_IMPORTED_MODULE_1__hexagrams_js__["a" /* database */][`[${guas[0]}]`].character}`, 200, 400);
+    ctx.fillText(`- ${__WEBPACK_IMPORTED_MODULE_1__hexagrams_js__["a" /* database */][`[${guas[1]}]`].character}`, 575, 400);
+  });
 }
 /* harmony export (immutable) */ __webpack_exports__["a"] = oracleView;
 
@@ -525,6 +557,9 @@ const drawOracleGua = function drawOracleGua(gualine, i,ctx,x) {
 };
 /* unused harmony export drawOracleGua */
 
+
+
+//on mouse click, build the next hexagram.
 
 
 /***/ })
