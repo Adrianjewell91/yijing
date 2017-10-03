@@ -262,6 +262,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
   oracleButton.addEventListener('click', (e) => {
     e.preventDefault();
+    e.currentTarget.textContent = 'Ask the Oracle';
     document.getElementById('explore-view').style.display = 'none';
     document.getElementById('oracle-view').style.display = 'flex';
     document.getElementById('o-buttons').style.display = 'flex';
@@ -371,7 +372,6 @@ const exploreView = function exploreView(width, height) {
     if (xVal < (canvasEl.width*0.75) && xVal > canvasEl.width/4) {
       for(let i=0; i<6; i++) {
         if (yVal < 320-(40*i) && yVal > 300-(40*i)) {
-          console.log('worked');
           __WEBPACK_IMPORTED_MODULE_0__helpers_js__["b" /* drawHighlightedYang */]('black',ctx,125,300-(40*i));
         } else if (yVal < 300-(40*i) && yVal > 280-(40*i)) {
           __WEBPACK_IMPORTED_MODULE_0__helpers_js__["a" /* drawGua */](__WEBPACK_IMPORTED_MODULE_0__helpers_js__["g" /* toArray */](guaSelector.value), ctx, 500);
@@ -479,11 +479,12 @@ const hexagramCodes = [
 
 const oracleView = function OracleView (width, height) {
   const canvasEl = document.createElement("CANVAS");
+  const ctx = canvasEl.getContext("2d");
+
   canvasEl.setAttribute('id','oracleCanvas');
   canvasEl.width = width;
   canvasEl.height = height;
   document.getElementById("oracle-view").appendChild(canvasEl);
-  const ctx = canvasEl.getContext("2d");
   ctx.clearRect(0,0,width,height);
   ctx.font = "30px Arial";
 
@@ -491,19 +492,19 @@ const oracleView = function OracleView (width, height) {
   ctx.fillText('The Future', 450, 50);
 
   const questionButton = document.createElement("BUTTON");
-  questionButton.setAttribute("id",'question-button');
-  questionButton.textContent = "Ask the Question."
+    questionButton.setAttribute("id",'question-button');
+    questionButton.textContent = "Ask the Question."
   const questionInput = document.createElement("INPUT");
-  questionInput.setAttribute("id",'question-input');
-  questionInput.placeholder = "Input your question.";
+    questionInput.setAttribute("id",'question-input');
+    questionInput.placeholder = "Input your question.";
 
   const generateLine = document.createElement("BUTTON");
-  generateLine.textContent = "Generate the first line.";
-  generateLine.setAttribute("id",'generate-line');
-  generateLine.setAttribute("disabled",'');
-  document.getElementById("o-buttons").appendChild(questionInput);
-  document.getElementById("o-buttons").appendChild(questionButton);
-  document.getElementById("o-buttons").appendChild(generateLine);
+    generateLine.textContent = "Generate the first line.";
+    generateLine.setAttribute("id",'generate-line');
+    generateLine.setAttribute("disabled",'');
+    document.getElementById("o-buttons").appendChild(questionInput);
+    document.getElementById("o-buttons").appendChild(questionButton);
+    document.getElementById("o-buttons").appendChild(generateLine);
 
   questionButton.addEventListener('click', (e => {
     e.preventDefault();
@@ -539,7 +540,8 @@ const oracleView = function OracleView (width, height) {
                       'sixth line',
                       'results below'];
 
-  const guas = [[],[]]
+  const guas = [[],[]];
+
   generateLine.addEventListener("click", (e) => {
     e.preventDefault();
     if (i<6) {
@@ -564,7 +566,33 @@ const oracleView = function OracleView (width, height) {
     }
   });
 
+  canvasEl.addEventListener("click", (e) => {
+    e.preventDefault();
+    const rect = canvasEl.getBoundingClientRect();
+    const xVal = e.clientX-rect.left;
+    const yVal = e.clientY-rect.top;
 
+    const xVals = [[50,300],[450,700]];
+
+    for(let j=0; j<2; j++) {
+      if ((xVal > xVals[j][0] && xVal< xVals[j][1]) && (yVal < 320 && yVal > 100)) {
+        // ctx.strokeStyle='blue';
+        // ctx.rect(xVals[j][0], 100, 250, 220);
+        // ctx.stroke();
+        if (guas[j].length === 6) {
+          document.getElementById('explore-view').style.display= 'flex';
+          document.getElementById('oracle-view').style.display= 'none';
+          document.getElementById('oracle-button').removeAttribute("disabled");
+          document.getElementById('oracle-button').textContent="Back to Oracle";
+          document.getElementById('explore-button').setAttribute("disabled", "true");
+
+        }
+        //Open the explore-view, set the selected index to the gua,
+        //
+      }
+    }
+
+  }, false);
 }
 /* harmony export (immutable) */ __webpack_exports__["a"] = oracleView;
 

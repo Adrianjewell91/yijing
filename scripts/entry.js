@@ -20,6 +20,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
   oracleButton.addEventListener('click', (e) => {
     e.preventDefault();
+    e.currentTarget.textContent = 'Ask the Oracle';
     document.getElementById('explore-view').style.display = 'none';
     document.getElementById('oracle-view').style.display = 'flex';
     document.getElementById('o-buttons').style.display = 'flex';

@@ -78,7 +78,6 @@ export const exploreView = function exploreView(width, height) {
     if (xVal < (canvasEl.width*0.75) && xVal > canvasEl.width/4) {
       for(let i=0; i<6; i++) {
         if (yVal < 320-(40*i) && yVal > 300-(40*i)) {
-          console.log('worked');
           Helpers.drawHighlightedYang('black',ctx,125,300-(40*i));
         } else if (yVal < 300-(40*i) && yVal > 280-(40*i)) {
           Helpers.drawGua(Helpers.toArray(guaSelector.value), ctx, 500);
