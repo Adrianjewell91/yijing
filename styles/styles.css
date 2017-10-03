@@ -1,12 +1,14 @@
-#view {
+#explore-view {
   display: flex;
 }
 
-#myCanvas {
+#oracle-view {
+  display: none;
+}
+
+#exploreCanvas, #oracleCanvas {
   background-color: beige;
   height: 500px;
-  /*border: 1px solid black;*/
-
 }
 
 #gua-detail {
@@ -14,7 +16,7 @@
   resize: none;
 }
 
-#buttons {
+#e-buttons, #o-buttons {
   display: flex;
   flex-direction: column;
   justify-content: space-between;

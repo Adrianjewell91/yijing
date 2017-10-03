@@ -249,6 +249,7 @@ document.addEventListener("DOMContentLoaded", function() {
   const canvasEl = document.getElementById("myCanvas");
 
   Object(__WEBPACK_IMPORTED_MODULE_0__explore_js__["a" /* exploreView */])(500, 500);
+  Object(__WEBPACK_IMPORTED_MODULE_1__oracle_js__["a" /* oracleView */])(800,500);
 
   const oracleButton = document.createElement("BUTTON");
     oracleButton.setAttribute("id", "oracle-button");
@@ -263,17 +264,18 @@ document.addEventListener("DOMContentLoaded", function() {
 
   oracleButton.addEventListener('click', (e) => {
     e.preventDefault();
-    document.getElementById("buttons")
-            .removeChild(document.getElementById('gua-selector'));
-    document.getElementById("buttons")
-            .removeChild(document.getElementById('gua-detail'));
-    document.getElementById('view')
-            .removeChild(document.getElementById("myCanvas"));
+    // document.getElementById("buttons")
+    //         .removeChild(document.getElementById('gua-selector'));
+    // document.getElementById("buttons")
+    //         .removeChild(document.getElementById('gua-detail'));
+    // document.getElementById('view')
+    //         .removeChild(document.getElementById("myCanvas"));
+    document.getElementById('explore-view').style.display = 'none';
+    document.getElementById('oracle-view').style.display = 'flex';
     exploreButton.removeAttribute("disabled");
     oracleButton.setAttribute("disabled", "true");
 
     //clear the html screen.
-    Object(__WEBPACK_IMPORTED_MODULE_1__oracle_js__["a" /* oracleView */])(800,500);
     //call the function.
   },false);
 
@@ -281,21 +283,21 @@ document.addEventListener("DOMContentLoaded", function() {
     e.preventDefault();
     oracleButton.removeAttribute("disabled");
     exploreButton.setAttribute("disabled", "true");
-
-    document.getElementById('view')
-    .removeChild(document.getElementById("myCanvas"));
-    document.getElementById("buttons")
-    .removeChild(document.getElementById('generate-line'));
-    document.getElementById("buttons")
-    .removeChild(document.getElementById('question-button'));
-    document.getElementById("buttons")
-    .removeChild(document.getElementById('question-input'));
+    document.getElementById('explore-view').style.display = 'flex';
+    document.getElementById('oracle-view').style.display = 'none';
+    // document.getElementById('view')
+    // .removeChild(document.getElementById("myCanvas"));
+    // document.getElementById("buttons")
+    // .removeChild(document.getElementById('generate-line'));
+    // document.getElementById("buttons")
+    // .removeChild(document.getElementById('question-button'));
+    // document.getElementById("buttons")
+    // .removeChild(document.getElementById('question-input'));
 
     // document.getElementById("view")
     //         .removeChild(document.getElementById('buttons'));
     //clear the html screen.
 
-    Object(__WEBPACK_IMPORTED_MODULE_0__explore_js__["a" /* exploreView */])(500,500);
   },false);
 
 });
@@ -314,15 +316,15 @@ document.addEventListener("DOMContentLoaded", function() {
 
 const exploreView = function exploreView(width, height) {
   const canvasEl = document.createElement("CANVAS");
-  canvasEl.setAttribute('id','myCanvas');
+  canvasEl.setAttribute('id','exploreCanvas');
   canvasEl.width = width;
   canvasEl.height = height;
-  document.getElementById("view").appendChild(canvasEl)
+  document.getElementById("explore-view").appendChild(canvasEl);
   const ctx = canvasEl.getContext("2d");
 
   const guaSelector = document.createElement("SELECT");
     guaSelector.setAttribute("id", "gua-selector");
-    document.getElementById("buttons").appendChild(guaSelector);
+    document.getElementById("e-buttons").appendChild(guaSelector);
 
   __WEBPACK_IMPORTED_MODULE_1__hex_codes_js__["a" /* hexagramCodes */].forEach((gua) => {
     let choice = document.createElement("OPTION");
@@ -343,7 +345,7 @@ const exploreView = function exploreView(width, height) {
     guaDetail.setAttribute("disabled","true");
     guaDetail.setAttribute("rows","18");
     guaDetail.setAttribute("cols","30");
-    document.getElementById("buttons").appendChild(guaDetail);
+    document.getElementById("e-buttons").appendChild(guaDetail);
 
 
   canvasEl.addEventListener("mousedown", (e) => {
@@ -497,10 +499,10 @@ const hexagramCodes = [
 const oracleView = function OracleView (width, height) {
 
   const canvasEl = document.createElement("CANVAS");
-  canvasEl.setAttribute('id','myCanvas');
+  canvasEl.setAttribute('id','oracleCanvas');
   canvasEl.width = width;
   canvasEl.height = height;
-  document.getElementById("view").appendChild(canvasEl)
+  document.getElementById("oracle-view").appendChild(canvasEl);
   const ctx = canvasEl.getContext("2d");
   ctx.clearRect(0,0,width,height);
   ctx.font = "30px Arial";
@@ -520,9 +522,9 @@ const oracleView = function OracleView (width, height) {
   generateLine.textContent = "Generate a line."
   generateLine.setAttribute("id",'generate-line');
   generateLine.setAttribute("disabled",'');
-  document.getElementById("buttons").appendChild(questionInput);
-  document.getElementById("buttons").appendChild(questionButton);
-  document.getElementById("buttons").appendChild(generateLine);
+  document.getElementById("o-buttons").appendChild(questionInput);
+  document.getElementById("o-buttons").appendChild(questionButton);
+  document.getElementById("o-buttons").appendChild(generateLine);
 
   questionButton.addEventListener('click', (e => {
     e.preventDefault();

@@ -4,15 +4,15 @@ import {hexagramCodes} from "./hex_codes.js";
 
 export const exploreView = function exploreView(width, height) {
   const canvasEl = document.createElement("CANVAS");
-  canvasEl.setAttribute('id','myCanvas');
+  canvasEl.setAttribute('id','exploreCanvas');
   canvasEl.width = width;
   canvasEl.height = height;
-  document.getElementById("view").appendChild(canvasEl)
+  document.getElementById("explore-view").appendChild(canvasEl);
   const ctx = canvasEl.getContext("2d");
 
   const guaSelector = document.createElement("SELECT");
     guaSelector.setAttribute("id", "gua-selector");
-    document.getElementById("buttons").appendChild(guaSelector);
+    document.getElementById("e-buttons").appendChild(guaSelector);
 
   hexagramCodes.forEach((gua) => {
     let choice = document.createElement("OPTION");
@@ -33,7 +33,7 @@ export const exploreView = function exploreView(width, height) {
     guaDetail.setAttribute("disabled","true");
     guaDetail.setAttribute("rows","18");
     guaDetail.setAttribute("cols","30");
-    document.getElementById("buttons").appendChild(guaDetail);
+    document.getElementById("e-buttons").appendChild(guaDetail);
 
 
   canvasEl.addEventListener("mousedown", (e) => {

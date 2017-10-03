@@ -4,10 +4,10 @@ import {database} from './hexagrams.js';
 export const oracleView = function OracleView (width, height) {
 
   const canvasEl = document.createElement("CANVAS");
-  canvasEl.setAttribute('id','myCanvas');
+  canvasEl.setAttribute('id','oracleCanvas');
   canvasEl.width = width;
   canvasEl.height = height;
-  document.getElementById("view").appendChild(canvasEl)
+  document.getElementById("oracle-view").appendChild(canvasEl);
   const ctx = canvasEl.getContext("2d");
   ctx.clearRect(0,0,width,height);
   ctx.font = "30px Arial";
@@ -27,9 +27,9 @@ export const oracleView = function OracleView (width, height) {
   generateLine.textContent = "Generate a line."
   generateLine.setAttribute("id",'generate-line');
   generateLine.setAttribute("disabled",'');
-  document.getElementById("buttons").appendChild(questionInput);
-  document.getElementById("buttons").appendChild(questionButton);
-  document.getElementById("buttons").appendChild(generateLine);
+  document.getElementById("o-buttons").appendChild(questionInput);
+  document.getElementById("o-buttons").appendChild(questionButton);
+  document.getElementById("o-buttons").appendChild(generateLine);
 
   questionButton.addEventListener('click', (e => {
     e.preventDefault();
