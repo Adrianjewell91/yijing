@@ -25,15 +25,20 @@ export const drawYang =function drawYang(color, ctx, x,y) {
   ctx.fillRect(x,y,250,20);
 }
 
-export const drawHighlightedYin = function drawHighlightedYin(color, ctx, x, y) {
-  ctx.fillStyle = color;
-  ctx.fillRect(x,y,100,20);
-  ctx.fillRect(x+150,y,100,20);
-}
-
 export const drawHighlightedYang = function drawHighlightedYang (color, ctx, x,y) {
-  ctx.strokeStyle = "beige";
-  ctx.strokeRect(x,y,250,20);
+  ctx.beginPath();
+  ctx.arc(x+260, y+10, 5, 0, 2*Math.PI);
+  ctx.strokeStyle = "black";
+  ctx.fillStyle = "black";
+  ctx.fill();
+  ctx.stroke();
+
+  ctx.beginPath();
+  ctx.arc(x-10, y+10, 5, 0, 2*Math.PI);
+  ctx.strokeStyle = "black";
+  ctx.fillStyle = "black";
+  ctx.fill();
+  ctx.stroke();
 }
 
 export const toArray = function toArray(str) {
@@ -65,11 +70,3 @@ export const yarrowGenerator = function yarrowGenerator() {
 
   return [present,future];
 }
-//Potentially for loading a random gua.
-// function shuffle(a) {
-//   for (let i=a.length; i; i--) {
-//     let j = Math.floor(Math.random()*i);
-//     [a[j],a[i-1]] = [a[i-1],a[j]];
-//   }
-//   return a;
-// }

@@ -92,6 +92,7 @@ export const exploreView = function exploreView(width, height) {
 
   }, false);
 
+
   Helpers.drawGua([1,1,1,1,1,1],ctx,width);
   Helpers.setGuaDetails(guaSelector.value);
 };

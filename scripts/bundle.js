@@ -102,17 +102,20 @@ const drawYang =function drawYang(color, ctx, x,y) {
 /* harmony export (immutable) */ __webpack_exports__["c"] = drawYang;
 
 
-const drawHighlightedYin = function drawHighlightedYin(color, ctx, x, y) {
-  ctx.fillStyle = color;
-  ctx.fillRect(x,y,100,20);
-  ctx.fillRect(x+150,y,100,20);
-}
-/* unused harmony export drawHighlightedYin */
-
-
 const drawHighlightedYang = function drawHighlightedYang (color, ctx, x,y) {
-  ctx.strokeStyle = "beige";
-  ctx.strokeRect(x,y,250,20);
+  ctx.beginPath();
+  ctx.arc(x+260, y+10, 5, 0, 2*Math.PI);
+  ctx.strokeStyle = "black";
+  ctx.fillStyle = "black";
+  ctx.fill();
+  ctx.stroke();
+
+  ctx.beginPath();
+  ctx.arc(x-10, y+10, 5, 0, 2*Math.PI);
+  ctx.strokeStyle = "black";
+  ctx.fillStyle = "black";
+  ctx.fill();
+  ctx.stroke();
 }
 /* harmony export (immutable) */ __webpack_exports__["b"] = drawHighlightedYang;
 
@@ -154,14 +157,6 @@ const yarrowGenerator = function yarrowGenerator() {
 }
 /* harmony export (immutable) */ __webpack_exports__["h"] = yarrowGenerator;
 
-//Potentially for loading a random gua.
-// function shuffle(a) {
-//   for (let i=a.length; i; i--) {
-//     let j = Math.floor(Math.random()*i);
-//     [a[j],a[i-1]] = [a[i-1],a[j]];
-//   }
-//   return a;
-// }
 
 
 /***/ }),
@@ -273,8 +268,6 @@ document.addEventListener("DOMContentLoaded", function() {
     exploreButton.removeAttribute("disabled");
     oracleButton.setAttribute("disabled", "true");
 
-    //clear the html screen.
-    //call the function.
   },false);
 
   exploreButton.addEventListener('click', (e) => {
@@ -392,6 +385,7 @@ const exploreView = function exploreView(width, height) {
 
   }, false);
 
+
   __WEBPACK_IMPORTED_MODULE_0__helpers_js__["a" /* drawGua */]([1,1,1,1,1,1],ctx,width);
   __WEBPACK_IMPORTED_MODULE_0__helpers_js__["f" /* setGuaDetails */](guaSelector.value);
 };
@@ -501,7 +495,7 @@ const oracleView = function OracleView (width, height) {
   questionButton.textContent = "Ask the Question."
   const questionInput = document.createElement("INPUT");
   questionInput.setAttribute("id",'question-input');
-  questionInput.placeholder = "Input your question."
+  questionInput.placeholder = "Input your question.";
 
   const generateLine = document.createElement("BUTTON");
   generateLine.textContent = "Generate the first line.";
@@ -529,13 +523,13 @@ const oracleView = function OracleView (width, height) {
 
     1. Think carefully about a question that you have.
 
-    2. When you're ready, type the question into the prompt, and click "Ask the question".
+    2. Type the question into the prompt, and click "Ask the question".
 
-    3. Use the newly activated button to generate each line of the six hexagrams.
+    3. Generate the hexagrams, line by line, with the newly activated button.
 
-    4. Interpret the hexagrams in the context of your own situation.
+    4. Interpret the hexagrams in the context of your own life.
 
-    5. Click on a hexagram to view it in the 'explore' tab.`;
+    5. Click on either hexagram to view it in the 'explore' tab.`;
 
   let i = 0;
   const numberArr = ["second line",
@@ -568,8 +562,9 @@ const oracleView = function OracleView (width, height) {
       ctx.fillText(`${__WEBPACK_IMPORTED_MODULE_1__hexagrams_js__["a" /* database */][`[${guas[0]}]`].title}`, 50, 375);
       ctx.fillText(`${__WEBPACK_IMPORTED_MODULE_1__hexagrams_js__["a" /* database */][`[${guas[1]}]`].title}`, 450, 375);
     }
-
   });
+
+
 }
 /* harmony export (immutable) */ __webpack_exports__["a"] = oracleView;
 

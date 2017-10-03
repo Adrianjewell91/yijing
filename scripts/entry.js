@@ -26,8 +26,6 @@ document.addEventListener("DOMContentLoaded", function() {
     exploreButton.removeAttribute("disabled");
     oracleButton.setAttribute("disabled", "true");
 
-    //clear the html screen.
-    //call the function.
   },false);
 
   exploreButton.addEventListener('click', (e) => {
