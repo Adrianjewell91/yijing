@@ -60,7 +60,10 @@ export const setGuaDetails = function setGuaDetails(guaCode) {
 
 export const yarrowGenerator = function yarrowGenerator() {
 
-  return [[1,1,1,1,1,1],[1,1,1,1,1,0]];
+  const present = Math.round(Math.random());
+  const future = Math.round(Math.random());
+
+  return [present,future];
 }
 //Potentially for loading a random gua.
 // function shuffle(a) {
