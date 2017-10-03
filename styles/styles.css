@@ -4,8 +4,8 @@
 
 #myCanvas {
   background-color: beige;
-  /*width: 500px;*/
-  border: 1px solid black;
+  height: 500px;
+  /*border: 1px solid black;*/
 
 }
 
