@@ -314,6 +314,12 @@ const setGuaDetails = function setGuaDetails(guaCode) {
 /* harmony export (immutable) */ __webpack_exports__["d"] = setGuaDetails;
 
 
+const yarrowGenerator = function yarrowGenerator() {
+
+  return [[1,1,1,1,1,1],[1,1,1,1,1,0]];
+}
+/* harmony export (immutable) */ __webpack_exports__["f"] = yarrowGenerator;
+
 //Potentially for loading a random gua.
 // function shuffle(a) {
 //   for (let i=a.length; i; i--) {
@@ -476,6 +482,9 @@ const hexagramCodes = [
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__helpers_js__ = __webpack_require__(2);
+
+
 const oracleView = function OracleView (width, height) {
 
   const canvasEl = document.createElement("CANVAS");
@@ -485,6 +494,10 @@ const oracleView = function OracleView (width, height) {
   document.getElementById("view").appendChild(canvasEl)
   const ctx = canvasEl.getContext("2d");
   ctx.clearRect(0,0,width,height);
+
+  const guas = __WEBPACK_IMPORTED_MODULE_0__helpers_js__["f" /* yarrowGenerator */]();
+
+  console.log(guas);
 }
 /* harmony export (immutable) */ __webpack_exports__["a"] = oracleView;
 

@@ -58,6 +58,10 @@ export const setGuaDetails = function setGuaDetails(guaCode) {
           .value = `${guaInfo.character}\n\n${guaInfo.title}\n\n${guaInfo.description}`;
 }
 
+export const yarrowGenerator = function yarrowGenerator() {
+
+  return [[1,1,1,1,1,1],[1,1,1,1,1,0]];
+}
 //Potentially for loading a random gua.
 // function shuffle(a) {
 //   for (let i=a.length; i; i--) {
