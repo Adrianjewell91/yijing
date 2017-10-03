@@ -155,8 +155,8 @@ const exploreView = function exploreView(width, height) {
   });
 
   guaSelector.addEventListener("change", (e)=>{
-      __WEBPACK_IMPORTED_MODULE_0__helpers_js__["a" /* drawGua */](__WEBPACK_IMPORTED_MODULE_0__helpers_js__["e" /* toArray */](guaSelector.value), ctx, width);
-      __WEBPACK_IMPORTED_MODULE_0__helpers_js__["d" /* setGuaDetails */](guaSelector.value);
+      __WEBPACK_IMPORTED_MODULE_0__helpers_js__["a" /* drawGua */](__WEBPACK_IMPORTED_MODULE_0__helpers_js__["g" /* toArray */](guaSelector.value), ctx, width);
+      __WEBPACK_IMPORTED_MODULE_0__helpers_js__["f" /* setGuaDetails */](guaSelector.value);
     }, false);
 
   const guaDetail = document.createElement("TEXTAREA");
@@ -171,7 +171,7 @@ const exploreView = function exploreView(width, height) {
   canvasEl.addEventListener("mousedown", (e) => {
     e.preventDefault();
     const rect = canvasEl.getBoundingClientRect();
-    const guaValue = __WEBPACK_IMPORTED_MODULE_0__helpers_js__["e" /* toArray */](guaSelector.value);
+    const guaValue = __WEBPACK_IMPORTED_MODULE_0__helpers_js__["g" /* toArray */](guaSelector.value);
 
     const xVal = e.clientX-rect.left;
     const yVal = e.clientY-rect.top;
@@ -187,23 +187,23 @@ const exploreView = function exploreView(width, height) {
 
       for (let i=0; i<options.length; i++) {
         let gua = options[i];
-        let array = __WEBPACK_IMPORTED_MODULE_0__helpers_js__["e" /* toArray */](gua.value);
+        let array = __WEBPACK_IMPORTED_MODULE_0__helpers_js__["g" /* toArray */](gua.value);
 
-        if (__WEBPACK_IMPORTED_MODULE_0__helpers_js__["c" /* equals */](guaValue, __WEBPACK_IMPORTED_MODULE_0__helpers_js__["e" /* toArray */](gua.value)) === true) {
+        if (__WEBPACK_IMPORTED_MODULE_0__helpers_js__["e" /* equals */](guaValue, __WEBPACK_IMPORTED_MODULE_0__helpers_js__["g" /* toArray */](gua.value)) === true) {
           guaSelector.selectedIndex = i;
           break;
         }
       }
 
       __WEBPACK_IMPORTED_MODULE_0__helpers_js__["a" /* drawGua */](guaValue, ctx, width);
-      __WEBPACK_IMPORTED_MODULE_0__helpers_js__["d" /* setGuaDetails */](guaValue);
+      __WEBPACK_IMPORTED_MODULE_0__helpers_js__["f" /* setGuaDetails */](guaValue);
     }
   }, false);
 
   canvasEl.addEventListener("mousemove", (e) => {
     e.preventDefault();
     const rect = canvasEl.getBoundingClientRect();
-    const guaValue = __WEBPACK_IMPORTED_MODULE_0__helpers_js__["e" /* toArray */](guaSelector.value);
+    const guaValue = __WEBPACK_IMPORTED_MODULE_0__helpers_js__["g" /* toArray */](guaSelector.value);
 
     const xVal = e.clientX-rect.left;
     const yVal = e.clientY-rect.top;
@@ -214,19 +214,19 @@ const exploreView = function exploreView(width, height) {
           console.log('worked');
           __WEBPACK_IMPORTED_MODULE_0__helpers_js__["b" /* drawHighlightedYang */]('black',ctx,125,300-(40*i));
         } else if (yVal < 300-(40*i) && yVal > 280-(40*i)) {
-          __WEBPACK_IMPORTED_MODULE_0__helpers_js__["a" /* drawGua */](__WEBPACK_IMPORTED_MODULE_0__helpers_js__["e" /* toArray */](guaSelector.value), ctx, 500);
+          __WEBPACK_IMPORTED_MODULE_0__helpers_js__["a" /* drawGua */](__WEBPACK_IMPORTED_MODULE_0__helpers_js__["g" /* toArray */](guaSelector.value), ctx, 500);
         } else if (yVal < 100 || yVal > 320) {
-          __WEBPACK_IMPORTED_MODULE_0__helpers_js__["a" /* drawGua */](__WEBPACK_IMPORTED_MODULE_0__helpers_js__["e" /* toArray */](guaSelector.value), ctx, 500);
+          __WEBPACK_IMPORTED_MODULE_0__helpers_js__["a" /* drawGua */](__WEBPACK_IMPORTED_MODULE_0__helpers_js__["g" /* toArray */](guaSelector.value), ctx, 500);
         }
       }
     } else {
-      __WEBPACK_IMPORTED_MODULE_0__helpers_js__["a" /* drawGua */](__WEBPACK_IMPORTED_MODULE_0__helpers_js__["e" /* toArray */](guaSelector.value), ctx, 500);
+      __WEBPACK_IMPORTED_MODULE_0__helpers_js__["a" /* drawGua */](__WEBPACK_IMPORTED_MODULE_0__helpers_js__["g" /* toArray */](guaSelector.value), ctx, 500);
     }
 
   }, false);
 
   __WEBPACK_IMPORTED_MODULE_0__helpers_js__["a" /* drawGua */]([1,1,1,1,1,1],ctx,width);
-  __WEBPACK_IMPORTED_MODULE_0__helpers_js__["d" /* setGuaDetails */](guaSelector.value);
+  __WEBPACK_IMPORTED_MODULE_0__helpers_js__["f" /* setGuaDetails */](guaSelector.value);
 };
 /* harmony export (immutable) */ __webpack_exports__["a"] = exploreView;
 
@@ -261,14 +261,14 @@ const drawYin = function drawYin(color, ctx, x, y) {
   ctx.fillRect(x,y,100,20);
   ctx.fillRect(x+150,y,100,20);
 }
-/* unused harmony export drawYin */
+/* harmony export (immutable) */ __webpack_exports__["d"] = drawYin;
 
 
 const drawYang =function drawYang(color, ctx, x,y) {
   ctx.fillStyle = color;
   ctx.fillRect(x,y,250,20);
 }
-/* unused harmony export drawYang */
+/* harmony export (immutable) */ __webpack_exports__["c"] = drawYang;
 
 
 const drawHighlightedYin = function drawHighlightedYin(color, ctx, x, y) {
@@ -293,7 +293,7 @@ const toArray = function toArray(str) {
   }
   return arr;
 }
-/* harmony export (immutable) */ __webpack_exports__["e"] = toArray;
+/* harmony export (immutable) */ __webpack_exports__["g"] = toArray;
 
 
 const equals = function equals(arr1, arr2) {
@@ -302,7 +302,7 @@ const equals = function equals(arr1, arr2) {
   }
   return true;
 };
-/* harmony export (immutable) */ __webpack_exports__["c"] = equals;
+/* harmony export (immutable) */ __webpack_exports__["e"] = equals;
 
 
 const setGuaDetails = function setGuaDetails(guaCode) {
@@ -311,14 +311,14 @@ const setGuaDetails = function setGuaDetails(guaCode) {
   document.getElementById('gua-detail')
           .value = `${guaInfo.character}\n\n${guaInfo.title}\n\n${guaInfo.description}`;
 }
-/* harmony export (immutable) */ __webpack_exports__["d"] = setGuaDetails;
+/* harmony export (immutable) */ __webpack_exports__["f"] = setGuaDetails;
 
 
 const yarrowGenerator = function yarrowGenerator() {
 
   return [[1,1,1,1,1,1],[1,1,1,1,1,0]];
 }
-/* harmony export (immutable) */ __webpack_exports__["f"] = yarrowGenerator;
+/* harmony export (immutable) */ __webpack_exports__["h"] = yarrowGenerator;
 
 //Potentially for loading a random gua.
 // function shuffle(a) {
@@ -496,46 +496,34 @@ const oracleView = function OracleView (width, height) {
   document.getElementById("view").appendChild(canvasEl)
   const ctx = canvasEl.getContext("2d");
   ctx.clearRect(0,0,width,height);
+  ctx.font = "30px Arial";
 
-  const guas = __WEBPACK_IMPORTED_MODULE_0__helpers_js__["f" /* yarrowGenerator */]();
+  ctx.fillText('The Present', 75, 50);
+  ctx.fillText('The Future', 450, 50);
 
-  console.log(guas);
-  ctx.clearRect(0,0,800,500);
-  drawGua(guas[0], ctx, 75);
-  drawGua(guas[1], ctx, 450);
+  const guas = __WEBPACK_IMPORTED_MODULE_0__helpers_js__["h" /* yarrowGenerator */]();
+
+
+
+  for (let i = 0;i<6; i++) {
+    drawOracleGua(guas[0][i], i, ctx, 75);
+    drawOracleGua(guas[1][i], i, ctx, 450);
+  }
+
+  ctx.fillText(`- ${__WEBPACK_IMPORTED_MODULE_1__hexagrams_js__["a" /* database */][`[${guas[0]}]`].character}`, 200, 400);
+  ctx.fillText(`- ${__WEBPACK_IMPORTED_MODULE_1__hexagrams_js__["a" /* database */][`[${guas[1]}]`].character}`, 575, 400);
 }
 /* harmony export (immutable) */ __webpack_exports__["a"] = oracleView;
 
 
-const drawGua = function drawGua(gua,ctx,x) {
-
-  gua.forEach((el,i) => {
-    if (el === 1) {
-      drawYang("black", ctx, x,300-(i*40));
+const drawOracleGua = function drawOracleGua(gualine, i,ctx,x) {
+    if (gualine === 1) {
+      __WEBPACK_IMPORTED_MODULE_0__helpers_js__["c" /* drawYang */]("black", ctx, x,300-(i*40));
     } else {
-      drawYin("black", ctx, x,300-(i*40));
+      __WEBPACK_IMPORTED_MODULE_0__helpers_js__["d" /* drawYin */]("black", ctx, x,300-(i*40));
     }
-  });
-
-  ctx.font = "30px Arial";
-  ctx.fillText(`- ${__WEBPACK_IMPORTED_MODULE_1__hexagrams_js__["a" /* database */][`[${gua}]`].character}`, x, 400);
 };
-/* unused harmony export drawGua */
-
-
-const drawYin = function drawYin(color, ctx, x, y) {
-  ctx.fillStyle = color;
-  ctx.fillRect(x,y,100,20);
-  ctx.fillRect(x+150,y,100,20);
-};
-/* unused harmony export drawYin */
-
-
-const drawYang =function drawYang(color, ctx, x,y) {
-  ctx.fillStyle = color;
-  ctx.fillRect(x,y,250,20);
-};
-/* unused harmony export drawYang */
+/* unused harmony export drawOracleGua */
 
 
 

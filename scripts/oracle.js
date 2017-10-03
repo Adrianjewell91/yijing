@@ -10,36 +10,28 @@ export const oracleView = function OracleView (width, height) {
   document.getElementById("view").appendChild(canvasEl)
   const ctx = canvasEl.getContext("2d");
   ctx.clearRect(0,0,width,height);
+  ctx.font = "30px Arial";
+
+  ctx.fillText('The Present', 75, 50);
+  ctx.fillText('The Future', 450, 50);
 
   const guas = Helpers.yarrowGenerator();
 
-  console.log(guas);
-  ctx.clearRect(0,0,800,500);
-  drawGua(guas[0], ctx, 75);
-  drawGua(guas[1], ctx, 450);
+
+
+  for (let i = 0;i<6; i++) {
+    drawOracleGua(guas[0][i], i, ctx, 75);
+    drawOracleGua(guas[1][i], i, ctx, 450);
+  }
+
+  ctx.fillText(`- ${database[`[${guas[0]}]`].character}`, 200, 400);
+  ctx.fillText(`- ${database[`[${guas[1]}]`].character}`, 575, 400);
 }
 
-export const drawGua = function drawGua(gua,ctx,x) {
-
-  gua.forEach((el,i) => {
-    if (el === 1) {
-      drawYang("black", ctx, x,300-(i*40));
+export const drawOracleGua = function drawOracleGua(gualine, i,ctx,x) {
+    if (gualine === 1) {
+      Helpers.drawYang("black", ctx, x,300-(i*40));
     } else {
-      drawYin("black", ctx, x,300-(i*40));
+      Helpers.drawYin("black", ctx, x,300-(i*40));
     }
-  });
-
-  ctx.font = "30px Arial";
-  ctx.fillText(`- ${database[`[${gua}]`].character}`, x, 400);
-};
-
-export const drawYin = function drawYin(color, ctx, x, y) {
-  ctx.fillStyle = color;
-  ctx.fillRect(x,y,100,20);
-  ctx.fillRect(x+150,y,100,20);
-};
-
-export const drawYang =function drawYang(color, ctx, x,y) {
-  ctx.fillStyle = color;
-  ctx.fillRect(x,y,250,20);
 };
