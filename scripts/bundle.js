@@ -280,7 +280,7 @@ const drawHighlightedYin = function drawHighlightedYin(color, ctx, x, y) {
 
 
 const drawHighlightedYang = function drawHighlightedYang (color, ctx, x,y) {
-  ctx.strokeStyle = "red";
+  ctx.strokeStyle = "beige";
   ctx.strokeRect(x,y,250,20);
 }
 /* harmony export (immutable) */ __webpack_exports__["b"] = drawHighlightedYang;

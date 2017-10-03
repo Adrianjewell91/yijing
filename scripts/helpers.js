@@ -32,7 +32,7 @@ export const drawHighlightedYin = function drawHighlightedYin(color, ctx, x, y) 
 }
 
 export const drawHighlightedYang = function drawHighlightedYang (color, ctx, x,y) {
-  ctx.strokeStyle = "red";
+  ctx.strokeStyle = "beige";
   ctx.strokeRect(x,y,250,20);
 }
 
