@@ -48,8 +48,12 @@ export const oracleView = function OracleView (width, height) {
 
     generateLine.textContent = "See your results to the right."
 
-    ctx.fillText(`- ${database[`[${guas[0]}]`].character}`, 200, 400);
-    ctx.fillText(`- ${database[`[${guas[1]}]`].character}`, 575, 400);
+    ctx.fillText(`- ${database[`[${guas[0]}]`].character}`, 200, 425);
+    ctx.fillText(`- ${database[`[${guas[1]}]`].character}`, 575, 425);
+
+      ctx.font = "20px Arial";
+    ctx.fillText(`${database[`[${guas[0]}]`].title}`, 75, 375);
+    ctx.fillText(`${database[`[${guas[1]}]`].title}`, 450, 375);
   });
 }
 
