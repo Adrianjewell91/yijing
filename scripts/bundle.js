@@ -483,6 +483,8 @@ const hexagramCodes = [
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__helpers_js__ = __webpack_require__(2);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__hexagrams_js__ = __webpack_require__(3);
+
 
 
 const oracleView = function OracleView (width, height) {
@@ -498,8 +500,42 @@ const oracleView = function OracleView (width, height) {
   const guas = __WEBPACK_IMPORTED_MODULE_0__helpers_js__["f" /* yarrowGenerator */]();
 
   console.log(guas);
+  ctx.clearRect(0,0,800,500);
+  drawGua(guas[0], ctx, 75);
+  drawGua(guas[1], ctx, 450);
 }
 /* harmony export (immutable) */ __webpack_exports__["a"] = oracleView;
+
+
+const drawGua = function drawGua(gua,ctx,x) {
+
+  gua.forEach((el,i) => {
+    if (el === 1) {
+      drawYang("black", ctx, x,300-(i*40));
+    } else {
+      drawYin("black", ctx, x,300-(i*40));
+    }
+  });
+
+  ctx.font = "30px Arial";
+  ctx.fillText(`- ${__WEBPACK_IMPORTED_MODULE_1__hexagrams_js__["a" /* database */][`[${gua}]`].character}`, x, 400);
+};
+/* unused harmony export drawGua */
+
+
+const drawYin = function drawYin(color, ctx, x, y) {
+  ctx.fillStyle = color;
+  ctx.fillRect(x,y,100,20);
+  ctx.fillRect(x+150,y,100,20);
+};
+/* unused harmony export drawYin */
+
+
+const drawYang =function drawYang(color, ctx, x,y) {
+  ctx.fillStyle = color;
+  ctx.fillRect(x,y,250,20);
+};
+/* unused harmony export drawYang */
 
 
 
