@@ -11,7 +11,7 @@ export const oracleView = function OracleView (width, height) {
   ctx.clearRect(0,0,width,height);
   ctx.font = "30px Arial";
 
-  ctx.fillText('The Present', 75, 50);
+  ctx.fillText('The Present', 50, 50);
   ctx.fillText('The Future', 450, 50);
 
   const questionButton = document.createElement("BUTTON");
@@ -42,13 +42,13 @@ export const oracleView = function OracleView (width, height) {
                       'fourth line',
                       'fifth line',
                       'sixth line',
-                      'results'];
+                      'results below.'];
   const guas = [[],[]]
   generateLine.addEventListener("click", (e) => {
     e.preventDefault();
     if (i<6) {
         const lines = Helpers.yarrowGenerator();
-        drawOracleGua(lines[0], i, ctx, 75);
+        drawOracleGua(lines[0], i, ctx, 50);
         drawOracleGua(lines[1], i, ctx, 450);
         i = i+1;
         guas[0].push(lines[0]);
@@ -63,7 +63,7 @@ export const oracleView = function OracleView (width, height) {
       ctx.fillText(`- ${database[`[${guas[1]}]`].character}`, 575, 425);
 
       ctx.font = "20px Arial";
-      ctx.fillText(`${database[`[${guas[0]}]`].title}`, 75, 375);
+      ctx.fillText(`${database[`[${guas[0]}]`].title}`, 50, 375);
       ctx.fillText(`${database[`[${guas[1]}]`].title}`, 450, 375);
     }
 

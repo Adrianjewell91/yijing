@@ -186,7 +186,7 @@ const database = {'[1,1,1,1,1,1]': {character:"乾	qián", title:	"The Creative"
 '[0,0,1,0,0,0]': {character:"謙	qiān", title:	"Modesty", description: "Qián indicates progress and success. The superior man, (being humble as it implies), will have a (good) issue (to his undertakings)."},
 '[0,0,0,1,0,0]': {character:"豫	yù", title:	"Enthusiasm", description: "Yù indicates that, (in the state which it implies), feudal princes may be set up, and the hosts put in motion, with advantage."},
 '[1,0,0,1,1,0]': {character:"隨	suí", title:	"Following", description: "Suí indicates that (under its conditions) there will be great progress and success. But it will be advantageous to be firm and correct. There will (then) be no error."},
-'[0,1,1,0,0,1]': {character:"蠱	gǔ", title:	"Work on What Has Been Spoiled (Decay)", description: "Gǔ indicates great progress and success (to him who deals properly with the condition represented by it). There will be advantage in (efforts like that of) crossing the great stream. (He should weigh well, however, the events of) three days before the turning point, and those (to be done) three days after it."},
+'[0,1,1,0,0,1]': {character:"蠱	gǔ", title:	"Work on What Has Been Spoiled", description: "Gǔ indicates great progress and success (to him who deals properly with the condition represented by it). There will be advantage in (efforts like that of) crossing the great stream. (He should weigh well, however, the events of) three days before the turning point, and those (to be done) three days after it."},
 '[1,1,0,0,0,0]': {character:"臨	lín", title:	"Approach", description: "Lín (indicates that under the conditions supposed in it) there will be great progress and success, while it will be advantageous to be firmly correct. In the eighth month there will be evil."},
 '[0,0,0,0,1,1]': {character:"觀	guān", title:	"Contemplation (View)", description: "Guān shows (how he whom it represents should be like) the worshipper who has washed his hands, but not (yet) presented his offerings;--with sincerity and an appearance of dignity (commanding reverent regard)."},
 '[1,0,0,1,0,1]': {character: "噬嗑	shì kè", title:	"Biting Through", description: "Shì Kè indicates successful progress (in the condition of things which it supposes). It will be advantageous to use legal constraints."},
@@ -195,7 +195,7 @@ const database = {'[1,1,1,1,1,1]': {character:"乾	qián", title:	"The Creative"
 '[1,0,0,0,0,0]': {character:"復	fù", title:	"Return (The Turning Point)", description: "Fû indicates that there will be free course and progress (in what it denotes). (The subject of it) finds no one to distress him in his exits and entrances; friends come to him, and no error is committed . He will return and repeat his (proper) course. In seven days comes his return. There will be advantage in whatever direction movement is made."},
 '[1,0,0,1,1,1]': {character: "無妄	wú wàng", title:	"Innocence (The Unexpected)", description: "Wú Wàng indicates great progress and success, while there will be advantage in being firm and correct. If (its subject and his action) be not correct, he will fall into errors, and it will not be advantageous for him to move in any direction."},
 '[1,1,1,0,0,1]': {character: "大畜	dà chù", title:	"The Taming Power of the Great", description: "Under the conditions of Dà Chù it will be advantageous to be firm and correct. (If its subject do not seek to) enjoy his revenues in his own family (without taking service at court), there will be good fortune. It will be advantageous for him to cross the great stream."},
-'[1,0,0,0,0,1]': {character:"頤	yí", title:	"The Corners of the Mouth (Providing Nourishment)", description: ""},
+'[1,0,0,0,0,1]': {character:"頤	yí", title:	"Providing Nourishment", description: ""},
 '[0,1,1,1,1,0]': {character: "大過	dà guò", title:	"Preponderance of the Great", description: "Yí indicates that with firm correctness there will be good fortune (in what is denoted by it). We must look at what we are seeking to nourish, and by the exercise of our thoughts seek for the proper aliment."},
 '[0,1,0,0,1,0]': {character:"坎	kǎn", title:	"The Abysmal (Water)", description: "Kǎn, here repeated, shows the possession of sincerity, through which the mind is. penetrating. Action (in accordance with this) will be of high value."},
 '[1,0,1,1,0,1]': {character:"離	lí", title:	"The Clinging (Fire)", description: "Lí indicates that, (in regard to what it denotes), it will be advantageous to be firm and correct, and that thus there will be free course and success. Let (its subject) also nourish (a docility like that of) the cow, and there will be good fortune."},
@@ -275,6 +275,7 @@ document.addEventListener("DOMContentLoaded", function() {
     //         .removeChild(document.getElementById("myCanvas"));
     document.getElementById('explore-view').style.display = 'none';
     document.getElementById('oracle-view').style.display = 'flex';
+    document.getElementById('o-buttons').style.display = 'flex';
     exploreButton.removeAttribute("disabled");
     oracleButton.setAttribute("disabled", "true");
 
@@ -288,6 +289,7 @@ document.addEventListener("DOMContentLoaded", function() {
     exploreButton.setAttribute("disabled", "true");
     document.getElementById('explore-view').style.display = 'flex';
     document.getElementById('oracle-view').style.display = 'none';
+    document.getElementById('o-buttons').style.display = 'none';
     // document.getElementById('view')
     // .removeChild(document.getElementById("myCanvas"));
     // document.getElementById("buttons")
@@ -509,7 +511,7 @@ const oracleView = function OracleView (width, height) {
   ctx.clearRect(0,0,width,height);
   ctx.font = "30px Arial";
 
-  ctx.fillText('The Present', 75, 50);
+  ctx.fillText('The Present', 50, 50);
   ctx.fillText('The Future', 450, 50);
 
   const questionButton = document.createElement("BUTTON");
@@ -540,13 +542,13 @@ const oracleView = function OracleView (width, height) {
                       'fourth line',
                       'fifth line',
                       'sixth line',
-                      'results'];
+                      'results below.'];
   const guas = [[],[]]
   generateLine.addEventListener("click", (e) => {
     e.preventDefault();
     if (i<6) {
         const lines = __WEBPACK_IMPORTED_MODULE_0__helpers_js__["h" /* yarrowGenerator */]();
-        drawOracleGua(lines[0], i, ctx, 75);
+        drawOracleGua(lines[0], i, ctx, 50);
         drawOracleGua(lines[1], i, ctx, 450);
         i = i+1;
         guas[0].push(lines[0]);
@@ -561,7 +563,7 @@ const oracleView = function OracleView (width, height) {
       ctx.fillText(`- ${__WEBPACK_IMPORTED_MODULE_1__hexagrams_js__["a" /* database */][`[${guas[1]}]`].character}`, 575, 425);
 
       ctx.font = "20px Arial";
-      ctx.fillText(`${__WEBPACK_IMPORTED_MODULE_1__hexagrams_js__["a" /* database */][`[${guas[0]}]`].title}`, 75, 375);
+      ctx.fillText(`${__WEBPACK_IMPORTED_MODULE_1__hexagrams_js__["a" /* database */][`[${guas[0]}]`].title}`, 50, 375);
       ctx.fillText(`${__WEBPACK_IMPORTED_MODULE_1__hexagrams_js__["a" /* database */][`[${guas[1]}]`].title}`, 450, 375);
     }
 

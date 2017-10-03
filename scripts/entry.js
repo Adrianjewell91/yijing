@@ -28,6 +28,7 @@ document.addEventListener("DOMContentLoaded", function() {
     //         .removeChild(document.getElementById("myCanvas"));
     document.getElementById('explore-view').style.display = 'none';
     document.getElementById('oracle-view').style.display = 'flex';
+    document.getElementById('o-buttons').style.display = 'flex';
     exploreButton.removeAttribute("disabled");
     oracleButton.setAttribute("disabled", "true");
 
@@ -41,6 +42,7 @@ document.addEventListener("DOMContentLoaded", function() {
     exploreButton.setAttribute("disabled", "true");
     document.getElementById('explore-view').style.display = 'flex';
     document.getElementById('oracle-view').style.display = 'none';
+    document.getElementById('o-buttons').style.display = 'none';
     // document.getElementById('view')
     // .removeChild(document.getElementById("myCanvas"));
     // document.getElementById("buttons")
