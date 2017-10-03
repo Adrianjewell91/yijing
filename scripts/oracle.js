@@ -36,7 +36,7 @@ export const oracleView = function OracleView (width, height) {
     questionButton.setAttribute("disabled",'');
     questionInput.setAttribute("disabled",'');
     generateLine.removeAttribute("disabled");
-  }))
+  }));
 
   generateLine.addEventListener("click", (e) => {
     e.preventDefault();
@@ -47,6 +47,7 @@ export const oracleView = function OracleView (width, height) {
     }
 
     generateLine.textContent = "See your results to the right."
+    generateLine.setAttribute("disabled",'true');
 
     ctx.fillText(`- ${database[`[${guas[0]}]`].character}`, 200, 425);
     ctx.fillText(`- ${database[`[${guas[1]}]`].character}`, 575, 425);

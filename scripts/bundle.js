@@ -529,7 +529,7 @@ const oracleView = function OracleView (width, height) {
     questionButton.setAttribute("disabled",'');
     questionInput.setAttribute("disabled",'');
     generateLine.removeAttribute("disabled");
-  }))
+  }));
 
   generateLine.addEventListener("click", (e) => {
     e.preventDefault();
@@ -540,6 +540,7 @@ const oracleView = function OracleView (width, height) {
     }
 
     generateLine.textContent = "See your results to the right."
+    generateLine.setAttribute("disabled",'true');
 
     ctx.fillText(`- ${__WEBPACK_IMPORTED_MODULE_1__hexagrams_js__["a" /* database */][`[${guas[0]}]`].character}`, 200, 425);
     ctx.fillText(`- ${__WEBPACK_IMPORTED_MODULE_1__hexagrams_js__["a" /* database */][`[${guas[1]}]`].character}`, 575, 425);
