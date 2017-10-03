@@ -49,11 +49,11 @@ export const oracleView = function OracleView (width, height) {
 
     2. When you're ready, type the question into the prompt, and click "Ask the question".
 
-    3. Use the activated button to generate each line of the six hexagrams.
+    3. Use the newly activated button to generate each line of the six hexagrams.
 
     4. Interpret the hexagrams in the context of your own situation.
 
-    5. Click on a hexagram to view its meaning in the 'explore' tab.`;
+    5. Click on a hexagram to view it in the 'explore' tab.`;
 
   let i = 0;
   const numberArr = ["second line",
