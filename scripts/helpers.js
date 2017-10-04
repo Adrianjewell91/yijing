@@ -10,8 +10,10 @@ export const drawGua = function drawGua(gua,ctx,width) {
     }
   });
 
+  ctx.font = "20px Arial";
+  ctx.fillText(`${database[`[${gua}]`].title}`, width/4, 375);
   ctx.font = "30px Arial";
-  ctx.fillText(`- ${database[`[${gua}]`].character}`, width/2, 400);
+  ctx.fillText(`- ${database[`[${gua}]`].character}`, width/2, 425);
 }
 
 export const drawOracleGua = function drawOracleGua(gualine, i,ctx,x) {

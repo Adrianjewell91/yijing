@@ -4,10 +4,7 @@ import {hexagramCodes} from "./hex_codes.js";
 
 export const exploreView = function exploreView(width, height) {
   const canvasEl = document.getElementById("explore-canvas");
-  // canvasEl.setAttribute('id','explore-canvas');
-  // canvasEl.width = width;
-  // canvasEl.height = height;
-  document.getElementById("explore-view").appendChild(canvasEl);
+
   const ctx = canvasEl.getContext("2d");
 
   const guaSelector = document.createElement("SELECT");
@@ -88,7 +85,6 @@ export const exploreView = function exploreView(width, height) {
 
     const xVal = e.clientX-rect.left;
     const yVal = e.clientY-rect.top;
-    //I want to rerender the regular gua when I'm outside of the it.
     if (xVal < (canvasEl.width*0.75) && xVal > canvasEl.width/4) {
       for(let i=0; i<6; i++) {
         if (yVal < 320-(40*i) && yVal > 300-(40*i)) {
