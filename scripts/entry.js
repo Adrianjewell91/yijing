@@ -7,16 +7,8 @@ document.addEventListener("DOMContentLoaded", function() {
   exploreView(500, 500);
   oracleView(835,500);
 
-  const oracleButton = document.createElement("BUTTON");
-    oracleButton.setAttribute("id", "oracle-button");
-    oracleButton.textContent = "Ask the Oracle";
-    document.getElementById("header").appendChild(oracleButton);
-
-  const exploreButton = document.createElement("BUTTON");
-      exploreButton.setAttribute("id", "explore-button");
-      exploreButton.setAttribute("disabled", "true");
-      exploreButton.textContent = "Explore";
-      document.getElementById("header").appendChild(exploreButton);
+  const oracleButton = document.getElementById("oracle-button");
+  const exploreButton = document.getElementById("explore-button");
 
   oracleButton.addEventListener('click', (e) => {
     e.preventDefault();
