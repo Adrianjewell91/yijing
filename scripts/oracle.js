@@ -15,20 +15,9 @@ export const oracleView = function OracleView (width, height) {
   ctx.fillText('The Present', 50, 50);
   ctx.fillText('The Future', 450, 50);
 
-  const questionButton = document.createElement("BUTTON");
-    questionButton.setAttribute("id",'question-button');
-    questionButton.textContent = "Ask the Question."
-  const questionInput = document.createElement("INPUT");
-    questionInput.setAttribute("id",'question-input');
-    questionInput.placeholder = "Input your question.";
-
-  const generateLine = document.createElement("BUTTON");
-    generateLine.textContent = "Generate the first line.";
-    generateLine.setAttribute("id",'generate-line');
-    generateLine.setAttribute("disabled",'');
-    document.getElementById("o-buttons").appendChild(questionInput);
-    document.getElementById("o-buttons").appendChild(questionButton);
-    document.getElementById("o-buttons").appendChild(generateLine);
+  const questionButton = document.getElementById('question-button');
+  const questionInput = document.getElementById('question-input');
+  const generateLine = document.getElementById('generate-line');
 
   questionButton.addEventListener('click', (e => {
     e.preventDefault();
@@ -70,8 +59,8 @@ export const oracleView = function OracleView (width, height) {
     e.preventDefault();
     if (i<6) {
         const lines = Helpers.yarrowGenerator();
-        drawOracleGua(lines[0], i, ctx, 50);
-        drawOracleGua(lines[1], i, ctx, 450);
+        Helpers.drawOracleGua(lines[0], i, ctx, 50);
+        Helpers.drawOracleGua(lines[1], i, ctx, 450);
         i = i+1;
         guas[0].push(lines[0]);
         guas[1].push(lines[1]);
@@ -133,15 +122,6 @@ export const oracleView = function OracleView (width, height) {
 
   }, false);
 }
-
-
-export const drawOracleGua = function drawOracleGua(gualine, i,ctx,x) {
-    if (gualine === 1) {
-      Helpers.drawYang("black", ctx, x,300-(i*40));
-    } else {
-      Helpers.drawYin("black", ctx, x,300-(i*40));
-    }
-};
 
 
 //on mouse click, build the next hexagram.

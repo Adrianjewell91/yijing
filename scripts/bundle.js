@@ -87,19 +87,30 @@ const drawGua = function drawGua(gua,ctx,width) {
 /* harmony export (immutable) */ __webpack_exports__["a"] = drawGua;
 
 
+const drawOracleGua = function drawOracleGua(gualine, i,ctx,x) {
+    if (gualine === 1) {
+      drawYang("black", ctx, x,300-(i*40));
+    } else {
+      drawYin("black", ctx, x,300-(i*40));
+    }
+};
+/* harmony export (immutable) */ __webpack_exports__["c"] = drawOracleGua;
+
+
+
 const drawYin = function drawYin(color, ctx, x, y) {
   ctx.fillStyle = color;
   ctx.fillRect(x,y,100,20);
   ctx.fillRect(x+150,y,100,20);
 }
-/* harmony export (immutable) */ __webpack_exports__["d"] = drawYin;
+/* unused harmony export drawYin */
 
 
 const drawYang =function drawYang(color, ctx, x,y) {
   ctx.fillStyle = color;
   ctx.fillRect(x,y,250,20);
 }
-/* harmony export (immutable) */ __webpack_exports__["c"] = drawYang;
+/* unused harmony export drawYang */
 
 
 const drawHighlightedYang = function drawHighlightedYang (color, ctx, x,y) {
@@ -127,7 +138,7 @@ const toArray = function toArray(str) {
   }
   return arr;
 }
-/* harmony export (immutable) */ __webpack_exports__["g"] = toArray;
+/* harmony export (immutable) */ __webpack_exports__["f"] = toArray;
 
 
 const equals = function equals(arr1, arr2) {
@@ -136,7 +147,7 @@ const equals = function equals(arr1, arr2) {
   }
   return true;
 };
-/* harmony export (immutable) */ __webpack_exports__["e"] = equals;
+/* harmony export (immutable) */ __webpack_exports__["d"] = equals;
 
 
 const setGuaDetails = function setGuaDetails(guaCode) {
@@ -145,7 +156,7 @@ const setGuaDetails = function setGuaDetails(guaCode) {
   document.getElementById('gua-detail')
           .value = `${guaInfo.character}\n\n${guaInfo.title}\n\n${guaInfo.description}`;
 }
-/* harmony export (immutable) */ __webpack_exports__["f"] = setGuaDetails;
+/* harmony export (immutable) */ __webpack_exports__["e"] = setGuaDetails;
 
 
 const yarrowGenerator = function yarrowGenerator() {
@@ -155,7 +166,7 @@ const yarrowGenerator = function yarrowGenerator() {
 
   return [present,future];
 }
-/* harmony export (immutable) */ __webpack_exports__["h"] = yarrowGenerator;
+/* harmony export (immutable) */ __webpack_exports__["g"] = yarrowGenerator;
 
 
 
@@ -309,8 +320,8 @@ const exploreView = function exploreView(width, height) {
   });
 
   guaSelector.addEventListener("change", (e)=>{
-      __WEBPACK_IMPORTED_MODULE_0__helpers_js__["a" /* drawGua */](__WEBPACK_IMPORTED_MODULE_0__helpers_js__["g" /* toArray */](guaSelector.value), ctx, width);
-      __WEBPACK_IMPORTED_MODULE_0__helpers_js__["f" /* setGuaDetails */](guaSelector.value);
+      __WEBPACK_IMPORTED_MODULE_0__helpers_js__["a" /* drawGua */](__WEBPACK_IMPORTED_MODULE_0__helpers_js__["f" /* toArray */](guaSelector.value), ctx, width);
+      __WEBPACK_IMPORTED_MODULE_0__helpers_js__["e" /* setGuaDetails */](guaSelector.value);
     }, false);
 
   const guaDetail = document.createElement("TEXTAREA");
@@ -338,7 +349,7 @@ const exploreView = function exploreView(width, height) {
   canvasEl.addEventListener("mousedown", (e) => {
     e.preventDefault();
     const rect = canvasEl.getBoundingClientRect();
-    const guaValue = __WEBPACK_IMPORTED_MODULE_0__helpers_js__["g" /* toArray */](guaSelector.value);
+    const guaValue = __WEBPACK_IMPORTED_MODULE_0__helpers_js__["f" /* toArray */](guaSelector.value);
 
     const xVal = e.clientX-rect.left;
     const yVal = e.clientY-rect.top;
@@ -354,23 +365,23 @@ const exploreView = function exploreView(width, height) {
 
       for (let i=0; i<options.length; i++) {
         let gua = options[i];
-        let array = __WEBPACK_IMPORTED_MODULE_0__helpers_js__["g" /* toArray */](gua.value);
+        let array = __WEBPACK_IMPORTED_MODULE_0__helpers_js__["f" /* toArray */](gua.value);
 
-        if (__WEBPACK_IMPORTED_MODULE_0__helpers_js__["e" /* equals */](guaValue, __WEBPACK_IMPORTED_MODULE_0__helpers_js__["g" /* toArray */](gua.value)) === true) {
+        if (__WEBPACK_IMPORTED_MODULE_0__helpers_js__["d" /* equals */](guaValue, __WEBPACK_IMPORTED_MODULE_0__helpers_js__["f" /* toArray */](gua.value)) === true) {
           guaSelector.selectedIndex = i;
           break;
         }
       }
 
       __WEBPACK_IMPORTED_MODULE_0__helpers_js__["a" /* drawGua */](guaValue, ctx, width);
-      __WEBPACK_IMPORTED_MODULE_0__helpers_js__["f" /* setGuaDetails */](guaValue);
+      __WEBPACK_IMPORTED_MODULE_0__helpers_js__["e" /* setGuaDetails */](guaValue);
     }
   }, false);
 
   canvasEl.addEventListener("mousemove", (e) => {
     e.preventDefault();
     const rect = canvasEl.getBoundingClientRect();
-    const guaValue = __WEBPACK_IMPORTED_MODULE_0__helpers_js__["g" /* toArray */](guaSelector.value);
+    const guaValue = __WEBPACK_IMPORTED_MODULE_0__helpers_js__["f" /* toArray */](guaSelector.value);
 
     const xVal = e.clientX-rect.left;
     const yVal = e.clientY-rect.top;
@@ -380,20 +391,20 @@ const exploreView = function exploreView(width, height) {
         if (yVal < 320-(40*i) && yVal > 300-(40*i)) {
           __WEBPACK_IMPORTED_MODULE_0__helpers_js__["b" /* drawHighlightedYang */]('black',ctx,125,300-(40*i));
         } else if (yVal < 300-(40*i) && yVal > 280-(40*i)) {
-          __WEBPACK_IMPORTED_MODULE_0__helpers_js__["a" /* drawGua */](__WEBPACK_IMPORTED_MODULE_0__helpers_js__["g" /* toArray */](guaSelector.value), ctx, 500);
+          __WEBPACK_IMPORTED_MODULE_0__helpers_js__["a" /* drawGua */](__WEBPACK_IMPORTED_MODULE_0__helpers_js__["f" /* toArray */](guaSelector.value), ctx, 500);
         } else if (yVal < 100 || yVal > 320) {
-          __WEBPACK_IMPORTED_MODULE_0__helpers_js__["a" /* drawGua */](__WEBPACK_IMPORTED_MODULE_0__helpers_js__["g" /* toArray */](guaSelector.value), ctx, 500);
+          __WEBPACK_IMPORTED_MODULE_0__helpers_js__["a" /* drawGua */](__WEBPACK_IMPORTED_MODULE_0__helpers_js__["f" /* toArray */](guaSelector.value), ctx, 500);
         }
       }
     } else {
-      __WEBPACK_IMPORTED_MODULE_0__helpers_js__["a" /* drawGua */](__WEBPACK_IMPORTED_MODULE_0__helpers_js__["g" /* toArray */](guaSelector.value), ctx, 500);
+      __WEBPACK_IMPORTED_MODULE_0__helpers_js__["a" /* drawGua */](__WEBPACK_IMPORTED_MODULE_0__helpers_js__["f" /* toArray */](guaSelector.value), ctx, 500);
     }
 
   }, false);
 
 
   __WEBPACK_IMPORTED_MODULE_0__helpers_js__["a" /* drawGua */]([1,1,1,1,1,1],ctx,width);
-  __WEBPACK_IMPORTED_MODULE_0__helpers_js__["f" /* setGuaDetails */](guaSelector.value);
+  __WEBPACK_IMPORTED_MODULE_0__helpers_js__["e" /* setGuaDetails */](guaSelector.value);
 };
 /* harmony export (immutable) */ __webpack_exports__["a"] = exploreView;
 
@@ -497,20 +508,9 @@ const oracleView = function OracleView (width, height) {
   ctx.fillText('The Present', 50, 50);
   ctx.fillText('The Future', 450, 50);
 
-  const questionButton = document.createElement("BUTTON");
-    questionButton.setAttribute("id",'question-button');
-    questionButton.textContent = "Ask the Question."
-  const questionInput = document.createElement("INPUT");
-    questionInput.setAttribute("id",'question-input');
-    questionInput.placeholder = "Input your question.";
-
-  const generateLine = document.createElement("BUTTON");
-    generateLine.textContent = "Generate the first line.";
-    generateLine.setAttribute("id",'generate-line');
-    generateLine.setAttribute("disabled",'');
-    document.getElementById("o-buttons").appendChild(questionInput);
-    document.getElementById("o-buttons").appendChild(questionButton);
-    document.getElementById("o-buttons").appendChild(generateLine);
+  const questionButton = document.getElementById('question-button');
+  const questionInput = document.getElementById('question-input');
+  const generateLine = document.getElementById('generate-line');
 
   questionButton.addEventListener('click', (e => {
     e.preventDefault();
@@ -551,9 +551,9 @@ const oracleView = function OracleView (width, height) {
   generateLine.addEventListener("click", (e) => {
     e.preventDefault();
     if (i<6) {
-        const lines = __WEBPACK_IMPORTED_MODULE_0__helpers_js__["h" /* yarrowGenerator */]();
-        drawOracleGua(lines[0], i, ctx, 50);
-        drawOracleGua(lines[1], i, ctx, 450);
+        const lines = __WEBPACK_IMPORTED_MODULE_0__helpers_js__["g" /* yarrowGenerator */]();
+        __WEBPACK_IMPORTED_MODULE_0__helpers_js__["c" /* drawOracleGua */](lines[0], i, ctx, 50);
+        __WEBPACK_IMPORTED_MODULE_0__helpers_js__["c" /* drawOracleGua */](lines[1], i, ctx, 450);
         i = i+1;
         guas[0].push(lines[0]);
         guas[1].push(lines[1]);
@@ -595,15 +595,15 @@ const oracleView = function OracleView (width, height) {
           __WEBPACK_IMPORTED_MODULE_0__helpers_js__["a" /* drawGua */](guas[j],
                   document.getElementById('explore-canvas')
                           .getContext('2d'),500);
-          __WEBPACK_IMPORTED_MODULE_0__helpers_js__["f" /* setGuaDetails */](guas[j]);
+          __WEBPACK_IMPORTED_MODULE_0__helpers_js__["e" /* setGuaDetails */](guas[j]);
 
           const options = document.getElementById("gua-selector").options;
 
           for (let i=0; i<options.length; i++) {
             let gua = options[i];
-            let array = __WEBPACK_IMPORTED_MODULE_0__helpers_js__["g" /* toArray */](gua.value);
+            let array = __WEBPACK_IMPORTED_MODULE_0__helpers_js__["f" /* toArray */](gua.value);
 
-            if (__WEBPACK_IMPORTED_MODULE_0__helpers_js__["e" /* equals */](guas[j], array) === true) {
+            if (__WEBPACK_IMPORTED_MODULE_0__helpers_js__["d" /* equals */](guas[j], array) === true) {
               document.getElementById("gua-selector").selectedIndex = i;
               break;
             }
@@ -616,17 +616,6 @@ const oracleView = function OracleView (width, height) {
   }, false);
 }
 /* harmony export (immutable) */ __webpack_exports__["a"] = oracleView;
-
-
-
-const drawOracleGua = function drawOracleGua(gualine, i,ctx,x) {
-    if (gualine === 1) {
-      __WEBPACK_IMPORTED_MODULE_0__helpers_js__["c" /* drawYang */]("black", ctx, x,300-(i*40));
-    } else {
-      __WEBPACK_IMPORTED_MODULE_0__helpers_js__["d" /* drawYin */]("black", ctx, x,300-(i*40));
-    }
-};
-/* unused harmony export drawOracleGua */
 
 
 

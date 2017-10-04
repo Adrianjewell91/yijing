@@ -14,6 +14,15 @@ export const drawGua = function drawGua(gua,ctx,width) {
   ctx.fillText(`- ${database[`[${gua}]`].character}`, width/2, 400);
 }
 
+export const drawOracleGua = function drawOracleGua(gualine, i,ctx,x) {
+    if (gualine === 1) {
+      drawYang("black", ctx, x,300-(i*40));
+    } else {
+      drawYin("black", ctx, x,300-(i*40));
+    }
+};
+
+
 export const drawYin = function drawYin(color, ctx, x, y) {
   ctx.fillStyle = color;
   ctx.fillRect(x,y,100,20);

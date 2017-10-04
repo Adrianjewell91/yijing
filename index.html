@@ -13,16 +13,21 @@
     <div id="header-div">
       <h1 id="header">I-Ching - The Ancient Oracle.
       <button type="button" id='oracle-button'>Ask the Oracle</button>
-      <button type="button" id='explore-button'>Explore</button>
+      <button type="button" id='explore-button' disabled='s'>Explore</button>
       </h1>
+      
       <div id="o-buttons">
+        <input type="text" id="question-input" value="" placeholder="Pose a question">
+        <button type="button" id='question-button'>Ask the Question</button>
+        <button type="button" id='generate-line' disabled='s'>Generate the first line.</button>
       </div>
     </div>
 
     <h3>The Hexagrams of the I-Ching tell you the present and the future. Read the instructions and have a try!</h3>
 
     <div id="explore-view">
-      <div id="e-buttons"></div>
+      <div id="e-buttons">
+      </div>
     </div>
 
     <div id="oracle-view">
