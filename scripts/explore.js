@@ -32,12 +32,13 @@ export const exploreView = function exploreView(width, height) {
     document.getElementById("e-buttons").appendChild(guaDetail);
 
   const showExploreButton = document.getElementById('show-explore-button');
+
   showExploreButton.addEventListener('click', (e) =>{
-    document.getElementById("e-buttons").style.display = "flex";
-    //show info should turn into hide-info;
+    document.getElementById("e-buttons").style.display =
+      document.getElementById("e-buttons").style.display === "flex" ? "none" : "flex";
+
     showExploreButton.textContent =
       showExploreButton.textContent === "Show Info" ? 'Hide Info' : "Show Info";
-    //info should show in a nice way.
   }, false );
 
   canvasEl.addEventListener("mousedown", (e) => {
