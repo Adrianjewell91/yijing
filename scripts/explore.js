@@ -4,7 +4,7 @@ import {hexagramCodes} from "./hex_codes.js";
 
 export const exploreView = function exploreView(width, height) {
   const canvasEl = document.createElement("CANVAS");
-  canvasEl.setAttribute('id','exploreCanvas');
+  canvasEl.setAttribute('id','explore-canvas');
   canvasEl.width = width;
   canvasEl.height = height;
   document.getElementById("explore-view").appendChild(canvasEl);
@@ -34,6 +34,20 @@ export const exploreView = function exploreView(width, height) {
     guaDetail.setAttribute("cols","10");
     document.getElementById("e-buttons").appendChild(guaDetail);
 
+  const directions = document.createElement("TEXTAREA");
+    directions.setAttribute("id","directions");
+    directions.style.fontSize = "20px";
+    directions.setAttribute("disabled","true");
+    directions.setAttribute("rows","18");
+    directions.setAttribute("cols","30");
+    document.getElementById("explore-view").appendChild(directions);
+    directions.textContent = `Instructions:
+
+    1. Use the selector to view any of the sixty-four hexagrams.
+
+    2. Alternatively, click on a line to create a different hexagram.
+
+    3. At the top, click "Ask the Oracle" to have your fortune told!`;
 
   canvasEl.addEventListener("mousedown", (e) => {
     e.preventDefault();

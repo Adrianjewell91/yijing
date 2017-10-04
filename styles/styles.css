@@ -10,6 +10,12 @@ body{
   background: linear-gradient(45deg, beige, orange);
 }
 
+textarea {
+  background: none;
+  border: 1px solid black;
+  border-radius: 3px;
+}
+
 #header-div {
   display: flex;
 }
@@ -22,8 +28,7 @@ body{
   display: none;
 }
 
-#exploreCanvas, #oracleCanvas {
-  /*background-color: beige;*/
+#explore-canvas, #oracle-canvas {
   height: 500px;
 }
 
@@ -34,7 +39,6 @@ body{
 }
 
 #e-buttons{
-
   display: flex;
   flex-direction: column;
   justify-content: space-between;

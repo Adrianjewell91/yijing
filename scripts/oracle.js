@@ -110,9 +110,24 @@ export const oracleView = function OracleView (width, height) {
           document.getElementById('oracle-button').textContent="Back to Oracle";
           document.getElementById('explore-button').setAttribute("disabled", "true");
 
+          Helpers.drawGua(guas[j],
+                  document.getElementById('explore-canvas')
+                          .getContext('2d'),500);
+          Helpers.setGuaDetails(guas[j]);
+
+          const options = document.getElementById("gua-selector").options;
+
+          for (let i=0; i<options.length; i++) {
+            let gua = options[i];
+            let array = Helpers.toArray(gua.value);
+
+            if (Helpers.equals(guas[j], array) === true) {
+              document.getElementById("gua-selector").selectedIndex = i;
+              break;
+            }
+          }
         }
-        //Open the explore-view, set the selected index to the gua,
-        //
+
       }
     }
 

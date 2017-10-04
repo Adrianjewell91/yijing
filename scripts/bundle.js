@@ -247,7 +247,7 @@ document.addEventListener("DOMContentLoaded", function() {
   const canvasEl = document.getElementById("myCanvas");
 
   Object(__WEBPACK_IMPORTED_MODULE_0__explore_js__["a" /* exploreView */])(500, 500);
-  Object(__WEBPACK_IMPORTED_MODULE_1__oracle_js__["a" /* oracleView */])(800,500);
+  Object(__WEBPACK_IMPORTED_MODULE_1__oracle_js__["a" /* oracleView */])(835,500);
 
   const oracleButton = document.createElement("BUTTON");
     oracleButton.setAttribute("id", "oracle-button");
@@ -298,7 +298,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
 const exploreView = function exploreView(width, height) {
   const canvasEl = document.createElement("CANVAS");
-  canvasEl.setAttribute('id','exploreCanvas');
+  canvasEl.setAttribute('id','explore-canvas');
   canvasEl.width = width;
   canvasEl.height = height;
   document.getElementById("explore-view").appendChild(canvasEl);
@@ -328,6 +328,20 @@ const exploreView = function exploreView(width, height) {
     guaDetail.setAttribute("cols","10");
     document.getElementById("e-buttons").appendChild(guaDetail);
 
+  const directions = document.createElement("TEXTAREA");
+    directions.setAttribute("id","directions");
+    directions.style.fontSize = "20px";
+    directions.setAttribute("disabled","true");
+    directions.setAttribute("rows","18");
+    directions.setAttribute("cols","30");
+    document.getElementById("explore-view").appendChild(directions);
+    directions.textContent = `Instructions:
+
+    1. Use the selector to view any of the sixty-four hexagrams.
+
+    2. Alternatively, click on a line to create a different hexagram.
+
+    3. At the top, click "Ask the Oracle" to have your fortune told!`;
 
   canvasEl.addEventListener("mousedown", (e) => {
     e.preventDefault();
@@ -586,9 +600,24 @@ const oracleView = function OracleView (width, height) {
           document.getElementById('oracle-button').textContent="Back to Oracle";
           document.getElementById('explore-button').setAttribute("disabled", "true");
 
+          __WEBPACK_IMPORTED_MODULE_0__helpers_js__["a" /* drawGua */](guas[j],
+                  document.getElementById('explore-canvas')
+                          .getContext('2d'),500);
+          __WEBPACK_IMPORTED_MODULE_0__helpers_js__["f" /* setGuaDetails */](guas[j]);
+
+          const options = document.getElementById("gua-selector").options;
+
+          for (let i=0; i<options.length; i++) {
+            let gua = options[i];
+            let array = __WEBPACK_IMPORTED_MODULE_0__helpers_js__["g" /* toArray */](gua.value);
+
+            if (__WEBPACK_IMPORTED_MODULE_0__helpers_js__["e" /* equals */](guas[j], array) === true) {
+              document.getElementById("gua-selector").selectedIndex = i;
+              break;
+            }
+          }
         }
-        //Open the explore-view, set the selected index to the gua,
-        //
+
       }
     }
 

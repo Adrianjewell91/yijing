@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", function() {
   const canvasEl = document.getElementById("myCanvas");
 
   exploreView(500, 500);
-  oracleView(800,500);
+  oracleView(835,500);
 
   const oracleButton = document.createElement("BUTTON");
     oracleButton.setAttribute("id", "oracle-button");
