@@ -14,6 +14,7 @@ document.addEventListener("DOMContentLoaded", function() {
     e.preventDefault();
     e.currentTarget.textContent = 'Ask the Oracle';
     document.getElementById('explore-view').style.display = 'none';
+    document.getElementById('show-explore-div').style.display = 'none';
     document.getElementById('oracle-view').style.display = 'flex';
     document.getElementById('o-buttons').style.display = 'flex';
     exploreButton.removeAttribute("disabled");
@@ -24,6 +25,7 @@ document.addEventListener("DOMContentLoaded", function() {
     e.preventDefault();
     oracleButton.removeAttribute("disabled");
     exploreButton.setAttribute("disabled", "true");
+    document.getElementById('show-explore-div').style.display = 'flex';
     document.getElementById('explore-view').style.display = 'flex';
     document.getElementById('oracle-view').style.display = 'none';
     document.getElementById('o-buttons').style.display = 'none';

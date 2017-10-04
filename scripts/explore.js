@@ -46,6 +46,11 @@ export const exploreView = function exploreView(width, height) {
   //
   //   3. At the top, click "Ask the Oracle" to have your fortune told!`;
 
+  document.getElementById('show-explore-button').addEventListener('click', (e) =>{
+    // document.getElementById("e-buttons").classList.toggle = "explore-show";
+    
+  }, false );
+
   canvasEl.addEventListener("mousedown", (e) => {
     e.preventDefault();
     const rect = canvasEl.getBoundingClientRect();

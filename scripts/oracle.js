@@ -47,7 +47,7 @@ export const oracleView = function OracleView (width, height) {
                       'fourth line',
                       'fifth line',
                       'sixth line',
-                      'results below'];
+                      'results'];
 
   const guas = [[],[]];
 
@@ -60,12 +60,17 @@ export const oracleView = function OracleView (width, height) {
         i = i+1;
         guas[0].push(lines[0]);
         guas[1].push(lines[1]);
-        generateLine.textContent = `Generate the ${numberArr[i-1]}.`
+        generateLine.textContent = `Generate ${numberArr[i-1]}.`
+        if (lines[0] !== lines[1]) {
+          ctx.font = "20px Arial";
+          ctx.fillText(`changing`, 330, 355-(i*40));
+        }
     } else {
 
-      generateLine.textContent = "See the results below.";
+      generateLine.textContent = "Click on a hexagram to explore it.";
       generateLine.setAttribute("disabled",'true');
 
+      ctx.font = "30px Arial";
       ctx.fillText(`- ${database[`[${guas[0]}]`].character}`, 175, 425);
       ctx.fillText(`- ${database[`[${guas[1]}]`].character}`, 575, 425);
 

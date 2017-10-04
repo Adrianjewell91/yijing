@@ -268,6 +268,7 @@ document.addEventListener("DOMContentLoaded", function() {
     e.preventDefault();
     e.currentTarget.textContent = 'Ask the Oracle';
     document.getElementById('explore-view').style.display = 'none';
+    document.getElementById('show-explore-div').style.display = 'none';
     document.getElementById('oracle-view').style.display = 'flex';
     document.getElementById('o-buttons').style.display = 'flex';
     exploreButton.removeAttribute("disabled");
@@ -278,6 +279,7 @@ document.addEventListener("DOMContentLoaded", function() {
     e.preventDefault();
     oracleButton.removeAttribute("disabled");
     exploreButton.setAttribute("disabled", "true");
+    document.getElementById('show-explore-div').style.display = 'flex';
     document.getElementById('explore-view').style.display = 'flex';
     document.getElementById('oracle-view').style.display = 'none';
     document.getElementById('o-buttons').style.display = 'none';
@@ -344,6 +346,11 @@ const exploreView = function exploreView(width, height) {
   //   2. Alternatively, click on a line to create a different hexagram.
   //
   //   3. At the top, click "Ask the Oracle" to have your fortune told!`;
+
+  document.getElementById('show-explore-button').addEventListener('click', (e) =>{
+    // document.getElementById("e-buttons").classList.toggle = "explore-show";
+    
+  }, false );
 
   canvasEl.addEventListener("mousedown", (e) => {
     e.preventDefault();
@@ -538,7 +545,7 @@ const oracleView = function OracleView (width, height) {
                       'fourth line',
                       'fifth line',
                       'sixth line',
-                      'results below'];
+                      'results'];
 
   const guas = [[],[]];
 
@@ -551,12 +558,17 @@ const oracleView = function OracleView (width, height) {
         i = i+1;
         guas[0].push(lines[0]);
         guas[1].push(lines[1]);
-        generateLine.textContent = `Generate the ${numberArr[i-1]}.`
+        generateLine.textContent = `Generate ${numberArr[i-1]}.`
+        if (lines[0] !== lines[1]) {
+          ctx.font = "20px Arial";
+          ctx.fillText(`changing`, 330, 355-(i*40));
+        }
     } else {
 
-      generateLine.textContent = "See the results below.";
+      generateLine.textContent = "Click on a hexagram to explore it.";
       generateLine.setAttribute("disabled",'true');
 
+      ctx.font = "30px Arial";
       ctx.fillText(`- ${__WEBPACK_IMPORTED_MODULE_1__hexagrams_js__["a" /* database */][`[${guas[0]}]`].character}`, 175, 425);
       ctx.fillText(`- ${__WEBPACK_IMPORTED_MODULE_1__hexagrams_js__["a" /* database */][`[${guas[1]}]`].character}`, 575, 425);
 
