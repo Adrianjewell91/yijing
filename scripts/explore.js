@@ -31,24 +31,13 @@ export const exploreView = function exploreView(width, height) {
     guaDetail.setAttribute("cols","10");
     document.getElementById("e-buttons").appendChild(guaDetail);
 
-  // const directions = document.createElement("TEXTAREA");
-  //   directions.setAttribute("id","directions");
-  //   directions.style.fontSize = "20px";
-  //   directions.setAttribute("disabled","true");
-  //   directions.setAttribute("rows","18");
-  //   directions.setAttribute("cols","30");
-  //   document.getElementById("help-dropdown").appendChild(directions);
-  //   directions.textContent = `Instructions:
-  //
-  //   1. Use the selector to view any of the sixty-four hexagrams.
-  //
-  //   2. Alternatively, click on a line to create a different hexagram.
-  //
-  //   3. At the top, click "Ask the Oracle" to have your fortune told!`;
-
-  document.getElementById('show-explore-button').addEventListener('click', (e) =>{
-    // document.getElementById("e-buttons").classList.toggle = "explore-show";
-    
+  const showExploreButton = document.getElementById('show-explore-button');
+  showExploreButton.addEventListener('click', (e) =>{
+    document.getElementById("e-buttons").style.display = "flex";
+    //show info should turn into hide-info;
+    showExploreButton.textContent =
+      showExploreButton.textContent === "Show Info" ? 'Hide Info' : "Show Info";
+    //info should show in a nice way.
   }, false );
 
   canvasEl.addEventListener("mousedown", (e) => {

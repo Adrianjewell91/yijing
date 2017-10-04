@@ -1,5 +1,5 @@
 import * as Helpers from "./helpers.js";
-import {database} from './hexagrams.js';
+import {database} from "./hexagrams.js";
 
 export const oracleView = function OracleView (width, height) {
   const canvasEl = document.getElementById('oracle-canvas');
@@ -21,25 +21,6 @@ export const oracleView = function OracleView (width, height) {
     questionInput.setAttribute("disabled",'');
     generateLine.removeAttribute("disabled");
   }));
-
-  // const directions = document.createElement("TEXTAREA");
-  //   directions.setAttribute("id","directions");
-  //   directions.style.fontSize = "20px";
-  //   directions.setAttribute("disabled","true");
-  //   directions.setAttribute("rows","18");
-  //   directions.setAttribute("cols","30");
-  //   document.getElementById("help-dropdown").appendChild(directions);
-  //   directions.textContent = `Instructions:
-  //
-  //   1. Think carefully about a question that you have.
-  //
-  //   2. Type the question into the prompt, and click "Ask the question".
-  //
-  //   3. Generate the hexagrams, line by line, with the newly activated button.
-  //
-  //   4. Interpret the hexagrams in the context of your own life.
-  //
-  //   5. Click on either hexagram to view it in the 'explore' tab.`;
 
   let i = 0;
   const numberArr = ["second line",
@@ -69,7 +50,7 @@ export const oracleView = function OracleView (width, height) {
 
       generateLine.textContent = "Click on a hexagram to explore it.";
       generateLine.setAttribute("disabled",'true');
-
+      debugger
       ctx.font = "30px Arial";
       ctx.fillText(`- ${database[`[${guas[0]}]`].character}`, 175, 425);
       ctx.fillText(`- ${database[`[${guas[1]}]`].character}`, 575, 425);
@@ -95,7 +76,9 @@ export const oracleView = function OracleView (width, height) {
         // ctx.stroke();
         if (guas[j].length === 6) {
           document.getElementById('explore-view').style.display= 'flex';
+          document.getElementById('show-explore-button').style.display= 'inline';
           document.getElementById('oracle-view').style.display= 'none';
+          document.getElementById('o-buttons').style.display= 'none';
           document.getElementById('oracle-button').removeAttribute("disabled");
           document.getElementById('oracle-button').textContent="Back to Oracle";
           document.getElementById('explore-button').setAttribute("disabled", "true");
