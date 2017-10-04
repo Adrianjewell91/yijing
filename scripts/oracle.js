@@ -2,13 +2,13 @@ import * as Helpers from "./helpers.js";
 import {database} from './hexagrams.js';
 
 export const oracleView = function OracleView (width, height) {
-  const canvasEl = document.createElement("CANVAS");
+  const canvasEl = document.getElementById('oracle-canvas');
   const ctx = canvasEl.getContext("2d");
 
-  canvasEl.setAttribute('id','oracleCanvas');
-  canvasEl.width = width;
-  canvasEl.height = height;
-  document.getElementById("oracle-view").appendChild(canvasEl);
+  // canvasEl.setAttribute('id','oracle-canvas');
+  // canvasEl.width = width;
+  // canvasEl.height = height;
+  // document.getElementById("oracle-view").appendChild(canvasEl);
   ctx.clearRect(0,0,width,height);
   ctx.font = "30px Arial";
 

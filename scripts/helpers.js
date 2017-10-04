@@ -22,7 +22,6 @@ export const drawOracleGua = function drawOracleGua(gualine, i,ctx,x) {
     }
 };
 
-
 export const drawYin = function drawYin(color, ctx, x, y) {
   ctx.fillStyle = color;
   ctx.fillRect(x,y,100,20);

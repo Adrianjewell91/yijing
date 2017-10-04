@@ -97,7 +97,6 @@ const drawOracleGua = function drawOracleGua(gualine, i,ctx,x) {
 /* harmony export (immutable) */ __webpack_exports__["c"] = drawOracleGua;
 
 
-
 const drawYin = function drawYin(color, ctx, x, y) {
   ctx.fillStyle = color;
   ctx.fillRect(x,y,100,20);
@@ -300,10 +299,10 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
 const exploreView = function exploreView(width, height) {
-  const canvasEl = document.createElement("CANVAS");
-  canvasEl.setAttribute('id','explore-canvas');
-  canvasEl.width = width;
-  canvasEl.height = height;
+  const canvasEl = document.getElementById("explore-canvas");
+  // canvasEl.setAttribute('id','explore-canvas');
+  // canvasEl.width = width;
+  // canvasEl.height = height;
   document.getElementById("explore-view").appendChild(canvasEl);
   const ctx = canvasEl.getContext("2d");
 
@@ -495,13 +494,13 @@ const hexagramCodes = [
 
 
 const oracleView = function OracleView (width, height) {
-  const canvasEl = document.createElement("CANVAS");
+  const canvasEl = document.getElementById('oracle-canvas');
   const ctx = canvasEl.getContext("2d");
 
-  canvasEl.setAttribute('id','oracleCanvas');
-  canvasEl.width = width;
-  canvasEl.height = height;
-  document.getElementById("oracle-view").appendChild(canvasEl);
+  // canvasEl.setAttribute('id','oracle-canvas');
+  // canvasEl.width = width;
+  // canvasEl.height = height;
+  // document.getElementById("oracle-view").appendChild(canvasEl);
   ctx.clearRect(0,0,width,height);
   ctx.font = "30px Arial";
 

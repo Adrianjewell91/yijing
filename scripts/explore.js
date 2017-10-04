@@ -3,10 +3,10 @@ import {hexagramCodes} from "./hex_codes.js";
 
 
 export const exploreView = function exploreView(width, height) {
-  const canvasEl = document.createElement("CANVAS");
-  canvasEl.setAttribute('id','explore-canvas');
-  canvasEl.width = width;
-  canvasEl.height = height;
+  const canvasEl = document.getElementById("explore-canvas");
+  // canvasEl.setAttribute('id','explore-canvas');
+  // canvasEl.width = width;
+  // canvasEl.height = height;
   document.getElementById("explore-view").appendChild(canvasEl);
   const ctx = canvasEl.getContext("2d");
 
