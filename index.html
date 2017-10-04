@@ -10,19 +10,39 @@
   <body>
 
     <div id="header-div">
-      <h1 id="header">I-Ching - The Ancient Oracle.
-      </h1>
+      <div style="display: flex;">
+        <img height="35px" width="35px" src="./bagua-mirror.jpg"/>
+        <h1 id="header">I-Ching - The Ancient Oracle.</h1>
+      </div>
+
       <div>
+        <button type="button" id='help-button'>Instructions</button>
+        <button type="button" id='about-button'>What is the I Ching?</button>
         <button type="button" id='oracle-button'>Ask the Oracle</button>
         <button type="button" id='explore-button' disabled='s'>Explore</button>
-        <button type="button" id='help-button'>What is the I Ching?</button>
+        <div class="help-content" id="help-dropdown">
+          <textarea name="name" rows="80" cols="30">
+   1. Click "Ask the Oracle".
+
+   2. Think carefully about a question.
+
+   3. Type the question into the prompt, and click "Set the question".
+
+   4. Generate the hexagrams, line by line.
+
+   5. Interpret the hexagrams in the context of your own life.
+
+   6. Click on either hexagram to view it in the 'explore' tab.`</textarea>
+        </div>
       </div>
+
     </div>
 
       <div id="o-buttons">
-        <input type="text" id="question-input" value="" placeholder="Pose a question">
-        <button type="button" id='question-button'>Ask the Question</button>
-        <button type="button" id='generate-line' disabled='s'>Generate the first line.</button>
+        <input type="text" id="question-input" value=""
+               placeholder="Type in Your Question.">
+        <button type="button" id='question-button'>Set your Question.</button>
+        <button type="button" id='generate-line' disabled='s'>Generate the lines.</button>
       </div>
 
     <div id="explore-view">

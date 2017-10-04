@@ -18,7 +18,6 @@ document.addEventListener("DOMContentLoaded", function() {
     document.getElementById('o-buttons').style.display = 'flex';
     exploreButton.removeAttribute("disabled");
     oracleButton.setAttribute("disabled", "true");
-
   },false);
 
   exploreButton.addEventListener('click', (e) => {
@@ -28,8 +27,10 @@ document.addEventListener("DOMContentLoaded", function() {
     document.getElementById('explore-view').style.display = 'flex';
     document.getElementById('oracle-view').style.display = 'none';
     document.getElementById('o-buttons').style.display = 'none';
-
-
   },false);
+
+  document.getElementById("help-button").addEventListener("click", (e) => {
+    document.getElementById("help-dropdown").classList.toggle('show');
+  }, false);
 
 });

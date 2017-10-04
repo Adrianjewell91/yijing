@@ -22,24 +22,24 @@ export const oracleView = function OracleView (width, height) {
     generateLine.removeAttribute("disabled");
   }));
 
-  const directions = document.createElement("TEXTAREA");
-    directions.setAttribute("id","directions");
-    directions.style.fontSize = "20px";
-    directions.setAttribute("disabled","true");
-    directions.setAttribute("rows","18");
-    directions.setAttribute("cols","30");
-    document.getElementById("oracle-view").appendChild(directions);
-    directions.textContent = `Instructions:
-
-    1. Think carefully about a question that you have.
-
-    2. Type the question into the prompt, and click "Ask the question".
-
-    3. Generate the hexagrams, line by line, with the newly activated button.
-
-    4. Interpret the hexagrams in the context of your own life.
-
-    5. Click on either hexagram to view it in the 'explore' tab.`;
+  // const directions = document.createElement("TEXTAREA");
+  //   directions.setAttribute("id","directions");
+  //   directions.style.fontSize = "20px";
+  //   directions.setAttribute("disabled","true");
+  //   directions.setAttribute("rows","18");
+  //   directions.setAttribute("cols","30");
+  //   document.getElementById("help-dropdown").appendChild(directions);
+  //   directions.textContent = `Instructions:
+  //
+  //   1. Think carefully about a question that you have.
+  //
+  //   2. Type the question into the prompt, and click "Ask the question".
+  //
+  //   3. Generate the hexagrams, line by line, with the newly activated button.
+  //
+  //   4. Interpret the hexagrams in the context of your own life.
+  //
+  //   5. Click on either hexagram to view it in the 'explore' tab.`;
 
   let i = 0;
   const numberArr = ["second line",

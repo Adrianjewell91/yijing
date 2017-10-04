@@ -13,12 +13,9 @@ html *:focus {
 
 body{
   margin-top: 80px;
-
 }
 
-
 #header-div {
-
   display: flex;
   justify-content: space-between;
   position: fixed;
@@ -30,6 +27,15 @@ body{
 #header-div * {
   margin: 10px;
 }
+
+.help-content {
+  display: none;
+  position: relative;
+  bottom: 10px;
+  right: 10px;
+}
+
+.show { display: block;}
 
 #explore-view {
   display: flex;
@@ -63,18 +69,14 @@ body{
 #o-buttons{
   display: none;
   flex-direction: row;
-  justify-content:flex-end;
+  justify-content:flex-start;
   margin-right: 10px;
   margin-left: 20px;
   font-size: 20px;
 }
 
 #o-buttons * {
-  margin-top: 1px;
-  border-radius: 5px;
-  font-size: 14px;
-  border: 1px solid black;
-
+  width: 200px;
 }
 
 #gua-selector {
@@ -83,11 +85,6 @@ body{
   font-size: 30px;
 }
 
-#generate-line {
-  width: 200px;
-}
-
 footer {
   display: none;
-  margin-top: 10px;
 }

@@ -272,7 +272,6 @@ document.addEventListener("DOMContentLoaded", function() {
     document.getElementById('o-buttons').style.display = 'flex';
     exploreButton.removeAttribute("disabled");
     oracleButton.setAttribute("disabled", "true");
-
   },false);
 
   exploreButton.addEventListener('click', (e) => {
@@ -282,9 +281,11 @@ document.addEventListener("DOMContentLoaded", function() {
     document.getElementById('explore-view').style.display = 'flex';
     document.getElementById('oracle-view').style.display = 'none';
     document.getElementById('o-buttons').style.display = 'none';
-
-
   },false);
+
+  document.getElementById("help-button").addEventListener("click", (e) => {
+    document.getElementById("help-dropdown").classList.toggle('show');
+  }, false);
 
 });
 
@@ -329,20 +330,20 @@ const exploreView = function exploreView(width, height) {
     guaDetail.setAttribute("cols","10");
     document.getElementById("e-buttons").appendChild(guaDetail);
 
-  const directions = document.createElement("TEXTAREA");
-    directions.setAttribute("id","directions");
-    directions.style.fontSize = "20px";
-    directions.setAttribute("disabled","true");
-    directions.setAttribute("rows","18");
-    directions.setAttribute("cols","30");
-    document.getElementById("explore-view").appendChild(directions);
-    directions.textContent = `Instructions:
-
-    1. Use the selector to view any of the sixty-four hexagrams.
-
-    2. Alternatively, click on a line to create a different hexagram.
-
-    3. At the top, click "Ask the Oracle" to have your fortune told!`;
+  // const directions = document.createElement("TEXTAREA");
+  //   directions.setAttribute("id","directions");
+  //   directions.style.fontSize = "20px";
+  //   directions.setAttribute("disabled","true");
+  //   directions.setAttribute("rows","18");
+  //   directions.setAttribute("cols","30");
+  //   document.getElementById("help-dropdown").appendChild(directions);
+  //   directions.textContent = `Instructions:
+  //
+  //   1. Use the selector to view any of the sixty-four hexagrams.
+  //
+  //   2. Alternatively, click on a line to create a different hexagram.
+  //
+  //   3. At the top, click "Ask the Oracle" to have your fortune told!`;
 
   canvasEl.addEventListener("mousedown", (e) => {
     e.preventDefault();
@@ -512,24 +513,24 @@ const oracleView = function OracleView (width, height) {
     generateLine.removeAttribute("disabled");
   }));
 
-  const directions = document.createElement("TEXTAREA");
-    directions.setAttribute("id","directions");
-    directions.style.fontSize = "20px";
-    directions.setAttribute("disabled","true");
-    directions.setAttribute("rows","18");
-    directions.setAttribute("cols","30");
-    document.getElementById("oracle-view").appendChild(directions);
-    directions.textContent = `Instructions:
-
-    1. Think carefully about a question that you have.
-
-    2. Type the question into the prompt, and click "Ask the question".
-
-    3. Generate the hexagrams, line by line, with the newly activated button.
-
-    4. Interpret the hexagrams in the context of your own life.
-
-    5. Click on either hexagram to view it in the 'explore' tab.`;
+  // const directions = document.createElement("TEXTAREA");
+  //   directions.setAttribute("id","directions");
+  //   directions.style.fontSize = "20px";
+  //   directions.setAttribute("disabled","true");
+  //   directions.setAttribute("rows","18");
+  //   directions.setAttribute("cols","30");
+  //   document.getElementById("help-dropdown").appendChild(directions);
+  //   directions.textContent = `Instructions:
+  //
+  //   1. Think carefully about a question that you have.
+  //
+  //   2. Type the question into the prompt, and click "Ask the question".
+  //
+  //   3. Generate the hexagrams, line by line, with the newly activated button.
+  //
+  //   4. Interpret the hexagrams in the context of your own life.
+  //
+  //   5. Click on either hexagram to view it in the 'explore' tab.`;
 
   let i = 0;
   const numberArr = ["second line",
