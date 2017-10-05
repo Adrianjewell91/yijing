@@ -12,6 +12,14 @@ document.addEventListener("DOMContentLoaded", function() {
 
   oracleButton.addEventListener('click', (e) => {
     e.preventDefault();
+    if (oracleButton.textContent === "Ask the Oracle") {
+      document.getElementById("header-instruction")
+      .textContent = "I Ching: Think of a Question, Input It, and 'Set Question.'"
+    } else {
+      document.getElementById("header-instruction")
+      .textContent = "I Ching: What are these? Read about them to your right."
+    }
+
     e.currentTarget.textContent = 'Ask the Oracle';
     document.getElementById('explore-view').style.display = 'none';
     document.getElementById('show-explore-button').style.display= 'none';
@@ -19,6 +27,7 @@ document.addEventListener("DOMContentLoaded", function() {
     document.getElementById('o-buttons').style.display = 'flex';
     exploreButton.removeAttribute("disabled");
     oracleButton.setAttribute("disabled", "true");
+
   },false);
 
   exploreButton.addEventListener('click', (e) => {

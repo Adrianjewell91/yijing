@@ -20,14 +20,16 @@ export const oracleView = function OracleView (width, height) {
     questionButton.setAttribute("disabled",'');
     questionInput.setAttribute("disabled",'');
     generateLine.removeAttribute("disabled");
+    document.getElementById("header-instruction")
+            .textContent = "I Ching: Click 'Generate' six more times."
   }));
 
   let i = 0;
-  const numberArr = ["second line",
-                      'third line',
-                      'fourth line',
-                      'fifth line',
-                      'sixth line',
+  const numberArr = ["five more times",
+                      'four more times',
+                      'three more times',
+                      'two more times',
+                      'one more time',
                       'results'];
 
   const guas = [[],[]];
@@ -41,13 +43,21 @@ export const oracleView = function OracleView (width, height) {
         i = i+1;
         guas[0].push(lines[0]);
         guas[1].push(lines[1]);
-        generateLine.textContent = `Generate ${numberArr[i-1]}.`
+        generateLine.textContent = `Generate.`
         if (lines[0] !== lines[1]) {
           ctx.font = "20px Arial";
           ctx.fillText(`changing`, 330, 355-(i*40));
         }
+        if (i===6){
+          document.getElementById("header-instruction")
+                  .textContent = "I Ching: Click again to generate the results.";
+        } else {
+          document.getElementById("header-instruction")
+          .textContent = `I Ching: Click 'Generate' ${numberArr[i-1]}.`
+        }
     } else {
-
+      document.getElementById("header-instruction")
+              .textContent = "I Ching: Click on a hexagram to explore it.";
       generateLine.textContent = "Click on a hexagram to explore it.";
       generateLine.setAttribute("disabled",'true');
       debugger
@@ -75,8 +85,11 @@ export const oracleView = function OracleView (width, height) {
         // ctx.rect(xVals[j][0], 100, 250, 220);
         // ctx.stroke();
         if (guas[j].length === 6) {
-          document.getElementById('explore-view').style.display= 'flex';
+          document.getElementById("e-buttons").style.display = "flex";
+          document.getElementById('show-explore-button').textContent = 'Hide Info';
           document.getElementById('show-explore-button').style.display= 'inline';
+
+          document.getElementById('explore-view').style.display= 'flex';
           document.getElementById('oracle-view').style.display= 'none';
           document.getElementById('o-buttons').style.display= 'none';
           document.getElementById('oracle-button').removeAttribute("disabled");

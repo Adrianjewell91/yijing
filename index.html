@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>I Ching</title>
+    <title>I Ching- Interactive E-Text and Oracle.</title>
     <link rel="stylesheet" href="./styles/styles.css">
     <script type="application/javascript" src="./scripts/bundle.js"></script>
   </head>
@@ -10,32 +10,39 @@
   <body>
 
     <div id="header-div">
-      <div style="display: flex;">
+      <div style="display: flex;" class="instructions-header">
         <img height="35px" width="35px" src="./bagua-mirror.jpg"/>
-        <h1 id="header">I-Ching - The Ancient Oracle.</h1>
+        <h2 id="header-instruction">I-Ching: Click the Lines, then "Ask the Oracle."</h2>
       </div>
 
       <div>
         <button type="button" id="show-explore-button">Show Info</button>
-        <button type="button" id='help-button'>Instructions</button>
+        <button type="button" id="reset-oracle-button">Reset Oracle</button>
+        <button type="button" id='help-button'></button>
         <button type="button" id='oracle-button'>Ask the Oracle</button>
         <button type="button" id='explore-button' disabled='s'>Explore</button>
         <div class="help-content" id="help-dropdown">
           <textarea name="name" rows="80" cols="30">
-   1. Click "Ask the Oracle".
+The I-Ching(易经) is a 2500 year-old divination text. It has stood the test of time for its insight and popularity.
 
-   2. Think carefully about a question.
+How To Use:
 
-   3. Type the question into the prompt, and click "Set the question".
+1. Click "Ask the Oracle".
 
-   4. Generate the hexagrams, line by line.
+2. Think carefully about a question.
 
-   5. Interpret the hexagrams in the context of your own life.
+3. Type the question into the prompt, and click "Set Question".
 
-   6. Click on either hexagram to view it in the 'explore' tab.`</textarea>
+4. Generate the hexagrams, line by line.
+
+5. The hexagrams tell you the present and the future. Interpret the hexagrams in the context of your own life,
+so that you can act in harmony with the Dao (道).
+
+6. Click on a hexagram to view it in the 'Explore' tab.`</textarea>
         </div>
       </div>
     </div>
+
 
     <div id="o-buttons">
       <input type="text" id="question-input" value=""
