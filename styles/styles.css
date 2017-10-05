@@ -37,9 +37,8 @@ body{
 
 .instructions-header {
   margin: 0.5%;
-  max-width: 700px;
+  max-width: 800px;
 }
-
 
 .help-content {
   display: none;
@@ -48,7 +47,6 @@ body{
 .show {
   display: block;
   position: absolute;
-
   right: 19px;
 }
 
@@ -56,6 +54,10 @@ body{
   display: flex;
   justify-content: center;
   min-width: 900px;
+}
+
+#show-explore-button {
+  display: none;
 }
 
 #oracle-view {
@@ -95,15 +97,16 @@ body{
 }
 
 #question-button, #generate-line {
-  text-align: left;
+  text-align: center;
   border: 1px solid gray;
   width: 10%;
   margin-left: 1%;
+  min-width: 35px;
 }
 
-/*#o-buttons * {
-  width: 200px;
-}*/
+#o-buttons * {
+  border-radius: 10px;
+}
 
 #reset-oracle-button {
   display: none;
@@ -124,6 +127,7 @@ body{
 }
 
 footer {
+  display: none;
   position: fixed;
   bottom: 10px;
   left: 1%;
