@@ -43,10 +43,10 @@ export const oracleView = function OracleView (width, height) {
         i = i+1;
         guas[0].push(lines[0]);
         guas[1].push(lines[1]);
-        generateLine.textContent = `Generate.`
+        generateLine.textContent = `Generate.`;
         if (lines[0] !== lines[1]) {
-          ctx.font = "20px Arial";
-          ctx.fillText(`changing`, 330, 355-(i*40));
+          ctx.font = "15px Arial";
+          ctx.fillText(`Is changing into:`, 320, 355-(i*40));
         }
         if (i===6){
           document.getElementById("header-instruction")
@@ -57,11 +57,11 @@ export const oracleView = function OracleView (width, height) {
         }
     } else {
       document.getElementById("header-instruction")
-              .textContent = "I Ching: What are these? Read the info to the right, then click a hexagram and explore.";
+              .textContent = "I Ching: Read the info to the right, then click a hexagram and explore.";
       generateLine.textContent = "Generated!";
       document.getElementById("help-dropdown").classList.toggle("show");
       generateLine.setAttribute("disabled",'true');
-      debugger
+
       ctx.font = "30px Arial";
       ctx.fillText(`- ${database[`[${guas[0]}]`].character}`, 175, 425);
       ctx.fillText(`- ${database[`[${guas[1]}]`].character}`, 575, 425);
@@ -69,6 +69,9 @@ export const oracleView = function OracleView (width, height) {
       ctx.font = "20px Arial";
       ctx.fillText(`${database[`[${guas[0]}]`].title}`, 50, 375);
       ctx.fillText(`${database[`[${guas[1]}]`].title}`, 450, 375);
+
+      ctx.font = "30px Arial";
+
     }
   });
 
@@ -82,9 +85,6 @@ export const oracleView = function OracleView (width, height) {
 
     for(let j=0; j<2; j++) {
       if ((xVal > xVals[j][0] && xVal< xVals[j][1]) && (yVal < 320 && yVal > 100)) {
-        // ctx.strokeStyle='blue';
-        // ctx.rect(xVals[j][0], 100, 250, 220);
-        // ctx.stroke();
         if (guas[j].length === 6) {
           document.getElementById("e-buttons").style.display = "flex";
           document.getElementById('show-explore-button').textContent = 'Hide Info';
@@ -117,8 +117,26 @@ export const oracleView = function OracleView (width, height) {
 
       }
     }
-
   }, false);
+
+  // canvasEl.addEventListener("mousemove", (e) => {
+  //   e.preventDefault();
+  //   const rect = canvasEl.getBoundingClientRect();
+  //   const xVal = e.clientX-rect.left;
+  //   const yVal = e.clientY-rect.top;
+  //   console.log(xVal);
+  //   if ((xVal < 300) && (xVal > 50)) {
+  //     ctx.strokeStyle='blue';
+  //     ctx.rect(50, 100, 250, 220);
+  //     ctx.stroke();
+  //   } else {
+  //     ctx.strokeStyle='white';
+  //     ctx.rect(50, 100, 250, 220);
+  //     ctx.rect(450, 100, 250, 220);
+  //     ctx.stroke();
+  //   }
+  // }, false);
+
 }
 
 

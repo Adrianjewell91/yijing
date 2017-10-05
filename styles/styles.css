@@ -12,13 +12,20 @@ html *:focus {
 }
 
 body{
+  background: radial-gradient(purple, white);
   margin-top: 80px;
+}
+
+img {
+  margin-right: 10px;
 }
 
 #header-div {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   position: fixed;
+
   top: 0;
   left: 0;
   height: 75px;
@@ -27,18 +34,20 @@ body{
 }
 
 #header-div button {
-  margin: 10px;
   font-size: 20px;
 }
 
 #header-div button:hover {
-  font-weight: bold;
+  background-color: purple;
 }
 
 .instructions-header {
-  margin: 0.5%;
+  display: flex;
+  align-items: center;
+  margin: 1%;
   max-width: 800px;
 }
+
 
 .help-content {
   display: none;
@@ -47,6 +56,7 @@ body{
 .show {
   display: block;
   position: absolute;
+  top: 82px;
   right: 19px;
 }
 
@@ -97,8 +107,9 @@ body{
 }
 
 #question-button, #generate-line {
+  color: black;
   text-align: center;
-  border: 1px solid gray;
+  border: 1px solid black;
   width: 10%;
   margin-left: 1%;
   min-width: 35px;
@@ -108,8 +119,14 @@ body{
   border-radius: 10px;
 }
 
-#reset-oracle-button {
+#reset-oracle-button, #help-button, #explore-button {
   display: none;
+}
+
+#oracle-button {
+  margin-right: 5%;
+  border: 1px solid black;
+  border-radius: 5px;
 }
 
 #gua-selector {
