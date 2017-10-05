@@ -516,6 +516,7 @@ const oracleView = function OracleView (width, height) {
     e.preventDefault();
     questionButton.textContent = "Generate."
     questionInput.setAttribute("disabled",'');
+    questionInput.classList.add("disabled-input");
     document.getElementById("header-instruction")
             .textContent = "I Ching: Click 'Generate' six more times."
   }));
@@ -553,7 +554,7 @@ const oracleView = function OracleView (width, height) {
         }
     } else {
       document.getElementById("header-instruction")
-              .textContent = "I Ching: Read the info to the right, then click a hexagram and explore.";
+              .textContent = "I Ching: Click on a hexagram!";
       questionButton.textContent = "Generated!";
       document.getElementById("help-dropdown").classList.toggle("show");
       questionButton.setAttribute("disabled",'true');
@@ -565,9 +566,6 @@ const oracleView = function OracleView (width, height) {
       ctx.font = "20px Arial";
       ctx.fillText(`${__WEBPACK_IMPORTED_MODULE_1__hexagrams_js__["a" /* database */][`[${guas[0]}]`].title}`, 50, 375);
       ctx.fillText(`${__WEBPACK_IMPORTED_MODULE_1__hexagrams_js__["a" /* database */][`[${guas[1]}]`].title}`, 450, 375);
-
-      ctx.font = "30px Arial";
-
     }
   });
 

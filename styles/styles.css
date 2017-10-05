@@ -104,7 +104,13 @@ img {
   border: 2px solid black;
   height: 30px;
   width: 50%;
-  text-indent: 2%
+  text-indent: 2%;
+  font-size: 19px;
+}
+
+.disabled-input {
+  color: white;
+  background: purple;
 }
 
 #question-button {
