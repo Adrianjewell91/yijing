@@ -14,10 +14,10 @@ document.addEventListener("DOMContentLoaded", function() {
     e.preventDefault();
     if (oracleButton.textContent === "Ask the Oracle") {
       document.getElementById("header-instruction")
-      .textContent = "I Ching: Input your question, and click 'Set.'"
+      .textContent = "Instructions: Input your question below.'"
     } else {
       document.getElementById("header-instruction")
-              .textContent = "I Ching: Click on a Hexagram!"
+              .textContent = "Instructions: Click on a Hexagram!"
     }
 
     e.currentTarget.textContent = 'Ask the Oracle';

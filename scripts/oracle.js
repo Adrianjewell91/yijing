@@ -8,8 +8,8 @@ export const oracleView = function OracleView (width, height) {
   ctx.clearRect(0,0,width,height);
   ctx.font = "30px Arial";
 
-  ctx.fillText('The Present', 50, 50);
-  ctx.fillText('The Future', 450, 50);
+  ctx.fillText('The Present', 87, 50);
+  ctx.fillText('The Future', 493, 50);
 
   const questionButton = document.getElementById('question-button');
   const questionInput = document.getElementById('question-input');
@@ -21,7 +21,7 @@ export const oracleView = function OracleView (width, height) {
     questionInput.setAttribute("disabled",'');
     questionInput.classList.add("disabled-input");
     document.getElementById("header-instruction")
-            .textContent = "I Ching: Click 'Generate' six more times."
+            .textContent = "Instructions: Click 'Generate' six more times."
   }));
 
   let i = 0;
@@ -43,21 +43,21 @@ export const oracleView = function OracleView (width, height) {
         i = i+1;
         guas[0].push(lines[0]);
         guas[1].push(lines[1]);
-        questionButton.textContent = `Generate.`;
+        questionButton.textContent = `Click Again!`;
         if (lines[0] !== lines[1]) {
           ctx.font = "15px Arial";
           ctx.fillText(`Is changing into:`, 320, 355-(i*40));
         }
         if (i===6){
           document.getElementById("header-instruction")
-                  .textContent = "I Ching: Click again to generate the results.";
+                  .textContent = "Instructions: Click again to generate the results.";
         } else {
           document.getElementById("header-instruction")
-          .textContent = `I Ching: Click 'Generate' ${numberArr[i-1]}.`
+          .textContent = `Instructions: Click 'Generate' ${numberArr[i-1]}.`
         }
     } else {
       document.getElementById("header-instruction")
-              .textContent = "I Ching: Click on a hexagram!";
+              .textContent = "Instructions: Interpret your Hexagrams by clicking on them!";
       questionButton.textContent = "Generated!";
       questionButton.classList.add("disabled-input");
       document.getElementById("help-dropdown").classList.toggle("show");
@@ -96,7 +96,7 @@ export const oracleView = function OracleView (width, height) {
           document.getElementById('explore-button').setAttribute("disabled", "true");
 
           document.getElementById("header-instruction")
-                  .textContent = "I Ching: Click on the lines!"
+                  .textContent = "Instructions: Read the Info, or click on the lines!"
 
           Helpers.drawGua(guas[j],
                   document.getElementById('explore-canvas')
