@@ -270,8 +270,8 @@ document.addEventListener("DOMContentLoaded", function() {
       document.getElementById("header-instruction")
       .textContent = "I Ching: Input your question, and click 'Set.'"
     } else {
-      // document.getElementById("header-instruction")
-      // .textContent = "I Ching: What are these? Read about them to your right."
+      document.getElementById("header-instruction")
+              .textContent = "I Ching: Click on a Hexagram!"
     }
 
     e.currentTarget.textContent = 'Ask the Oracle';
@@ -556,6 +556,7 @@ const oracleView = function OracleView (width, height) {
       document.getElementById("header-instruction")
               .textContent = "I Ching: Click on a hexagram!";
       questionButton.textContent = "Generated!";
+      questionButton.classList.add("disabled-input");
       document.getElementById("help-dropdown").classList.toggle("show");
       questionButton.setAttribute("disabled",'true');
 
@@ -590,6 +591,9 @@ const oracleView = function OracleView (width, height) {
           document.getElementById('oracle-button').removeAttribute("disabled");
           document.getElementById('oracle-button').textContent="Back to Oracle";
           document.getElementById('explore-button').setAttribute("disabled", "true");
+
+          document.getElementById("header-instruction")
+                  .textContent = "I Ching: Click on the lines!"
 
           __WEBPACK_IMPORTED_MODULE_0__helpers_js__["a" /* drawGua */](guas[j],
                   document.getElementById('explore-canvas')

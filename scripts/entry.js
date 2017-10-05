@@ -16,8 +16,8 @@ document.addEventListener("DOMContentLoaded", function() {
       document.getElementById("header-instruction")
       .textContent = "I Ching: Input your question, and click 'Set.'"
     } else {
-      // document.getElementById("header-instruction")
-      // .textContent = "I Ching: What are these? Read about them to your right."
+      document.getElementById("header-instruction")
+              .textContent = "I Ching: Click on a Hexagram!"
     }
 
     e.currentTarget.textContent = 'Ask the Oracle';
