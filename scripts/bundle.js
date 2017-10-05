@@ -278,7 +278,7 @@ document.addEventListener("DOMContentLoaded", function() {
       .textContent = "Instructions: Input your question below.'"
     } else {
       document.getElementById("header-instruction")
-              .textContent = "Instructions: Click on a Hexagram!"
+              .textContent = "Instructions: Click on the Hexagrams!"
     }
 
     e.currentTarget.textContent = 'Ask the Oracle';
