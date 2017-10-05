@@ -12,7 +12,7 @@
     <div id="header-div">
       <div style="display: flex;" class="instructions-header">
         <img height="35px" width="35px" src="./bagua-mirror.jpg"/>
-        <h2 id="header-instruction">I-Ching: Click the Lines, then "Ask the Oracle."</h2>
+        <h2 id="header-instruction">I-Ching: Click the lines to experiment, then "Ask the Oracle."</h2>
       </div>
 
       <div>
@@ -20,25 +20,26 @@
         <button type="button" id="reset-oracle-button">Reset Oracle</button>
         <button type="button" id='help-button'></button>
         <button type="button" id='oracle-button'>Ask the Oracle</button>
-        <button type="button" id='explore-button' disabled='s'>Explore</button>
+        <button type="button" id='explore-button' disabled='s'></button>
         <div class="help-content" id="help-dropdown">
           <textarea name="name" rows="80" cols="30">
 The I-Ching(易经) is a 2500 year-old divination text. It has stood the test of time for its insight and popularity.
 
-How To Use:
+What you just did:
 
-1. Click "Ask the Oracle".
+1. You thought of a question, and asked it.
 
-2. Think carefully about a question.
+2. You generated two hexagrams, line by line. Each hexagram has six lines. Each line is either static, or changing.
 
-3. Type the question into the prompt, and click "Set Question".
+3. The hexagrams tell you the present and the future, in the context of your question.
 
-4. Generate the hexagrams, line by line.
+4. The I-Ching is based on the idea that although humans have free will, there are still forces at work that are beyond one's control.
 
-5. The hexagrams tell you the present and the future. Interpret the hexagrams in the context of your own life,
-so that you can act in harmony with the Dao (道).
+4.5 These forces are called the Dao (道). This pair of hexagrams reveals the way of the Dao(道).
 
-6. Click on a hexagram to view it in the 'Explore' tab.`</textarea>
+5. Interpret the hexagrams in the context of your question, so that you can act in harmony with the Dao (道).
+
+6. To learn more about a hexagram, click on it to view it in the 'Explore' tab. Then, click on a line to create a different Hexagram. There are 64 in total.`</textarea>
         </div>
       </div>
     </div>
@@ -48,7 +49,7 @@ so that you can act in harmony with the Dao (道).
       <input type="text" id="question-input" value=""
              placeholder="Type in Your Question.">
       <button type="button" id='question-button'>Set Question.</button>
-      <button type="button" id='generate-line' disabled='s'>Generate lines.</button>
+      <button type="button" id='generate-line' disabled='s'>Generate.</button>
     </div>
 
     <div id="show-explore-div">

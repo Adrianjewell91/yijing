@@ -57,8 +57,9 @@ export const oracleView = function OracleView (width, height) {
         }
     } else {
       document.getElementById("header-instruction")
-              .textContent = "I Ching: Click on a hexagram to explore it.";
+              .textContent = "I Ching: What are these? Read the info to the right, then click a hexagram and explore.";
       generateLine.textContent = "Click on a hexagram to explore it.";
+      document.getElementById("help-dropdown").classList.toggle("show");
       generateLine.setAttribute("disabled",'true');
       debugger
       ctx.font = "30px Arial";
