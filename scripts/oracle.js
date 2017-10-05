@@ -8,12 +8,11 @@ export const oracleView = function OracleView (width, height) {
   ctx.clearRect(0,0,width,height);
   ctx.font = "30px Arial";
 
-  ctx.fillText('The Present', 87, 50);
-  ctx.fillText('The Future', 493, 50);
+  ctx.fillText('This is the Present.', 50, 50);
+  ctx.fillText('This is the Future.', 450, 50);
 
   const questionButton = document.getElementById('question-button');
   const questionInput = document.getElementById('question-input');
-
 
   questionButton.addEventListener('click', (e => {
     e.preventDefault();
@@ -125,7 +124,7 @@ export const oracleView = function OracleView (width, height) {
   //   const rect = canvasEl.getBoundingClientRect();
   //   const xVal = e.clientX-rect.left;
   //   const yVal = e.clientY-rect.top;
-  //   console.log(xVal);
+  //   console.log((xVal < 300) && (xVal > 50));
   //   if ((xVal < 300) && (xVal > 50)) {
   //     ctx.strokeStyle='blue';
   //     ctx.rect(50, 100, 250, 220);
@@ -133,7 +132,7 @@ export const oracleView = function OracleView (width, height) {
   //   } else {
   //     ctx.strokeStyle='white';
   //     ctx.rect(50, 100, 250, 220);
-  //     ctx.rect(450, 100, 250, 220);
+  //     // ctx.rect(450, 100, 250, 220);
   //     ctx.stroke();
   //   }
   // }, false);
