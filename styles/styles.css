@@ -107,13 +107,19 @@ img {
   text-indent: 2%
 }
 
-#question-button, #generate-line {
+#question-button {
   color: black;
   text-align: center;
   border: 1px solid black;
   width: 10%;
   margin-left: 1%;
   min-width: 35px;
+  font-size: 19px;
+}
+
+#question-button:hover {
+  color: white;
+  background: purple;
 }
 
 #o-buttons * {
@@ -130,6 +136,11 @@ img {
   border-radius: 5px;
 }
 
+#show-explore-button {
+  border: 1px solid black;
+  border-radius: 5px;
+}
+
 #gua-selector {
   /*display: none;*/
   height: 9%;
@@ -142,6 +153,7 @@ img {
   border: none;
   resize: none;
   font-size: 20px;
+  color: black;
 }
 
 footer {

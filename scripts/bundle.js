@@ -268,7 +268,7 @@ document.addEventListener("DOMContentLoaded", function() {
     e.preventDefault();
     if (oracleButton.textContent === "Ask the Oracle") {
       document.getElementById("header-instruction")
-      .textContent = "I Ching: Think of a Question, Input It, and 'Set Question.'"
+      .textContent = "I Ching: Input your question, and click 'Set.'"
     } else {
       // document.getElementById("header-instruction")
       // .textContent = "I Ching: What are these? Read about them to your right."
