@@ -510,13 +510,12 @@ const oracleView = function OracleView (width, height) {
 
   const questionButton = document.getElementById('question-button');
   const questionInput = document.getElementById('question-input');
-  const generateLine = document.getElementById('generate-line');
+
 
   questionButton.addEventListener('click', (e => {
     e.preventDefault();
-    questionButton.setAttribute("disabled",'');
+    questionButton.textContent = "Generate."
     questionInput.setAttribute("disabled",'');
-    generateLine.removeAttribute("disabled");
     document.getElementById("header-instruction")
             .textContent = "I Ching: Click 'Generate' six more times."
   }));
@@ -531,7 +530,7 @@ const oracleView = function OracleView (width, height) {
 
   const guas = [[],[]];
 
-  generateLine.addEventListener("click", (e) => {
+  questionButton.addEventListener("click", (e) => {
     e.preventDefault();
     if (i<6) {
         const lines = __WEBPACK_IMPORTED_MODULE_0__helpers_js__["g" /* yarrowGenerator */]();
@@ -540,7 +539,7 @@ const oracleView = function OracleView (width, height) {
         i = i+1;
         guas[0].push(lines[0]);
         guas[1].push(lines[1]);
-        generateLine.textContent = `Generate.`;
+        questionButton.textContent = `Generate.`;
         if (lines[0] !== lines[1]) {
           ctx.font = "15px Arial";
           ctx.fillText(`Is changing into:`, 320, 355-(i*40));
@@ -555,9 +554,9 @@ const oracleView = function OracleView (width, height) {
     } else {
       document.getElementById("header-instruction")
               .textContent = "I Ching: Read the info to the right, then click a hexagram and explore.";
-      generateLine.textContent = "Generated!";
+      questionButton.textContent = "Generated!";
       document.getElementById("help-dropdown").classList.toggle("show");
-      generateLine.setAttribute("disabled",'true');
+      questionButton.setAttribute("disabled",'true');
 
       ctx.font = "30px Arial";
       ctx.fillText(`- ${__WEBPACK_IMPORTED_MODULE_1__hexagrams_js__["a" /* database */][`[${guas[0]}]`].character}`, 175, 425);
