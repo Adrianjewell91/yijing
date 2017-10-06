@@ -379,10 +379,8 @@ const exploreView = function exploreView(width, height) {
       }
 
       const options = guaSelector.options;
-
       for (let i=0; i<options.length; i++) {
         let gua = options[i];
-        let array = __WEBPACK_IMPORTED_MODULE_0__helpers_js__["g" /* toArray */](gua.value);
 
         if (__WEBPACK_IMPORTED_MODULE_0__helpers_js__["e" /* equals */](guaValue, __WEBPACK_IMPORTED_MODULE_0__helpers_js__["g" /* toArray */](gua.value)) === true) {
           guaSelector.selectedIndex = i;

@@ -1,4 +1,4 @@
-# I Ching (易经) - Comprehensive E-Text and Fortune Teller:
+# I Ching (易经) - Comprehensive E-Text and Authentic Oracle:
 
 ## Background and Overview
 While working as a teacher in China, I discovered the I Ching, roughly translated as 'The Book of Changes.' As one of the oldest texts in the world, the I Ching (易经) has a long history as a divination text. Its contents have also been used recreationally, for instance, by the composer John Cage, as an aid in musical composition.  
@@ -54,18 +54,18 @@ Users build hexagrams line by line. The algorithm for generating the lines is de
 The traditional coin-toss method is one way of generate lines. Code for generating a single line is pasted below:
 
 ```JavaScript
-        // Traditional Coin Toss Method
-        let lineValue = 0;
-        let flipValue = 0;
-        for (let i=0;i<3;i++) {
-          flipValue = Math.round(Math.random());
-          lineValue += flipValue === 0 ? 2 : 3;
-        }
-        // [present, future]
-        if (lineValue === 6) {return [1,0];}
-        else if (lineValue === 7) {return [1,1];}
-        else if (lineValue === 8) {return [0,0];}
-        else if (lineValue === 9) {return [0,1];}
+// Traditional Coin Toss Method
+let lineValue = 0;
+let flipValue = 0;
+for (let i=0;i<3;i++) {
+  flipValue = Math.round(Math.random());
+  lineValue += flipValue === 0 ? 2 : 3;
+}
+// [present, future]
+if (lineValue === 6) {return [1,0];}
+else if (lineValue === 7) {return [1,1];}
+else if (lineValue === 8) {return [0,0];}
+else if (lineValue === 9) {return [0,1];}
 ```
 
 ### <a name="interpret"></a>Mouse-Over and Click into Interactive E-Text.
@@ -75,7 +75,7 @@ Users can click the generated hexagram and explore them futher in the Interactiv
 <img height="400px" width="850px" src="https://github.com/Adrianjewell91/yijing/blob/master/docs/RESULTS.png"/>
 
 
-### <a name="explore"></a>Comprehensive Encyclopedia of the 64 Hexagrams].
+### <a name="explore"></a>Comprehensive Encyclopedia of the 64 Hexagrams.
 
 Translations are adapted from the "Sacred Books of the East, Volume 16, The I Ching" by James Legge, 1899 (Source: Internet Sacred Text Archive).
 
@@ -98,7 +98,7 @@ Then, use nested `if` and `for` loops for evaluating possible mouse positions, a
 
 After successfully generating the Hexagrams, users have access to a brief instructional note about the I-Ching, reproduced here.
 
-"WHAT JUST HAPPENED:
+WHAT JUST HAPPENED:
 
 The I-Ching(易经) is a 2500 year-old divination text. Its insight and value have stood the test of time.
 
@@ -117,3 +117,45 @@ The I-Ching(易经) is a 2500 year-old divination text. Its insight and value ha
 7. To learn about a hexagram, CLICK ON IT. Then, click on a line to learn about a different Hexagram. There are 64 in total."
 
 # Discussion of Challenges
+
+### Canvas Rendering
+
+Precision mouse tracking makes the hexagrams interactive. When a user clicks a line, the canvas knows the location of the mouse.
+
+The program can then revise the hexagram parameters accordingly by setting the `select` index equal to the index of the new hexagram (n.b. 'gua' is romanized Chinese for 'hexagram'):
+
+```JavaScript
+const options = guaSelector.options;
+for (let i=0; i<options.length; i++) {
+  let gua = options[i];
+
+  if (Helpers.equals(guaValue, Helpers.toArray(gua.value)) === true) {
+    guaSelector.selectedIndex = i;
+    break;
+  }
+}
+```
+
+
+### Hexagram Building
+
+Hexagrams are built with helper methods, excerpt below:
+
+```JavaScript
+ctx.clearRect(0,0,width,500);
+gua.forEach((el,i) => {
+  if (el === 1) {
+    drawYang("black", ctx, (width/4),300-(i*40));
+  } else {
+    drawYin("black", ctx, (width/4),300-(i*40));
+  }
+});
+```
+
+
+
+## Future Implementation
+
+0. Mobile Responsiveness
+1. Coin Flip Visualization.
+2. Comprehensive Instructions.

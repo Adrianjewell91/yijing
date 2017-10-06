@@ -57,10 +57,8 @@ export const exploreView = function exploreView(width, height) {
       }
 
       const options = guaSelector.options;
-
       for (let i=0; i<options.length; i++) {
         let gua = options[i];
-        let array = Helpers.toArray(gua.value);
 
         if (Helpers.equals(guaValue, Helpers.toArray(gua.value)) === true) {
           guaSelector.selectedIndex = i;
