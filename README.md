@@ -25,7 +25,7 @@ When Consulting the Oracle:
 4. [Authentic Hexagram Line Generation](#generate)
 5. [Mouse-Over Click into Interactive E-Text](#interpret).
 
-In The Interactive E-Text Viewer:
+In the Interactive E-Text Viewer:
 1. [Comprehensive Encyclopedia of the 64 Hexagrams](#explore).
 2. [Precision Mouse Sensitivity for Interactive Hexagram](#change-line).
 3. [Historical Background and Information](#history).
@@ -105,21 +105,20 @@ After successfully generating the Hexagrams, users have access to a brief instru
 
 WHAT JUST HAPPENED:
 
-The I-Ching(易经) is a 2500 year-old divination text. Its insight and value have stood the test of time.
+1. You generated two hexagrams using an authentic coin-flip method.
 
-1. You thought of a question.
+2. The hexagrams tell you the present and the future in the context of your question.
 
-2. You generated two hexagrams, with an authentic coin-flip method. Each hexagram has six lines, and each line is either static, or changing.
+2.5 Your hexagrams may be identical. Thats okay!
 
-3. The hexagrams tell you the present and the future, in the context of your question.
+3. The I-Ching is based on the idea that although humans have free will, there are still forces beyond one's control.
 
-4. The I-Ching is based on the idea that although humans have free will, there are still forces beyond one's control.
+4 These forces are called the Dao (道). The hexagrams reveal the way of the Dao(道).
 
-5 These forces are called the Dao (道). The hexagrams reveal the way of the Dao(道).
+5. Interpret the hexagrams in the context of your question, so that you can act in harmony with the Dao (道).
 
-6. Interpret the hexagrams in the context of your question, so that you can act in harmony with the Dao (道).
+6. To learn about a hexagram, CLICK ON IT
 
-7. To learn about a hexagram, CLICK ON IT. Then, click on a line to learn about a different Hexagram. There are 64 in total."
 
 # Discussion of Challenges
 
