@@ -87,3 +87,12 @@ export const yarrowGenerator = function yarrowGenerator() {
 
   return [present,future];
 }
+
+export const drawOverheadCircle = function drawOverheadCircle(color, ctx, x) {
+  ctx.beginPath();
+  ctx.arc(x, 75, 10, 0, 2*Math.PI);
+  ctx.strokeStyle = color;
+  ctx.fillStyle = color;
+  ctx.fill();
+  ctx.stroke();
+}

@@ -75,39 +75,21 @@ export const oracleView = function OracleView (width, height) {
         const rect = canvasEl.getBoundingClientRect();
         const xVal = e.clientX-rect.left;
         const yVal = e.clientY-rect.top;
-        if ((xVal < 300) && (xVal > 50)) {
+        if ((xVal < 300) && (xVal > 50) && (yVal < 320 && yVal > 100)) {
           console.log("first");
-          ctx.beginPath();
-          ctx.arc(175, 75, 10, 0, 2*Math.PI);
-          ctx.strokeStyle = "black";
-          ctx.fillStyle = "black";
-          ctx.fill();
-          ctx.stroke();
-        } else if ((xVal < 700) && (xVal > 450)){
+          Helpers.drawOverheadCircle("black", ctx, 175);
+
+        } else if ((xVal < 700) && (xVal > 450) && (yVal < 320 && yVal > 100)){
           console.log("second");
-          ctx.beginPath();
-          ctx.arc(575, 75, 10, 0, 2*Math.PI);
-          ctx.strokeStyle = "black";
-          ctx.fillStyle = "black";
-          ctx.fill();
-          ctx.stroke();
+          Helpers.drawOverheadCircle("black", ctx, 575);
+
         } else {
           console.log("neither");
-          ctx.beginPath();
-          ctx.arc(175, 75, 10, 0, 2*Math.PI);
-          ctx.strokeStyle = "white";
-          ctx.fillStyle = "white";
-          ctx.fill();
-          ctx.stroke();
-
-          ctx.beginPath();
-          ctx.arc(575, 75, 10, 0, 2*Math.PI);
-          ctx.strokeStyle = "white";
-          ctx.fillStyle = "white";
-          ctx.fill();
-          ctx.stroke();
+          Helpers.drawOverheadCircle("white", ctx, 175);
+          Helpers.drawOverheadCircle("white", ctx, 575);
         }
       }, false);
+
     }
   });
 
@@ -123,21 +105,6 @@ export const oracleView = function OracleView (width, height) {
       if ((xVal > xVals[j][0] && xVal< xVals[j][1]) && (yVal < 320 && yVal > 100)) {
         if (guas[j].length === 6) {
 
-          canvasEl.addEventListener("mouseleave", (e) => {
-            ctx.beginPath();
-            ctx.arc(175, 75, 10, 0, 2*Math.PI);
-            ctx.strokeStyle = "white";
-            ctx.fillStyle = "white";
-            ctx.fill();
-            ctx.stroke();
-
-            ctx.beginPath();
-            ctx.arc(575, 75, 10, 0, 2*Math.PI);
-            ctx.strokeStyle = "white";
-            ctx.fillStyle = "white";
-            ctx.fill();
-            ctx.stroke();
-          }, false);
 
           document.getElementById("e-buttons").style.display = "flex";
           document.getElementById('show-explore-button').textContent = 'Hide Info';

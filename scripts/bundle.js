@@ -146,7 +146,7 @@ const toArray = function toArray(str) {
   }
   return arr;
 }
-/* harmony export (immutable) */ __webpack_exports__["f"] = toArray;
+/* harmony export (immutable) */ __webpack_exports__["g"] = toArray;
 
 
 const equals = function equals(arr1, arr2) {
@@ -155,7 +155,7 @@ const equals = function equals(arr1, arr2) {
   }
   return true;
 };
-/* harmony export (immutable) */ __webpack_exports__["d"] = equals;
+/* harmony export (immutable) */ __webpack_exports__["e"] = equals;
 
 
 const setGuaDetails = function setGuaDetails(guaCode) {
@@ -164,7 +164,7 @@ const setGuaDetails = function setGuaDetails(guaCode) {
   document.getElementById('gua-detail')
           .value = `${guaInfo.character}\n\n${guaInfo.title}\n\n${guaInfo.description}`;
 }
-/* harmony export (immutable) */ __webpack_exports__["e"] = setGuaDetails;
+/* harmony export (immutable) */ __webpack_exports__["f"] = setGuaDetails;
 
 
 const yarrowGenerator = function yarrowGenerator() {
@@ -174,7 +174,18 @@ const yarrowGenerator = function yarrowGenerator() {
 
   return [present,future];
 }
-/* harmony export (immutable) */ __webpack_exports__["g"] = yarrowGenerator;
+/* harmony export (immutable) */ __webpack_exports__["h"] = yarrowGenerator;
+
+
+const drawOverheadCircle = function drawOverheadCircle(color, ctx, x) {
+  ctx.beginPath();
+  ctx.arc(x, 75, 10, 0, 2*Math.PI);
+  ctx.strokeStyle = color;
+  ctx.fillStyle = color;
+  ctx.fill();
+  ctx.stroke();
+}
+/* harmony export (immutable) */ __webpack_exports__["d"] = drawOverheadCircle;
 
 
 
@@ -328,8 +339,8 @@ const exploreView = function exploreView(width, height) {
   });
 
   guaSelector.addEventListener("change", (e)=>{
-      __WEBPACK_IMPORTED_MODULE_0__helpers_js__["a" /* drawGua */](__WEBPACK_IMPORTED_MODULE_0__helpers_js__["f" /* toArray */](guaSelector.value), ctx, width);
-      __WEBPACK_IMPORTED_MODULE_0__helpers_js__["e" /* setGuaDetails */](guaSelector.value);
+      __WEBPACK_IMPORTED_MODULE_0__helpers_js__["a" /* drawGua */](__WEBPACK_IMPORTED_MODULE_0__helpers_js__["g" /* toArray */](guaSelector.value), ctx, width);
+      __WEBPACK_IMPORTED_MODULE_0__helpers_js__["f" /* setGuaDetails */](guaSelector.value);
     }, false);
 
   const guaDetail = document.createElement("TEXTAREA");
@@ -352,7 +363,7 @@ const exploreView = function exploreView(width, height) {
   canvasEl.addEventListener("mousedown", (e) => {
     e.preventDefault();
     const rect = canvasEl.getBoundingClientRect();
-    const guaValue = __WEBPACK_IMPORTED_MODULE_0__helpers_js__["f" /* toArray */](guaSelector.value);
+    const guaValue = __WEBPACK_IMPORTED_MODULE_0__helpers_js__["g" /* toArray */](guaSelector.value);
 
     const xVal = e.clientX-rect.left;
     const yVal = e.clientY-rect.top;
@@ -368,23 +379,23 @@ const exploreView = function exploreView(width, height) {
 
       for (let i=0; i<options.length; i++) {
         let gua = options[i];
-        let array = __WEBPACK_IMPORTED_MODULE_0__helpers_js__["f" /* toArray */](gua.value);
+        let array = __WEBPACK_IMPORTED_MODULE_0__helpers_js__["g" /* toArray */](gua.value);
 
-        if (__WEBPACK_IMPORTED_MODULE_0__helpers_js__["d" /* equals */](guaValue, __WEBPACK_IMPORTED_MODULE_0__helpers_js__["f" /* toArray */](gua.value)) === true) {
+        if (__WEBPACK_IMPORTED_MODULE_0__helpers_js__["e" /* equals */](guaValue, __WEBPACK_IMPORTED_MODULE_0__helpers_js__["g" /* toArray */](gua.value)) === true) {
           guaSelector.selectedIndex = i;
           break;
         }
       }
 
       __WEBPACK_IMPORTED_MODULE_0__helpers_js__["a" /* drawGua */](guaValue, ctx, width);
-      __WEBPACK_IMPORTED_MODULE_0__helpers_js__["e" /* setGuaDetails */](guaValue);
+      __WEBPACK_IMPORTED_MODULE_0__helpers_js__["f" /* setGuaDetails */](guaValue);
     }
   }, false);
 
   canvasEl.addEventListener("mousemove", (e) => {
     e.preventDefault();
     const rect = canvasEl.getBoundingClientRect();
-    const guaValue = __WEBPACK_IMPORTED_MODULE_0__helpers_js__["f" /* toArray */](guaSelector.value);
+    const guaValue = __WEBPACK_IMPORTED_MODULE_0__helpers_js__["g" /* toArray */](guaSelector.value);
 
     const xVal = e.clientX-rect.left;
     const yVal = e.clientY-rect.top;
@@ -393,20 +404,20 @@ const exploreView = function exploreView(width, height) {
         if (yVal < 320-(40*i) && yVal > 300-(40*i)) {
           __WEBPACK_IMPORTED_MODULE_0__helpers_js__["b" /* drawHighlightedYang */]('black',ctx,125,300-(40*i));
         } else if (yVal < 300-(40*i) && yVal > 280-(40*i)) {
-          __WEBPACK_IMPORTED_MODULE_0__helpers_js__["a" /* drawGua */](__WEBPACK_IMPORTED_MODULE_0__helpers_js__["f" /* toArray */](guaSelector.value), ctx, 500);
+          __WEBPACK_IMPORTED_MODULE_0__helpers_js__["a" /* drawGua */](__WEBPACK_IMPORTED_MODULE_0__helpers_js__["g" /* toArray */](guaSelector.value), ctx, 500);
         } else if (yVal < 100 || yVal > 320) {
-          __WEBPACK_IMPORTED_MODULE_0__helpers_js__["a" /* drawGua */](__WEBPACK_IMPORTED_MODULE_0__helpers_js__["f" /* toArray */](guaSelector.value), ctx, 500);
+          __WEBPACK_IMPORTED_MODULE_0__helpers_js__["a" /* drawGua */](__WEBPACK_IMPORTED_MODULE_0__helpers_js__["g" /* toArray */](guaSelector.value), ctx, 500);
         }
       }
     } else {
-      __WEBPACK_IMPORTED_MODULE_0__helpers_js__["a" /* drawGua */](__WEBPACK_IMPORTED_MODULE_0__helpers_js__["f" /* toArray */](guaSelector.value), ctx, 500);
+      __WEBPACK_IMPORTED_MODULE_0__helpers_js__["a" /* drawGua */](__WEBPACK_IMPORTED_MODULE_0__helpers_js__["g" /* toArray */](guaSelector.value), ctx, 500);
     }
 
   }, false);
 
 
   __WEBPACK_IMPORTED_MODULE_0__helpers_js__["a" /* drawGua */]([1,1,1,1,1,1],ctx,width);
-  __WEBPACK_IMPORTED_MODULE_0__helpers_js__["e" /* setGuaDetails */](guaSelector.value);
+  __WEBPACK_IMPORTED_MODULE_0__helpers_js__["f" /* setGuaDetails */](guaSelector.value);
 };
 /* harmony export (immutable) */ __webpack_exports__["a"] = exploreView;
 
@@ -531,7 +542,7 @@ const oracleView = function OracleView (width, height) {
   questionButton.addEventListener("click", (e) => {
     e.preventDefault();
     if (i<6) {
-        const lines = __WEBPACK_IMPORTED_MODULE_0__helpers_js__["g" /* yarrowGenerator */]();
+        const lines = __WEBPACK_IMPORTED_MODULE_0__helpers_js__["h" /* yarrowGenerator */]();
         __WEBPACK_IMPORTED_MODULE_0__helpers_js__["c" /* drawOracleGua */](lines[0], i, ctx, 50);
         __WEBPACK_IMPORTED_MODULE_0__helpers_js__["c" /* drawOracleGua */](lines[1], i, ctx, 450);
         i = i+1;
@@ -570,39 +581,21 @@ const oracleView = function OracleView (width, height) {
         const rect = canvasEl.getBoundingClientRect();
         const xVal = e.clientX-rect.left;
         const yVal = e.clientY-rect.top;
-        if ((xVal < 300) && (xVal > 50)) {
+        if ((xVal < 300) && (xVal > 50) && (yVal < 320 && yVal > 100)) {
           console.log("first");
-          ctx.beginPath();
-          ctx.arc(175, 75, 10, 0, 2*Math.PI);
-          ctx.strokeStyle = "black";
-          ctx.fillStyle = "black";
-          ctx.fill();
-          ctx.stroke();
-        } else if ((xVal < 700) && (xVal > 450)){
+          __WEBPACK_IMPORTED_MODULE_0__helpers_js__["d" /* drawOverheadCircle */]("black", ctx, 175);
+
+        } else if ((xVal < 700) && (xVal > 450) && (yVal < 320 && yVal > 100)){
           console.log("second");
-          ctx.beginPath();
-          ctx.arc(575, 75, 10, 0, 2*Math.PI);
-          ctx.strokeStyle = "black";
-          ctx.fillStyle = "black";
-          ctx.fill();
-          ctx.stroke();
+          __WEBPACK_IMPORTED_MODULE_0__helpers_js__["d" /* drawOverheadCircle */]("black", ctx, 575);
+
         } else {
           console.log("neither");
-          ctx.beginPath();
-          ctx.arc(175, 75, 10, 0, 2*Math.PI);
-          ctx.strokeStyle = "white";
-          ctx.fillStyle = "white";
-          ctx.fill();
-          ctx.stroke();
-
-          ctx.beginPath();
-          ctx.arc(575, 75, 10, 0, 2*Math.PI);
-          ctx.strokeStyle = "white";
-          ctx.fillStyle = "white";
-          ctx.fill();
-          ctx.stroke();
+          __WEBPACK_IMPORTED_MODULE_0__helpers_js__["d" /* drawOverheadCircle */]("white", ctx, 175);
+          __WEBPACK_IMPORTED_MODULE_0__helpers_js__["d" /* drawOverheadCircle */]("white", ctx, 575);
         }
       }, false);
+
     }
   });
 
@@ -618,21 +611,6 @@ const oracleView = function OracleView (width, height) {
       if ((xVal > xVals[j][0] && xVal< xVals[j][1]) && (yVal < 320 && yVal > 100)) {
         if (guas[j].length === 6) {
 
-          canvasEl.addEventListener("mouseleave", (e) => {
-            ctx.beginPath();
-            ctx.arc(175, 75, 10, 0, 2*Math.PI);
-            ctx.strokeStyle = "white";
-            ctx.fillStyle = "white";
-            ctx.fill();
-            ctx.stroke();
-
-            ctx.beginPath();
-            ctx.arc(575, 75, 10, 0, 2*Math.PI);
-            ctx.strokeStyle = "white";
-            ctx.fillStyle = "white";
-            ctx.fill();
-            ctx.stroke();
-          }, false);
 
           document.getElementById("e-buttons").style.display = "flex";
           document.getElementById('show-explore-button').textContent = 'Hide Info';
@@ -651,7 +629,7 @@ const oracleView = function OracleView (width, height) {
           __WEBPACK_IMPORTED_MODULE_0__helpers_js__["a" /* drawGua */](guas[j],
                   document.getElementById('explore-canvas')
                           .getContext('2d'),500);
-          __WEBPACK_IMPORTED_MODULE_0__helpers_js__["e" /* setGuaDetails */](guas[j]);
+          __WEBPACK_IMPORTED_MODULE_0__helpers_js__["f" /* setGuaDetails */](guas[j]);
 
           document.getElementById("oracle-button").classList.remove("hidden");
 
@@ -659,9 +637,9 @@ const oracleView = function OracleView (width, height) {
 
           for (let i=0; i<options.length; i++) {
             let gua = options[i];
-            let array = __WEBPACK_IMPORTED_MODULE_0__helpers_js__["f" /* toArray */](gua.value);
+            let array = __WEBPACK_IMPORTED_MODULE_0__helpers_js__["g" /* toArray */](gua.value);
 
-            if (__WEBPACK_IMPORTED_MODULE_0__helpers_js__["d" /* equals */](guas[j], array) === true) {
+            if (__WEBPACK_IMPORTED_MODULE_0__helpers_js__["e" /* equals */](guas[j], array) === true) {
               document.getElementById("gua-selector").selectedIndex = i;
               break;
             }
