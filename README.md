@@ -152,8 +152,6 @@ gua.forEach((el,i) => {
 });
 ```
 
-
-
 ## Future Implementation
 
 0. Mobile Responsiveness
