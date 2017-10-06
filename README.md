@@ -37,6 +37,7 @@ The title pages show a link to "Consult the Oracle" and a splash page with the v
 
 Hexagrams are built with Canvas, and mouse positions is measured with 'mousemove' event listeners.
 
+<img height="400px" width="700px" src="https://github.com/Adrianjewell91/yijing/blob/master/docs/splash.37.02%20AM.png"/>
 ### <a name="input"></a>Question Input.
 
 Users input a question for the sake of taking the I Ching seriously.  The I Ching should not be consulted casually, and must be consulting in the context of a specific question.
