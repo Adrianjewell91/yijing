@@ -25,14 +25,9 @@ document.addEventListener("DOMContentLoaded", function() {
     document.getElementById('show-explore-button').style.display= 'none';
     document.getElementById('oracle-view').style.display = 'flex';
     document.getElementById('o-buttons').style.display = 'flex';
-    // exploreButton.removeAttribute("disabled");
 
     oracleButton.classList.add("hidden");
   },false);
 
-  //
-  // document.getElementById("help-button").addEventListener("click", (e) => {
-  //   document.getElementById("help-dropdown").classList.toggle('show');
-  // }, false);
 
 });

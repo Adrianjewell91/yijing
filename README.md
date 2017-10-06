@@ -37,7 +37,7 @@ The title pages show a link to "Consult the Oracle" and a splash page with the v
 
 Hexagrams are built with Canvas, and mouse positions is measured with `mousemove` event listeners.
 
-<img height="400px" width="850px" src="https://github.com/Adrianjewell91/yijing/blob/master/docs/splash.37.02%20AM.png"/>
+<img height="400px" width="850px" src="https://github.com/Adrianjewell91/yijing/blob/master/docs/splash.png"/>
 
 ### <a name="input"></a>Question Input.
 

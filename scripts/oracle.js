@@ -112,7 +112,6 @@ export const oracleView = function OracleView (width, height) {
           document.getElementById('o-buttons').style.display= 'none';
           document.getElementById('oracle-button').removeAttribute("disabled");
           document.getElementById('oracle-button').textContent="Back to Oracle";
-          // document.getElementById('explore-button').setAttribute("disabled", "true");
 
           document.getElementById("header-instruction")
                   .textContent = "Instructions: This is your Hexagram! Read the text or Click the Lines!"
