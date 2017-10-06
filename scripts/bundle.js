@@ -286,7 +286,7 @@ document.addEventListener("DOMContentLoaded", function() {
     e.preventDefault();
     if (oracleButton.textContent === "Ask the Oracle") {
       document.getElementById("header-instruction")
-      .textContent = "Instructions: Input your question below."
+      .textContent = "Instructions: Input any question below."
     } else {
       document.getElementById("header-instruction")
               .textContent = "Instructions: Click on the Hexagrams!"
