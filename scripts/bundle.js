@@ -169,9 +169,6 @@ const setGuaDetails = function setGuaDetails(guaCode) {
 
 const yarrowGenerator = function yarrowGenerator() {
 
-  // const present = Math.round(Math.random());
-  // const future = Math.round(Math.random());
-  //
   //Traditional Coin Toss Method
   let lineValue = 0;
   let flipValue = 0;
