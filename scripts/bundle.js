@@ -308,8 +308,6 @@ document.addEventListener("DOMContentLoaded", function() {
 
     oracleButton.classList.add("hidden");
   },false);
-
-
 });
 
 
