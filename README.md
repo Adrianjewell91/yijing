@@ -109,15 +109,15 @@ WHAT JUST HAPPENED:
 
 2. The hexagrams tell you the present and the future in the context of your question.
 
-2.5 Your hexagrams may be identical. Thats okay!
+3. Your hexagrams may be identical. Thats okay!
 
-3. The I-Ching is based on the idea that although humans have free will, there are still forces beyond one's control.
+4. The I-Ching is based on the idea that although humans have free will, there are still forces beyond one's control.
 
-4 These forces are called the Dao (道). The hexagrams reveal the way of the Dao(道).
+5. These forces are called the Dao (道). The hexagrams reveal the way of the Dao(道).
 
-5. Interpret the hexagrams in the context of your question, so that you can act in harmony with the Dao (道).
+6. Interpret the hexagrams in the context of your question, so that you can act in harmony with the Dao (道).
 
-6. To learn about a hexagram, CLICK ON IT
+7. To learn about a hexagram, CLICK ON IT.
 
 
 # Discussion of Challenges
