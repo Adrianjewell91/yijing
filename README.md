@@ -37,7 +37,7 @@ The title pages show a link to "Consult the Oracle" and a splash page with the v
 
 Hexagrams are built with Canvas, and mouse positions is measured with `mousemove` event listeners.
 
-<img height="400px" width="850px" src="https://github.com/Adrianjewell91/yijing/blob/master/docs/splash-page.png"/>
+<img height="400px" width="750px" src="https://github.com/Adrianjewell91/yijing/blob/master/docs/splash-page.png"/>
 
 ### <a name="input"></a>Question Input.
 
@@ -47,7 +47,7 @@ Users input a question for the sake of taking the I Ching seriously.  One should
 
 Users build hexagrams line by line. The algorithm for generating the lines is described in the next feature.
 
-<img height="400px" width="850px" src="https://github.com/Adrianjewell91/yijing/blob/master/docs/build.png"/>
+<img height="400px" width="750" src="https://github.com/Adrianjewell91/yijing/blob/master/docs/build.png"/>
 
 ### <a name="generate"></a>Authentic Hexagram Line Generation.
 
@@ -72,14 +72,14 @@ else if (lineValue === 9) {return [0,1];}
 
 Users can click the generated hexagram and explore them futher in the Interactive E-Text. `mouseover` and `mouseleave` event handlers tell the user which hexagram they are about to click.
 
-<img height="400px" width="850px" src="https://github.com/Adrianjewell91/yijing/blob/master/docs/show-results.png"/>
+<img height="400px" width="750" src="https://github.com/Adrianjewell91/yijing/blob/master/docs/show-results.png"/>
 
 
 ### <a name="explore"></a>Comprehensive Encyclopedia of the 64 Hexagrams.
 
 Translations are adapted from the "Sacred Books of the East, Volume 16, The I Ching" by James Legge, 1899 (Source: Internet Sacred Text Archive).
 
-<img height="400px" width="850px" src="https://github.com/Adrianjewell91/yijing/blob/master/docs/e-text.png"/>
+<img height="400px" width="750" src="https://github.com/Adrianjewell91/yijing/blob/master/docs/e-text.png"/>
 
 
 ### <a name="change-line"></a>Precision Mouse Sensitivity for Interactive Hexagram.
