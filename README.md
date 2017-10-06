@@ -72,6 +72,7 @@ The traditional coin-toss method is one way of generate lines. Code for generati
 
 
 
+
 ### <a name="explore"></a>Comprehensive Encyclopedia of the 64 Hexagrams].
 
 Translations are adapted from the "Sacred Books of the East, Volume 16, The I Ching" by James Legge, 1899 (Source: Internet Sacred Text Archive).
@@ -87,9 +88,9 @@ Get user's mouse position with the following method:
 
 `const rect = canvasEl.getBoundingClientRect();`
 
-Then, use `for` loops for evaluating possible mouse positions, and render accordingly.
+Then, use nested `if` and `for` loops for evaluating possible mouse positions, and render accordingly:
 
-
+`if (xVal < (canvasEl.width*0.75) && xVal > canvasEl.width/4) {...}`
 
 ### <a name="history"></a>Historical Background and Information.
 
@@ -112,8 +113,6 @@ The I-Ching(易经) is a 2500 year-old divination text. Its insight and value ha
 6. Interpret the hexagrams in the context of your question, so that you can act in harmony with the Dao (道).
 
 7. To learn about a hexagram, CLICK ON IT. Then, click on a line to learn about a different Hexagram. There are 64 in total."
-
-
 
 
 # Discussion of Challenges
