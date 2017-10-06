@@ -51,6 +51,8 @@ Users build hexagrams line by line. Algorithm for generating the lines is listed
 
 ### <a name="generate"></a>Authentic Hexagram Line Generation.
 
+The traditional coin-toss method is one way of generate lines. Code for generating a single line is pasted below:
+
 ```JavaScript
         // Traditional Coin Toss Method
         let lineValue = 0;
@@ -66,12 +68,16 @@ Users build hexagrams line by line. Algorithm for generating the lines is listed
         else if (lineValue === 9) {return [0,1];}
 ```
 
-
 ### <a name="interpret"></a>Mouse Over and Clicking to Interactive E-Text.
+
+
 
 ### <a name="explore"></a>Comprehensive Encyclopedia of the 64 Hexagrams].
 
 Translations are adapted from the "Sacred Books of the East, Volume 16, The I Ching" by James Legge, 1899 (Source: Internet Sacred Text Archive).
+
+<img height="400px" width="850px" src="https://github.com/Adrianjewell91/yijing/blob/master/docs/e-text.27.38%20AM.png"/>
+
 
 ### <a name="change-line"></a>Precision Mouse Sensitivity for Interactive Hexagram.
 
