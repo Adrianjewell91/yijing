@@ -23,6 +23,7 @@ img {
 
 #header-div {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   position: fixed;
@@ -36,6 +37,7 @@ img {
 
 #header-div button {
   font-size: 20px;
+  height:100%;
 }
 
 #header-div button:hover {
@@ -110,6 +112,10 @@ img {
   width: 50%;
   text-indent: 2%;
   font-size: 19px;
+}
+
+.hidden {
+  display: none;
 }
 
 .disabled-input {
