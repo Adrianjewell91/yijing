@@ -1,7 +1,8 @@
-# I Ching (易经) - Comprehensive E-Text and Authentic Oracle:
+# I Ching (易经) - Comprehensive E-Text and Oracle:
+Experience a 2,500 Year Old Philosophical Tradition.
 
 ## Background and Overview
-While working as a teacher in China, I discovered the I Ching, roughly translated as 'The Book of Changes.' As one of the oldest texts in the world, the I Ching (易经) has a long history as a divination text. Its contents have also been used recreationally, for instance, by the composer John Cage, as an aid in musical composition.  
+While working as a teacher in China, I discovered the I Ching, often translated as 'The Book of Changes.' As one of the oldest texts in the world, the I Ching (易经) has a long history as a divination text. Its contents have also been used recreationally, for instance, by the composer John Cage, as an aid in musical composition.  
 
 The goal of this project is to introduce users to the Book of Changes, help users explore its contents, and give them a tool for usage.
 
@@ -88,11 +89,15 @@ In the Interactive E-Text, users can transform the hexagram by clicking on a any
 
 Get user's mouse position with the following method:
 
-`const rect = canvasEl.getBoundingClientRect();`
+```JavaScript
+const rect = canvasEl.getBoundingClientRect();
+```
 
 Then, use nested `if` and `for` loops for evaluating possible mouse positions, and render accordingly:
 
-`if (xVal < (canvasEl.width*0.75) && xVal > canvasEl.width/4) {...}`
+```JavaScript
+if (xVal < (canvasEl.width*0.75) && xVal > canvasEl.width/4) {...}
+```
 
 ### <a name="history"></a>Historical Background and Information.
 
