@@ -39,7 +39,11 @@ Hexagrams are built with Canvas, and mouse positions is measured with 'mousemove
 
 ### <a name="input"></a>Question Input.
 
+Users input a question for the sake of taking the I Ching seriously.  The I Ching should not be consulted casually, and must be consulting in the context of a specific question.
+
 ### <a name="build"></a>Sequential Building of Hexagrams.
+
+
 
 ### <a name="generate"></a>Authentic Hexagram Line Generation.
 
