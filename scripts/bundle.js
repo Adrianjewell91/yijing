@@ -95,13 +95,13 @@ const drawOracleGua = function drawOracleGua(gualine, i,ctx,x) {
     } else {
       drawYin("black", ctx, x,300-(i*40));
     }
-    // if (i<5) {
-    //   ctx.font = "20px Arial";
-    //   ctx.fillText(`CLICK`, 70, 280-(i*40));
-    //   ctx.fillText(`AGAIN`, 220, 280-(i*40));
-    //   ctx.fillText(`CLICK`, 470, 280-(i*40));
-    //   ctx.fillText(`AGAIN`, 620, 280-(i*40));
-    // }
+    if (i<5) {
+      ctx.font = "20px Arial";
+      ctx.fillText(`CLICK`, 70, 280-(i*40));
+      ctx.fillText(`AGAIN`, 220, 280-(i*40));
+      ctx.fillText(`CLICK`, 470, 280-(i*40));
+      ctx.fillText(`AGAIN`, 620, 280-(i*40));
+    }
 };
 /* harmony export (immutable) */ __webpack_exports__["c"] = drawOracleGua;
 
@@ -512,8 +512,8 @@ const oracleView = function OracleView (width, height) {
   ctx.clearRect(0,0,width,height);
   ctx.font = "30px Arial";
 
-  ctx.fillText('This is the Present.', 50, 50);
-  ctx.fillText('This is the Future.', 450, 50);
+  ctx.fillText('This is your Present.', 50, 50);
+  ctx.fillText('This is your Future.', 450, 50);
 
   const questionButton = document.getElementById('question-button');
   const questionInput = document.getElementById('question-input');

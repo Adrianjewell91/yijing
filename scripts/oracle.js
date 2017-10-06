@@ -8,8 +8,8 @@ export const oracleView = function OracleView (width, height) {
   ctx.clearRect(0,0,width,height);
   ctx.font = "30px Arial";
 
-  ctx.fillText('This is the Present.', 50, 50);
-  ctx.fillText('This is the Future.', 450, 50);
+  ctx.fillText('This is your Present.', 50, 50);
+  ctx.fillText('This is your Future.', 450, 50);
 
   const questionButton = document.getElementById('question-button');
   const questionInput = document.getElementById('question-input');

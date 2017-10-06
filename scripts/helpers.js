@@ -22,13 +22,13 @@ export const drawOracleGua = function drawOracleGua(gualine, i,ctx,x) {
     } else {
       drawYin("black", ctx, x,300-(i*40));
     }
-    // if (i<5) {
-    //   ctx.font = "20px Arial";
-    //   ctx.fillText(`CLICK`, 70, 280-(i*40));
-    //   ctx.fillText(`AGAIN`, 220, 280-(i*40));
-    //   ctx.fillText(`CLICK`, 470, 280-(i*40));
-    //   ctx.fillText(`AGAIN`, 620, 280-(i*40));
-    // }
+    if (i<5) {
+      ctx.font = "20px Arial";
+      ctx.fillText(`CLICK`, 70, 280-(i*40));
+      ctx.fillText(`AGAIN`, 220, 280-(i*40));
+      ctx.fillText(`CLICK`, 470, 280-(i*40));
+      ctx.fillText(`AGAIN`, 620, 280-(i*40));
+    }
 };
 
 export const drawYin = function drawYin(color, ctx, x, y) {
