@@ -1,5 +1,5 @@
 # I Ching (易经) - Comprehensive E-Text and Oracle:
-Experience a 2,500 Year Old Philosophical Tradition.
+Experience a 2,500 Year Old Philosophical Tradition. [Live Link](https://adrianjewell91.github.io/yijing/)
 
 ## Background and Overview
 While working as a teacher in China, I discovered the I Ching, often translated as 'The Book of Changes.' As one of the oldest texts in the world, the I Ching (易经) has a long history as a divination text. Its contents have also been used recreationally, for instance, by the composer John Cage, as an aid in musical composition.  
@@ -12,7 +12,7 @@ The author's personal goals include improving his skill in vanilla Javascript, H
 
 ## Technologies
 
-I Ching uses vanilla JavaScript and DOM Manipulation, HTML5 Canvas, and CSS3.
+"I Ching" uses vanilla JavaScript, DOM Manipulation, HTML5 Canvas, and CSS3.
 
 Webpack bundles the `.js` scripts into a `bundle.js`.
 
