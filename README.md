@@ -17,19 +17,35 @@ Webpack bundles the `.js` scripts into a `bundle.js`.
 
 ## Features
 
-Feature Include:
-
 When Consulting the Oracle:
-1. Asking a question to the oracle.
-2. Building the Hexagrams sequentially, line-by-line, using the traditional coin-flipping sorting method.
-3. View the resultant hexagrams. When mousing over the hexagram, users can click the hexagram and explore it further in the Hexagram viewer.
+1. [Title Page](#splash).
+2. [Question Input](#input).
+3. [Sequential Building of Hexagrams](#build).
+4. [Authentic Hexagram Line Generation](#generate)
+5. [Mouse Over and Clicking to Interactive E-Text](#interpret).
 
-In The Hexagram Viewer:
-1. Explore the 64 Hexagrams via selector input.
-2. Click on any of the six lines to switch that line between Yin and Yang, and view the new Hexagram.
-3. View the Hexagram's name, title, and description on mouse-over.
+In The Interactive E-Text Viewer:
+1. [Comprehensive Encyclopedia of the 64 Hexagrams](#explore).
+2. [Precision Mouse Sensitivity for Interactive Hexagram](#change-line).
+3. [Historical Background and Information](#history).
 
-The content should be tastefully styled, and organized for the best possible user experience.
 ## Feature Highlights
 
-#Discussion of Challenges
+### <a name="splash"></a>Title Page.
+
+### <a name="input"></a>Question Input.
+
+### <a name="build"></a>Sequential Building of Hexagrams.
+
+### <a name="generate"></a>Authentic Hexagram Line Generation.
+
+### <a name="interpret"></a>Mouse Over and Clicking to Interactive E-Text.
+
+### <a name="explore"></a>Comprehensive Encyclopedia of the 64 Hexagrams].
+
+### <a name="change-line"></a>Precision Mouse Sensitivity for Interactive Hexagram.
+
+### <a name="history"></a>Historical Background and Information.
+
+
+# Discussion of Challenges

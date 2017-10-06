@@ -30,7 +30,7 @@ The content should be tastefully styled, and organized for the best possible use
 
 ## Wireframes
 
-This is a single page app with two viewing options. Users can either 'Explore' or 'Ask the Oracle', and toggle between them with buttons.
+This is a single page app with two viewing options. Users can either 'Explore' or 'Consult the Oracle', and toggle between them with buttons.
 
 <img height="650px" width="700px" src="https://github.com/Adrianjewell91/yijing/blob/master/wireframes/W2-Oracle.jpg"/>
 

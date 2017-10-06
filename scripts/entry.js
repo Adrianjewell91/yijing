@@ -12,7 +12,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
   oracleButton.addEventListener('click', (e) => {
     e.preventDefault();
-    if (oracleButton.textContent === "Ask the Oracle") {
+    if (oracleButton.textContent === "Consult the Oracle") {
       document.getElementById("header-instruction")
       .textContent = "Instructions: Input any question below."
     } else {
@@ -20,7 +20,7 @@ document.addEventListener("DOMContentLoaded", function() {
               .textContent = "Instructions: Click on the Hexagrams!"
     }
 
-    e.currentTarget.textContent = 'Ask the Oracle';
+    e.currentTarget.textContent = 'Consult the Oracle';
     document.getElementById('explore-view').style.display = 'none';
     document.getElementById('show-explore-button').style.display= 'none';
     document.getElementById('oracle-view').style.display = 'flex';
