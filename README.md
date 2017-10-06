@@ -22,7 +22,7 @@ When Consulting the Oracle:
 2. [Question Input](#input).
 3. [Sequential Building of Hexagrams](#build).
 4. [Authentic Hexagram Line Generation](#generate)
-5. [Mouse Over and Clicking to Interactive E-Text](#interpret).
+5. [Mouse-Over Click into Interactive E-Text](#interpret).
 
 In The Interactive E-Text Viewer:
 1. [Comprehensive Encyclopedia of the 64 Hexagrams](#explore).
@@ -35,7 +35,7 @@ In The Interactive E-Text Viewer:
 
 The title pages show a link to "Consult the Oracle" and a splash page with the very first hexagram in the center of the page. Users can either click 'Consult the oracle' or click on the lines of the hexagram to change it to something else.
 
-Hexagrams are built with Canvas, and mouse positions is measured with 'mousemove' event listeners.
+Hexagrams are built with Canvas, and mouse positions is measured with `mousemove` event listeners.
 
 <img height="400px" width="850px" src="https://github.com/Adrianjewell91/yijing/blob/master/docs/splash.37.02%20AM.png"/>
 
@@ -45,7 +45,7 @@ Users input a question for the sake of taking the I Ching seriously.  One should
 
 ### <a name="build"></a>Sequential Building of Hexagrams.
 
-Users build hexagrams line by line. Algorithm for generating the lines is listed below.
+Users build hexagrams line by line. The algorithm for generating the lines is described in the next feature.
 
 <img height="400px" width="850px" src="https://github.com/Adrianjewell91/yijing/blob/master/docs/sequential-building.png"/>
 
@@ -68,9 +68,11 @@ The traditional coin-toss method is one way of generate lines. Code for generati
         else if (lineValue === 9) {return [0,1];}
 ```
 
-### <a name="interpret"></a>Mouse Over and Clicking to Interactive E-Text.
+### <a name="interpret"></a>Mouse-Over and Click into Interactive E-Text.
 
+Users can click the generated hexagram and explore them futher in the Interactive E-Text. `mouseover` and `mouseleave` event handlers tell the user which hexagram they are about to click.
 
+<img height="400px" width="850px" src="https://github.com/Adrianjewell91/yijing/blob/master/docs/results-click-over.png"/>
 
 
 ### <a name="explore"></a>Comprehensive Encyclopedia of the 64 Hexagrams].
