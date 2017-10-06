@@ -76,17 +76,15 @@ export const oracleView = function OracleView (width, height) {
         const xVal = e.clientX-rect.left;
         const yVal = e.clientY-rect.top;
         if ((xVal < 300) && (xVal > 50) && (yVal < 320 && yVal > 100)) {
-          console.log("first");
           Helpers.drawOverheadCircle("black", ctx, 175);
-
+          document.body.style.cursor = "pointer";
         } else if ((xVal < 700) && (xVal > 450) && (yVal < 320 && yVal > 100)){
-          console.log("second");
           Helpers.drawOverheadCircle("black", ctx, 575);
-
+          document.body.style.cursor = "pointer";
         } else {
-          console.log("neither");
           Helpers.drawOverheadCircle("white", ctx, 175);
           Helpers.drawOverheadCircle("white", ctx, 575);
+          document.body.style.cursor = "auto";
         }
       }, false);
 

@@ -21,6 +21,10 @@ img {
   border-radius: 5px;
 }
 
+button:hover, select:hover {
+  cursor: pointer;
+}
+
 textarea {
   font-weight: bold;
 }
@@ -47,6 +51,7 @@ textarea {
 
 .header-buttons{
   display: flex;
+  justify-content: center;
   width: 100%;
   margin-right: 10px;
 }
@@ -140,20 +145,20 @@ textarea {
   display: none;
 }
 
-#oracle-button {
-
+#oracle-button, #show-explore-button {
+  background-color: pink;
   border: 2px solid black;
   border-radius: 5px;
-  width: 100%;
+  /*width: 100%;*/
   height: 100%;
 }
-
+/*
 #show-explore-button {
   border: 2px solid black;
   width: 100%;
   height: 100%;
   border-radius: 5px;
-}
+}*/
 
 #gua-selector {
   height: 9%;

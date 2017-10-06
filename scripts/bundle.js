@@ -411,10 +411,13 @@ const exploreView = function exploreView(width, height) {
       for(let i=0; i<6; i++) {
         if (yVal < 320-(40*i) && yVal > 300-(40*i)) {
           __WEBPACK_IMPORTED_MODULE_0__helpers_js__["b" /* drawHighlightedYang */]('black',ctx,125,300-(40*i));
+          document.body.style.cursor = "pointer";
         } else if (yVal < 300-(40*i) && yVal > 280-(40*i)) {
           __WEBPACK_IMPORTED_MODULE_0__helpers_js__["a" /* drawGua */](__WEBPACK_IMPORTED_MODULE_0__helpers_js__["g" /* toArray */](guaSelector.value), ctx, 500);
+          document.body.style.cursor = "auto";
         } else if (yVal < 100 || yVal > 320) {
           __WEBPACK_IMPORTED_MODULE_0__helpers_js__["a" /* drawGua */](__WEBPACK_IMPORTED_MODULE_0__helpers_js__["g" /* toArray */](guaSelector.value), ctx, 500);
+          document.body.style.cursor = "auto";
         }
       }
     } else {
@@ -590,17 +593,15 @@ const oracleView = function OracleView (width, height) {
         const xVal = e.clientX-rect.left;
         const yVal = e.clientY-rect.top;
         if ((xVal < 300) && (xVal > 50) && (yVal < 320 && yVal > 100)) {
-          console.log("first");
           __WEBPACK_IMPORTED_MODULE_0__helpers_js__["d" /* drawOverheadCircle */]("black", ctx, 175);
-
+          document.body.style.cursor = "pointer";
         } else if ((xVal < 700) && (xVal > 450) && (yVal < 320 && yVal > 100)){
-          console.log("second");
           __WEBPACK_IMPORTED_MODULE_0__helpers_js__["d" /* drawOverheadCircle */]("black", ctx, 575);
-
+          document.body.style.cursor = "pointer";
         } else {
-          console.log("neither");
           __WEBPACK_IMPORTED_MODULE_0__helpers_js__["d" /* drawOverheadCircle */]("white", ctx, 175);
           __WEBPACK_IMPORTED_MODULE_0__helpers_js__["d" /* drawOverheadCircle */]("white", ctx, 575);
+          document.body.style.cursor = "auto";
         }
       }, false);
 

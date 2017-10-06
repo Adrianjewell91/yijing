@@ -84,10 +84,13 @@ export const exploreView = function exploreView(width, height) {
       for(let i=0; i<6; i++) {
         if (yVal < 320-(40*i) && yVal > 300-(40*i)) {
           Helpers.drawHighlightedYang('black',ctx,125,300-(40*i));
+          document.body.style.cursor = "pointer";
         } else if (yVal < 300-(40*i) && yVal > 280-(40*i)) {
           Helpers.drawGua(Helpers.toArray(guaSelector.value), ctx, 500);
+          document.body.style.cursor = "auto";
         } else if (yVal < 100 || yVal > 320) {
           Helpers.drawGua(Helpers.toArray(guaSelector.value), ctx, 500);
+          document.body.style.cursor = "auto";
         }
       }
     } else {
