@@ -172,12 +172,12 @@ const yarrowGenerator = function yarrowGenerator() {
   // const present = Math.round(Math.random());
   // const future = Math.round(Math.random());
   //
-  //Traditioanl COin Toss Method
+  //Traditional Coin Toss Method
   let lineValue = 0;
   let flipValue = 0;
   for (let i=0;i<3;i++) {
     flipValue = Math.round(Math.random());
-    lineValue += flipValue === 0 ? 2: 3;
+    lineValue += flipValue === 0 ? 2 : 3;
   }
   //if ans === 6 [1,0], 7 [1,1], 8[0,0], 9[0,1]
   if (lineValue === 6) {return [1,0];}
