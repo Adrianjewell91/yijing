@@ -305,15 +305,15 @@ document.addEventListener("DOMContentLoaded", function() {
     document.getElementById('show-explore-button').style.display= 'none';
     document.getElementById('oracle-view').style.display = 'flex';
     document.getElementById('o-buttons').style.display = 'flex';
-    exploreButton.removeAttribute("disabled");
+    // exploreButton.removeAttribute("disabled");
 
     oracleButton.classList.add("hidden");
   },false);
 
-
-  document.getElementById("help-button").addEventListener("click", (e) => {
-    document.getElementById("help-dropdown").classList.toggle('show');
-  }, false);
+  //
+  // document.getElementById("help-button").addEventListener("click", (e) => {
+  //   document.getElementById("help-dropdown").classList.toggle('show');
+  // }, false);
 
 });
 
@@ -422,9 +422,11 @@ const exploreView = function exploreView(width, height) {
       }
     } else {
       __WEBPACK_IMPORTED_MODULE_0__helpers_js__["a" /* drawGua */](__WEBPACK_IMPORTED_MODULE_0__helpers_js__["g" /* toArray */](guaSelector.value), ctx, 500);
+      document.body.style.cursor = "auto";
     }
 
   }, false);
+
 
 
   __WEBPACK_IMPORTED_MODULE_0__helpers_js__["a" /* drawGua */]([1,1,1,1,1,1],ctx,width);
@@ -604,7 +606,6 @@ const oracleView = function OracleView (width, height) {
           document.body.style.cursor = "auto";
         }
       }, false);
-
     }
   });
 
@@ -630,7 +631,7 @@ const oracleView = function OracleView (width, height) {
           document.getElementById('o-buttons').style.display= 'none';
           document.getElementById('oracle-button').removeAttribute("disabled");
           document.getElementById('oracle-button').textContent="Back to Oracle";
-          document.getElementById('explore-button').setAttribute("disabled", "true");
+          // document.getElementById('explore-button').setAttribute("disabled", "true");
 
           document.getElementById("header-instruction")
                   .textContent = "Instructions: This is your Hexagram! Read the text or Click the Lines!"

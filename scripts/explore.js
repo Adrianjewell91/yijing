@@ -95,9 +95,11 @@ export const exploreView = function exploreView(width, height) {
       }
     } else {
       Helpers.drawGua(Helpers.toArray(guaSelector.value), ctx, 500);
+      document.body.style.cursor = "auto";
     }
 
   }, false);
+
 
 
   Helpers.drawGua([1,1,1,1,1,1],ctx,width);
