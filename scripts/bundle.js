@@ -514,9 +514,6 @@ const oracleView = function OracleView (width, height) {
   ctx.clearRect(0,0,width,height);
   ctx.font = "30px Arial";
 
-  ctx.fillText('This is your Present.', 50, 50);
-  ctx.fillText('This is your Future.', 450, 50);
-
   const questionButton = document.getElementById('question-button');
   const questionInput = document.getElementById('question-input');
 
@@ -563,7 +560,7 @@ const oracleView = function OracleView (width, height) {
     } else {
       document.getElementById("header-instruction")
               .textContent = "Instructions: Interpret your Hexagrams by clicking on them!";
-      questionButton.textContent = "Generated!";
+      questionButton.textContent = "Click on a Hexagram!";
       questionButton.classList.add("disabled-input");
       document.getElementById("help-dropdown").classList.toggle("show");
       questionButton.setAttribute("disabled",'true');
@@ -575,6 +572,9 @@ const oracleView = function OracleView (width, height) {
       ctx.font = "20px Arial";
       ctx.fillText(`${__WEBPACK_IMPORTED_MODULE_1__hexagrams_js__["a" /* database */][`[${guas[0]}]`].title}`, 50, 375);
       ctx.fillText(`${__WEBPACK_IMPORTED_MODULE_1__hexagrams_js__["a" /* database */][`[${guas[1]}]`].title}`, 450, 375);
+
+      ctx.fillText('This is the Present.', 50, 50);
+      ctx.fillText('This is your Future.', 450, 50);
 
       canvasEl.addEventListener("mousemove", (e) => {
         e.preventDefault();
@@ -624,7 +624,7 @@ const oracleView = function OracleView (width, height) {
           document.getElementById('explore-button').setAttribute("disabled", "true");
 
           document.getElementById("header-instruction")
-                  .textContent = "Instructions: Read the Info, or click on the lines!"
+                  .textContent = "Instructions: This is your Hexagram! Read the text or Click the Lines!"
 
           __WEBPACK_IMPORTED_MODULE_0__helpers_js__["a" /* drawGua */](guas[j],
                   document.getElementById('explore-canvas')
