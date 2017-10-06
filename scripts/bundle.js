@@ -297,7 +297,7 @@ document.addEventListener("DOMContentLoaded", function() {
     e.preventDefault();
     if (oracleButton.textContent === "Consult the Oracle") {
       document.getElementById("header-instruction")
-      .textContent = "Instructions: Input any question below."
+      .textContent = "Instructions: Think deeply about a question."
     } else {
       document.getElementById("header-instruction")
               .textContent = "Instructions: Click on the Hexagrams!"
