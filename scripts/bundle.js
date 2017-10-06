@@ -169,10 +169,21 @@ const setGuaDetails = function setGuaDetails(guaCode) {
 
 const yarrowGenerator = function yarrowGenerator() {
 
-  const present = Math.round(Math.random());
-  const future = Math.round(Math.random());
-
-  return [present,future];
+  // const present = Math.round(Math.random());
+  // const future = Math.round(Math.random());
+  //
+  //Traditioanl COin Toss Method
+  let lineValue = 0;
+  let flipValue = 0;
+  for (let i=0;i<3;i++) {
+    flipValue = Math.round(Math.random());
+    lineValue += flipValue === 0 ? 2: 3;
+  }
+  //if ans === 6 [1,0], 7 [1,1], 8[0,0], 9[0,1]
+  if (lineValue === 6) {return [1,0];}
+  else if (lineValue === 7) {return [1,1];}
+  else if (lineValue === 8) {return [0,0];}
+  else if (lineValue === 9) {return [0,1];}
 }
 /* harmony export (immutable) */ __webpack_exports__["h"] = yarrowGenerator;
 
