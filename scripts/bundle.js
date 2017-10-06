@@ -275,7 +275,7 @@ document.addEventListener("DOMContentLoaded", function() {
     e.preventDefault();
     if (oracleButton.textContent === "Ask the Oracle") {
       document.getElementById("header-instruction")
-      .textContent = "Instructions: Input your question below.'"
+      .textContent = "Instructions: Input your question below."
     } else {
       document.getElementById("header-instruction")
               .textContent = "Instructions: Click on the Hexagrams!"
@@ -287,19 +287,10 @@ document.addEventListener("DOMContentLoaded", function() {
     document.getElementById('oracle-view').style.display = 'flex';
     document.getElementById('o-buttons').style.display = 'flex';
     exploreButton.removeAttribute("disabled");
-    // oracleButton.setAttribute("disabled", "true");
+
     oracleButton.classList.add("hidden");
   },false);
 
-  // exploreButton.addEventListener('click', (e) => {
-  //   e.preventDefault();
-  //   oracleButton.removeAttribute("disabled");
-  //   exploreButton.setAttribute("disabled", "true");
-  //   document.getElementById('show-explore-button').style.display= 'inline';
-  //   document.getElementById('explore-view').style.display = 'flex';
-  //   document.getElementById('oracle-view').style.display = 'none';
-  //   document.getElementById('o-buttons').style.display = 'none';
-  // },false);
 
   document.getElementById("help-button").addEventListener("click", (e) => {
     document.getElementById("help-dropdown").classList.toggle('show');
@@ -573,6 +564,45 @@ const oracleView = function OracleView (width, height) {
       ctx.font = "20px Arial";
       ctx.fillText(`${__WEBPACK_IMPORTED_MODULE_1__hexagrams_js__["a" /* database */][`[${guas[0]}]`].title}`, 50, 375);
       ctx.fillText(`${__WEBPACK_IMPORTED_MODULE_1__hexagrams_js__["a" /* database */][`[${guas[1]}]`].title}`, 450, 375);
+
+      canvasEl.addEventListener("mousemove", (e) => {
+        e.preventDefault();
+        const rect = canvasEl.getBoundingClientRect();
+        const xVal = e.clientX-rect.left;
+        const yVal = e.clientY-rect.top;
+        if ((xVal < 300) && (xVal > 50)) {
+          console.log("first");
+          ctx.beginPath();
+          ctx.arc(175, 75, 10, 0, 2*Math.PI);
+          ctx.strokeStyle = "black";
+          ctx.fillStyle = "black";
+          ctx.fill();
+          ctx.stroke();
+        } else if ((xVal < 700) && (xVal > 450)){
+          console.log("second");
+          ctx.beginPath();
+          ctx.arc(575, 75, 10, 0, 2*Math.PI);
+          ctx.strokeStyle = "black";
+          ctx.fillStyle = "black";
+          ctx.fill();
+          ctx.stroke();
+        } else {
+          console.log("neither");
+          ctx.beginPath();
+          ctx.arc(175, 75, 10, 0, 2*Math.PI);
+          ctx.strokeStyle = "white";
+          ctx.fillStyle = "white";
+          ctx.fill();
+          ctx.stroke();
+
+          ctx.beginPath();
+          ctx.arc(575, 75, 10, 0, 2*Math.PI);
+          ctx.strokeStyle = "white";
+          ctx.fillStyle = "white";
+          ctx.fill();
+          ctx.stroke();
+        }
+      }, false);
     }
   });
 
@@ -587,6 +617,23 @@ const oracleView = function OracleView (width, height) {
     for(let j=0; j<2; j++) {
       if ((xVal > xVals[j][0] && xVal< xVals[j][1]) && (yVal < 320 && yVal > 100)) {
         if (guas[j].length === 6) {
+
+          canvasEl.addEventListener("mouseleave", (e) => {
+            ctx.beginPath();
+            ctx.arc(175, 75, 10, 0, 2*Math.PI);
+            ctx.strokeStyle = "white";
+            ctx.fillStyle = "white";
+            ctx.fill();
+            ctx.stroke();
+
+            ctx.beginPath();
+            ctx.arc(575, 75, 10, 0, 2*Math.PI);
+            ctx.strokeStyle = "white";
+            ctx.fillStyle = "white";
+            ctx.fill();
+            ctx.stroke();
+          }, false);
+
           document.getElementById("e-buttons").style.display = "flex";
           document.getElementById('show-explore-button').textContent = 'Hide Info';
           document.getElementById('show-explore-button').style.display= 'inline';
@@ -606,6 +653,8 @@ const oracleView = function OracleView (width, height) {
                           .getContext('2d'),500);
           __WEBPACK_IMPORTED_MODULE_0__helpers_js__["e" /* setGuaDetails */](guas[j]);
 
+          document.getElementById("oracle-button").classList.remove("hidden");
+
           const options = document.getElementById("gua-selector").options;
 
           for (let i=0; i<options.length; i++) {
@@ -623,30 +672,10 @@ const oracleView = function OracleView (width, height) {
     }
   }, false);
 
-  // canvasEl.addEventListener("mousemove", (e) => {
-  //   e.preventDefault();
-  //   const rect = canvasEl.getBoundingClientRect();
-  //   const xVal = e.clientX-rect.left;
-  //   const yVal = e.clientY-rect.top;
-  //   console.log((xVal < 300) && (xVal > 50));
-  //   if ((xVal < 300) && (xVal > 50)) {
-  //     ctx.strokeStyle='blue';
-  //     ctx.rect(50, 100, 250, 220);
-  //     ctx.stroke();
-  //   } else {
-  //     ctx.strokeStyle='white';
-  //     ctx.rect(50, 100, 250, 220);
-  //     // ctx.rect(450, 100, 250, 220);
-  //     ctx.stroke();
-  //   }
-  // }, false);
 
 }
 /* harmony export (immutable) */ __webpack_exports__["a"] = oracleView;
 
-
-
-//on mouse click, build the next hexagram.
 
 
 /***/ })

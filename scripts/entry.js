@@ -14,7 +14,7 @@ document.addEventListener("DOMContentLoaded", function() {
     e.preventDefault();
     if (oracleButton.textContent === "Ask the Oracle") {
       document.getElementById("header-instruction")
-      .textContent = "Instructions: Input your question below.'"
+      .textContent = "Instructions: Input your question below."
     } else {
       document.getElementById("header-instruction")
               .textContent = "Instructions: Click on the Hexagrams!"
@@ -26,19 +26,10 @@ document.addEventListener("DOMContentLoaded", function() {
     document.getElementById('oracle-view').style.display = 'flex';
     document.getElementById('o-buttons').style.display = 'flex';
     exploreButton.removeAttribute("disabled");
-    // oracleButton.setAttribute("disabled", "true");
+
     oracleButton.classList.add("hidden");
   },false);
 
-  // exploreButton.addEventListener('click', (e) => {
-  //   e.preventDefault();
-  //   oracleButton.removeAttribute("disabled");
-  //   exploreButton.setAttribute("disabled", "true");
-  //   document.getElementById('show-explore-button').style.display= 'inline';
-  //   document.getElementById('explore-view').style.display = 'flex';
-  //   document.getElementById('oracle-view').style.display = 'none';
-  //   document.getElementById('o-buttons').style.display = 'none';
-  // },false);
 
   document.getElementById("help-button").addEventListener("click", (e) => {
     document.getElementById("help-dropdown").classList.toggle('show');

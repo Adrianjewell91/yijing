@@ -12,7 +12,7 @@ html *:focus {
 }
 
 body{
-  background: radial-gradient(purple, white);
+  /*background: radial-gradient(purple, white);*/
   margin-top: 80px;
 }
 
@@ -58,6 +58,8 @@ img {
 
 .help-content {
   display: none;
+  font-size: 20px;
+  overflow-x: scroll;
 }
 
 .show {
