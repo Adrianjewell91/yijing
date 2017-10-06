@@ -72,7 +72,7 @@ The traditional coin-toss method is one way of generate lines. Code for generati
 
 Users can click the generated hexagram and explore them futher in the Interactive E-Text. `mouseover` and `mouseleave` event handlers tell the user which hexagram they are about to click.
 
-<img height="400px" width="850px" src="https://github.com/Adrianjewell91/yijing/blob/master/docs/results-click-over.png"/>
+<img height="400px" width="850px" src="https://github.com/Adrianjewell91/yijing/blob/master/docs/RESULTS.png"/>
 
 
 ### <a name="explore"></a>Comprehensive Encyclopedia of the 64 Hexagrams].
@@ -115,6 +115,5 @@ The I-Ching(易经) is a 2500 year-old divination text. Its insight and value ha
 6. Interpret the hexagrams in the context of your question, so that you can act in harmony with the Dao (道).
 
 7. To learn about a hexagram, CLICK ON IT. Then, click on a line to learn about a different Hexagram. There are 64 in total."
-
 
 # Discussion of Challenges
