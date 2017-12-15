@@ -17,7 +17,7 @@ export const oracleView = function OracleView (width, height) {
     questionInput.setAttribute("disabled",'');
     questionInput.classList.add("disabled-input");
     document.getElementById("header-instruction")
-            .textContent = "Instructions: Click 'Generate' six more times."
+            .textContent = "Click 'Generate' six more times."
   }));
 
   let i = 0;
@@ -46,7 +46,7 @@ export const oracleView = function OracleView (width, height) {
         }
         if (i===6){
           document.getElementById("header-instruction")
-                  .textContent = "Instructions: Click again to generate the results.";
+                  .textContent = "Click again to generate the results.";
         } else {
           document.getElementById("header-instruction")
           .textContent = `Instructions: Click 'Generate' ${numberArr[i-1]}.`
@@ -54,7 +54,7 @@ export const oracleView = function OracleView (width, height) {
     } else {
       debugger
       document.getElementById("header-instruction")
-              .textContent = "Instructions: Interpret your Hexagrams by clicking on them!";
+              .textContent = "Interpret your Hexagrams by clicking on them!";
       questionButton.textContent = "Click on a Hexagram!";
       questionButton.classList.add("disabled-input");
 
