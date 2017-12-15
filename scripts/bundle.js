@@ -587,7 +587,7 @@ const oracleView = function OracleView (width, height) {
           .textContent = `Instructions: Click 'Generate' ${numberArr[i-1]}.`
         }
     } else {
-      debugger
+
       document.getElementById("header-instruction")
               .textContent = "Interpret your Hexagrams by clicking on them!";
       questionButton.textContent = "Click on a Hexagram!";
