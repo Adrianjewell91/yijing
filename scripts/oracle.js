@@ -49,7 +49,7 @@ export const oracleView = function OracleView (width, height) {
                   .textContent = "Click again to generate the results.";
         } else {
           document.getElementById("header-instruction")
-          .textContent = `Instructions: Click 'Generate' ${numberArr[i-1]}.`
+          .textContent = `Click 'Generate' ${numberArr[i-1]}.`
         }
     } else {
 
@@ -114,7 +114,7 @@ export const oracleView = function OracleView (width, height) {
           document.getElementById('oracle-button').textContent="Back to Oracle";
 
           document.getElementById("header-instruction")
-                  .textContent = "Instructions: This is your Hexagram! Read the text or Click the Lines!"
+                  .textContent = "This is your Hexagram! Read the text or Click the Lines!"
 
           Helpers.drawGua(guas[j],
                   document.getElementById('explore-canvas')
