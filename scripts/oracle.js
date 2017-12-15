@@ -56,7 +56,7 @@ export const oracleView = function OracleView (width, height) {
               .textContent = "Instructions: Interpret your Hexagrams by clicking on them!";
       questionButton.textContent = "Click on a Hexagram!";
       questionButton.classList.add("disabled-input");
-      document.getElementById("help-dropdown").classList.toggle("show");
+      document.getElementById("about-modal").classList.toggle("show");
       questionButton.setAttribute("disabled",'true');
 
       ctx.font = "30px Arial";

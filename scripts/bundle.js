@@ -282,6 +282,33 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 
 document.addEventListener("DOMContentLoaded", function() {
+  //Modal Logic - taken from W3 - just some basic vanilla js.
+  // // Get the modal
+  var modal = document.getElementById('myModal');
+
+  // Get the button that opens the modal
+  var btn = document.getElementsByClassName("about-button")[0];
+
+  // Get the <span> element that closes the modal
+  var span = document.getElementsByClassName("close")[0];
+
+  // When the user clicks the button, open the modal
+  btn.addEventListener("click", function(e) {
+      modal.style.display = "block";
+  });
+
+  // When the user clicks on <span> (x), close the modal
+  span.addEventListener("click", function(e) {
+      modal.style.display = "none";
+  });
+
+  // When the user clicks anywhere outside of the modal, close it
+  window.addEventListener("click", function(e) {
+      if (event.target == modal) {
+          modal.style.display = "none";
+      }
+  });
+
   const canvasEl = document.getElementById("myCanvas");
 
   Object(__WEBPACK_IMPORTED_MODULE_0__explore_js__["a" /* exploreView */])(500, 500);
@@ -564,7 +591,7 @@ const oracleView = function OracleView (width, height) {
               .textContent = "Instructions: Interpret your Hexagrams by clicking on them!";
       questionButton.textContent = "Click on a Hexagram!";
       questionButton.classList.add("disabled-input");
-      document.getElementById("help-dropdown").classList.toggle("show");
+      document.getElementById("about-modal").classList.toggle("show");
       questionButton.setAttribute("disabled",'true');
 
       ctx.font = "30px Arial";
