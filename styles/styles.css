@@ -145,18 +145,6 @@ textarea {
 }
 
 
-#gua-selector {
-  height: 9%;
-  font-size: 30px;
-  border: 1px solid black;
-}
-
-#gua-detail {
-  border: none;
-  resize: none;
-  font-size: 20px;
-  color: black;
-}
 
 footer {
   display: flex;
@@ -198,6 +186,19 @@ body {
 
 #o-buttons {
   display: none;
+}
+
+#gua-selector {
+  font-size: 30px;
+  border: 1px solid black;
+}
+
+#gua-detail {
+  margin-top: 2%;
+  border: none;
+  resize: none;
+  font-size: 20px;
+  color: black;
 }
 
  .modal {
