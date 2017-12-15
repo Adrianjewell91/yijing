@@ -7,10 +7,6 @@
   border: none;
 }
 
-html *:focus {
-  outline: none;
-}
-
 body{
   margin-top: 80px;
 }
@@ -20,9 +16,6 @@ img {
   border-radius: 5px;
 }
 
-button:hover, select:hover {
-  cursor: pointer;
-}
 
 textarea {
   font-weight: bold;
@@ -52,9 +45,6 @@ textarea {
   justify-content: center;
   width: 100%;
 }
-
-
-
 
 #explore-view {
   display: flex;
@@ -126,31 +116,22 @@ textarea {
   padding-right: 10px;
 }
 
-#oracle-button:hover, #question-button:hover, #show-explore-button:hover {
-  color: white;
-  background: purple;
-}
-
-#o-buttons * {
-  border-radius: 10px;
-}
-
-
-#oracle-button, #show-explore-button {
-  background-color: pink;
-  border: 2px solid black;
-  border-radius: 5px;
-
-  height: 100%;
-}
-
-
 
 footer {
   display: flex;
   justify-content: center;
 } */
 
+html * {
+
+  list-style: none;
+  background: none;
+  border: none;
+}
+
+html *:focus {
+  outline: none;
+}
 
 body {
   display: flex;
@@ -165,7 +146,7 @@ body {
 }
 
 #header-instruction {
-  font-size: 220%;
+  font-size: 250%;
 }
 
 .instructions-header {
@@ -186,6 +167,18 @@ body {
 
 #o-buttons {
   display: none;
+  border-radius: 10px;
+}
+
+#oracle-button, #show-explore-button {
+  background-color: pink;
+  border: 2px solid black;
+  border-radius: 5px;
+}
+
+#oracle-button:hover, #question-button:hover, #show-explore-button:hover {
+  color: white;
+  background: purple;
 }
 
 #gua-selector {
@@ -236,4 +229,22 @@ body {
    color: #000;
    text-decoration: none;
    cursor: pointer;
+ }
+
+ button:hover, select:hover {
+   cursor: pointer;
+ }
+
+ .hidden {
+   display: none;
+ }
+
+
+ .disabled-input {
+   color: white;
+   background: purple;
+ }
+
+ .disabled-input:hover {
+   cursor: auto;
  }
