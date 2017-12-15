@@ -52,13 +52,13 @@ export const oracleView = function OracleView (width, height) {
           .textContent = `Instructions: Click 'Generate' ${numberArr[i-1]}.`
         }
     } else {
+      debugger
       document.getElementById("header-instruction")
               .textContent = "Instructions: Interpret your Hexagrams by clicking on them!";
       questionButton.textContent = "Click on a Hexagram!";
       questionButton.classList.add("disabled-input");
-      document.getElementById("about-modal").classList.toggle("show");
-      questionButton.setAttribute("disabled",'true');
 
+      questionButton.setAttribute("disabled",'true');
       ctx.font = "30px Arial";
       ctx.fillText(`- ${database[`[${guas[0]}]`].character}`, 175, 425);
       ctx.fillText(`- ${database[`[${guas[1]}]`].character}`, 575, 425);
