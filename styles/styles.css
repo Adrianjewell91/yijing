@@ -247,3 +247,7 @@ body {
  .disabled-input:hover {
    cursor: auto;
  }
+
+ .about-button {
+   font-size: 200%;
+ }
