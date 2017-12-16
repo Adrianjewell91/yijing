@@ -156,7 +156,6 @@ body {
 
 #explore-view {
   display: flex;
-
   align-items: center;
 }
 
@@ -239,11 +238,11 @@ body {
    display: none;
  }
 
-
+/*
  .disabled-input {
    color: white;
    background: purple;
- }
+ } */
 
  .disabled-input:hover {
    cursor: auto;
