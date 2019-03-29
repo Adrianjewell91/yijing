@@ -1,0 +1,32 @@
+{
+  "name": "yijing",
+  "version": "1.0.0",
+  "description": "yijing",
+  "main": "webpack.config.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "install": "^0.12.2",
+    "npm": "^6.9.0",
+    "webpack": "^4.29.6",
+    "webpack-cli": "^3.3.0"
+  },
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Adrianjewell91/yijing.git"
+  },
+  "keywords": [
+    "yijing"
+  ],
+  "author": "Adrian Jewell",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Adrianjewell91/yijing/issues"
+  },
+  "homepage": "https://github.com/Adrianjewell91/yijing#readme"
+}
