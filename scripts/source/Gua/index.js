@@ -22,26 +22,4 @@ export const Gua = class Gua {
         lines[position] = newLine;
         return lines;
     }
-
-    /**
-     * Build code for database lookup.
-     *
-     * @param {*} [lines=[]]
-     * @returns
-     * @memberof Database
-     */
-    _buildCode(lines = this.lines) { 
-        return lines.map(line => this._getCodeFromLine(line));
-    }
-
-    /**
-     * Helper for _buildCode
-     *
-     * @param {*} [line=new Line()]
-     * @returns
-     * @memberof Database
-     */
-    _getCodeFromLine(line = new Line()) {
-        return line.yin ? 0 : 1; 
-    }
 }

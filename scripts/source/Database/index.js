@@ -4,7 +4,7 @@ class Database {
     }
 
     /**
-     *
+     * Fetches info about a Gua.
      *
      * @param {*} [lines=[]]
      * @param {*} [database=this.database]
@@ -15,6 +15,7 @@ class Database {
         return database[`${code}`];
     }
 }
+
 
 const data =
 {
